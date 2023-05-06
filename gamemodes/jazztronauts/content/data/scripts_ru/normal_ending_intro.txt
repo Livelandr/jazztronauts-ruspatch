@@ -1,0 +1,37 @@
+﻿CHARACTER = Cellist
+NO_FREEZE = true
+HIDE_MOUSE = true
+PRINT_RATE = 0.7
+AUTO_ADVANCE = 0
+CMD_DELAY = 0
+SKIP_OPEN = true
+
+begin:
+    spawngang()
+	*setposang cat_bar setpos 5795.780762 141.141571 3584.031250;setang -90	-91.249092 0.000000*
+	*setposang cat_cello setpos setpos 6608.233398 -486.078217 3584.031250;setang -90 163.122925 0.000000*
+	*setposang cat_piano setpos 6518.995117 403.150879 3584.031250;setang -90 -65.329979 0.000000*
+     *setspeaker cat_bar*
+     *show 0.5*
+     Теперь последний шаг, чтобы попасть на фестиваль.%%%
+     &a1
+
+a1:
+     Пришло время-%
+     &a2
+
+a2:
+     *setspeaker cat_cello*
+     ПРИШЛО ВРЕМЯ РАЗНЕСТИ ЭТО МЕСТО В КЛОЧЬЯ%%%
+
+    &a3
+a3:
+     *setspeaker cat_bar*
+     ...Да.%
+     Единственное, что отделяет нас от фестиваля, - это эти надоедливые стены.%%%
+
+     &a4
+a4:
+    *setspeaker cat_piano*
+     *slam Снеси* %*slam Их* %*slam Нахуй*%%%
+     &exit

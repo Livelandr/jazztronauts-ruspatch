@@ -1,0 +1,264 @@
+SKIP_OPEN = true
+
+begin:
+	*txout*
+	*setfov 70*
+
+	spawngang()
+
+	*setspeaker narrator*
+	*setposang cat_bar -2864.620361 3044.558594 32;setang -90 180 0*
+	*setcam setpos -2609.130859 2757.310791 95.365982;setang 3.869236 133.104462 0.000000* ######## ESTABLISHING SHOT
+	*setanim cat_bar gesture_washing*
+	*setposang cat_cello setpos -2578.243896 2791.908447 0;setang -90 45 0.000000*
+	*setposang player setpos -2911.472656 2960.678223 36;setang 14.517221 62.446011 0.000000*
+	*setanim player sit*
+	*bgmplay sound/jazztronauts/music/events/bartender_song.mp3 1.0 2.0*
+	*txin*
+	*wait .15*
+	*show*
+	> Бар Самсара%.%.%.%%% 
+	Ты болтаешь с Барменом.
+	&a2
+
+a2:
+	*setspeaker cat_bar*
+	*setcam setpos -2825.425781 2948.380615 69.888466;setang 4.348406 143.379730 0.000000* ###### BAR AND PLAYER SANS CELLIST
+	*setskin cat_bar 3*
+	-удивительно,% да,%%*setskin cat_bar 1* ты МОЖЕШЬ сделать суп из кристаллизованного костного
+	мозга.%%%*setskin cat_bar 4* Абсолютное богатство%.%.%.%%%*setskin cat_bar 0*Хотелось бы предложить те-
+	&a3
+
+a3:
+	*setspeaker narrator*
+	*setcam setpos -2935.495605 3060.559570 90.541382;setang 8.554376 -39.650562 0.000000* 
+	> Дверь Мяузея открылась с ноги!%% Тревога вторжения!!%%%%*setcam setpos -2654.359619 2872.613281 45.377167;setang 4.667855 -47.210667 0.000000*
+	%.%.%.%Ох,% это просто Виолончелист.
+	player:
+		 &a4: Это должно быть хорошо.
+		 &leave: не не спасибо (уйти)
+
+###EARLY EXIT
+
+leave:
+	> Ты решил убежать в момент отвлечения,%% и разобратся
+	с безумием Виолончелиста позже.
+	&exit
+
+a4:
+	*setspeaker narrator*
+	*setposang cat_cello setpos -2815.800049 2956.580811 37;setang -90 15 0.000000*
+	*setcam setpos -2808.541992 2802.302002 31.416151;setang -4.755620 103.405174 0.000000* 
+	*setskin cat_bar 0*
+	*setskin cat_bar 3*
+	> Он, ковыляя, направляется к бару и падает прямо на стойку.%%%%*setskin cat_bar 1*
+	Бармен улыбается.
+	&a5
+
+a5:
+	*setspeaker cat_bar*
+	*setcam setpos -2871.273193 2983.027832 75.699509;setang 0.941066 86.794304 0.000000* ###### BAR HEADSHOT
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_dryhands 1 idle*
+	Добро пожаловать.%% Хочешь что нибудь выпи-
+	&a6
+
+a6:
+	*setspeaker narrator*
+	*setcam setpos -2755.242432 3053.066895 85.446762;setang 9.140029 -147.408585 0.000000* #### GROUP
+	*setanim cat_cello pianist_drunk_idle*
+	*shake 1*
+	> Виолончелист ударяет лапой по стойке,% его голова драматически
+	наклонилась к земле.%%%*setanim cat_cello pose_sit01* Он возвращает свою голову в исходное
+	положение и затягивается%.%.%.%да,%%% у него в руках вейп.%%%% Он угрожающе
+	пахнет клубникой.
+	&a7
+
+a7:
+	*setspeaker cat_cello*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	*setskin cat_cello 4*
+	Бармен.%%%%%*setskin cat_cello 0* у меня мощнейшая жажда.%% дай мне%.%.%.%%%*setskin cat_cello 1*
+ 
+	%.%.%.%%горячую воду на камнях
+	&a8
+
+a8:
+	*setspeaker cat_bar*
+	*setcam setpos -2755.242432 3053.066895 85.446762;setang 9.140029 -147.408585 0.000000* #### GROUP
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_agree 1 idle*
+	Ах,% конечно!%%% Секунду.
+	&a9
+
+a9:
+	*setspeaker narrator*
+	*setcam setpos -2797.841553 2803.250244 44.586651;setang -3.850489 108.143600 0.000000*
+	*setskin cat_bar 0*
+	> Бармен кажется, не проявляет никаких признаков какого-либо мнения о том
+	что ей сказали принести напиток созданный из горячей воды и льда.
+	&a10
+
+a10:
+	*setspeaker narrator*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_washing 1.6 idle*
+	> На самом деле,% она, каким-то образом наливает кипящую воду из под крана
+	в обычный стакан*setanim cat_bar gesture_dryhands 1 idle* сделанный полностью изо льда, который отказывается таять.%%%%
+	Поразительно.
+	&a11
+
+a11:
+	*setspeaker cat_bar*
+	*setcam setpos -2755.242432 3053.066895 85.446762;setang 9.140029 -147.408585 0.000000* #### GROUP
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_exchange 1.4 idle*
+	Ваша горячая вода на камнях,%% сэр.
+	&a12
+
+a12:
+	*setspeaker narrator*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	*setskin cat_cello 2*
+	*setanim cat_cello pose_sit01*
+	> Виолончелист пялится на стакан горячей воды со льдом,%*setanim cat_cello pose_sit02* 
+	на мгновение выглядя раздраженным,%%%*setanim cat_cello pianist_drunk_idle**setskin cat_cello 1* к нему*setanim cat_cello pose_sit02* вернулось 
+	его самодовольное выражение лица, выпивая все залпом.
+	&a13
+
+a13:
+	*setspeaker cat_cello*
+	*setcam setpos -2755.242432 3053.066895 85.446762;setang 9.140029 -147.408585 0.000000* #### GROUP
+	*setanim cat_cello pose_sit01*
+	хм забавно я помню что заказывал горячую воду на камнях
+	и мне подали*setanim cat_cello pose_sit01* теплую воду на щебне.%%%%*setskin cat_cello 2* 
+	я не уйду пока не дашь мне реального дерьма которое у тебя есть
+	&c1 ###look i'm lazy and i copied another event
+
+c1:
+	*setspeaker narrator*
+	*setcam setpos -2871.273193 2983.027832 75.699509;setang 0.941066 86.794304 0.000000* ###### BAR HEADSHOT
+	*setanim cat_bar gesture_confused 1 idle*
+	> Бармен кивает.%%%% 
+	%.%.%.%*setskin cat_bar 3*после*setanim cat_bar gesture_shock 1 idle* нескольких секунд молчания она восклицает.
+	&c2
+
+c2:
+	*setspeaker cat_bar*
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_facepalm 1 idle*
+	Ах,% точно!%%%*setskin cat_bar 0* Ты имел ввиду заказ на уровне Двойного Черного Алмаза.
+	%%%%*setanim cat_bar gesture_confused 1 idle* Хочу предупредить, что он может быть за гранью
+	твоей возможности переносить что либо.
+	&c3
+
+c3:
+	*setspeaker cat_cello*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	*setskin cat_cello 2*
+	прошу прощенья
+	&c4
+
+c4:
+	мне кажется или я только что услышал как ты поставила под сомненье
+	мою возможность переносить это слабое дерьмо которое ты тут
+	подаешь
+	&c5
+
+c5:
+	я ставлю что у тебя даже нет двойного черного алмаза там наверняка 
+	это какая-то слабая хер-
+	&c6
+
+c6:
+	*setspeaker narrator*
+	*emitsound physics/metal/metal_sheet_impact_hard6.wav .75*
+	*shake 1*
+	*setcam setpos -2797.841553 2803.250244 44.586651;setang -3.850489 108.143600 0.000000*
+	*setskin cat_cello 0*
+	> Виолончелист был прерван звуком Бармена, которая поставила ведро воды
+	на плиту.%%%*setskin cat_bar 1*
+	&c6b
+	
+c6b:
+	> Она устанавливает температуру которая помечена
+	как "безрассудная самоотверженность", а потом тянется за ведром 
+	с надписью, которая гласит "жидкий азот."
+	&c7
+
+c7:
+	*setspeaker cat_bar*
+	*setcam setpos -2871.273193 2983.027832 75.699509;setang 0.941066 86.794304 0.000000* ###### BAR HEADSHOT
+	Пару секунд,% сэр,% надеюсь что вы не против подождать.
+	&c8
+
+c8:
+	*setspeaker narrator*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	> Виолончелист смотрит на ведро воды с каменным лицом.%%%%
+	Это лицо человека, который вот-вот умрет на какой-то горе,%% непонятно
+	зачем.
+	&c9
+
+c9:
+	*setskin cat_cello 4*
+	> Он осмеливается открыть*setskin cat_cello 2* рот и начать говорить,%%%
+	но был прерван*setskin cat_cello 0* Барменом, которая поставила бокал перед ним.
+	&c10
+
+c10:
+	*setcam setpos -2755.242432 3053.066895 85.446762;setang 9.140029 -147.408585 0.000000* #### GROUP
+	*setskin cat_cello 2*
+	> Нахождение ваших рук рядом с коктейлем заставляет чувствовать обжигающий
+	холод.%%%% Или скорее то чувство, когда вы чувствуете холод в своих ногах
+	когда засунули их в слишком горячую ванну.
+	&c11
+
+c11:
+	*setspeaker cat_cello*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	неплохо сыграно.
+	&c12
+
+c12:
+	*setspeaker narrator*
+	*setcam setpos -2797.841553 2803.250244 44.586651;setang -3.850489 108.143600 0.000000*
+	> Виолончелист хватает бокал с мрачной решимостью.%%%%
+	Вы чувствуете запах опаленой шерсти,% и слышите звук
+	жарящегося бекона.
+	&c13
+
+c13:
+	*setspeaker cat_bar*
+	*setcam setpos -2871.273193 2983.027832 75.699509;setang 0.941066 86.794304 0.000000* ###### BAR HEADSHOT
+	*setskin cat_bar 3*
+	*setanim cat_bar gesture_confused 1 idle*
+	Что ты такое%.%.%.%%?
+	&c14
+
+c14:
+	*setspeaker cat_cello*
+	*setcam setpos -2819.462646 3031.606934 72.801796;setang 10.950210 -87.779800 0.000000* ###### CELLO
+	*setskin cat_cello 0*
+	шрам на спине фехтовальщика это его величайший позор.
+	&c15
+
+c15:
+	*setspeaker cat_bar*
+	*setcam setpos -2871.273193 2983.027832 75.699509;setang 0.941066 86.794304 0.000000* ###### BAR HEADSHOT
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_agree 1 idle*
+	Замечательно.
+	&c16
+
+c16:
+	*setspeaker narrator*
+	*setcam setpos -2609.130859 2757.310791 95.365982;setang 3.869236 133.104462 0.000000* ######## ESTABLISHING SHOT
+	*setskin cat_bar 0*
+	> Виолончелист выдувает весь напиток залпом, %%%*setposang cat_cello setpos -2815.444336 2903.284912 0;setang -90 45 0.000000*%*setanim cat_cello pose_passedout*и немедленно падает
+	со стула и загорается.%%%*setanim cat_bar gesture_clap 1 idle* Бармен хлопает.
+	&c16b
+
+c16b:
+	%.%.%.%вы решили уйти.*mark_seen*
+	&exit

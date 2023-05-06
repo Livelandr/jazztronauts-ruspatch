@@ -1,0 +1,88 @@
+﻿
+PRINT_RATE = 0.7 # Default print rate for this file. 1 = normal speed, 0.5 half speed, 2 = double speed, etc.
+#SKIP_OPEN = true # Setup scene before opening the dialog. Opened manually.
+NO_FREEZE = true
+HIDE_MOUSE = true
+AUTO_ADVANCE = 0.5
+CMD_DELAY = 0
+
+begin:
+	spawngang()
+	*setposang cat_bar setpos 5795.780762 141.141571 3584.031250;setang -90	-91.249092 0.000000*
+	*setposang cat_cello setpos setpos 6608.233398 -486.078217 3584.031250;setang -90 163.122925 0.000000*
+	*setposang cat_piano setpos 6518.995117 403.150879 3584.031250;setang -90 -65.329979 0.000000*
+		*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+     *setspeaker cat_bar*
+     Вот и все! Пустотная оболочка разрушается!%%%
+     &a1
+	
+a1:
+     *setspeaker cat_piano*
+     ЧЕРТ ВОЗЬМИ, ДА, ПРИШЛО ВРЕМЯ ДЛЯ САМОЙ ВЕСЕЛОЙ ЧАСТИ!%%%
+     &a2
+	
+a2:
+     *setspeaker cat_cello*
+     я предлагаю тебе крепко держаться за обе свои ягодицы
+     потому что, если поездка на автобусе ныряющим лебедем прямо в пустоту
+     выводит вас из себя это, вероятно, заставит тебя высрать
+     весь твой скелет наружу%%%
+     &a3
+
+a3:
+     *setspeaker player*
+     Подождите, мы ЧТО?!
+     *emitsound ambient/levels/labs/teleport_preblast_suckin1.wav*
+     &a4	
+a4:
+	*setspeaker cat_cello*
+
+    Я НЕ ВИЖУ, ЧТОБЫ ТЫ СЖИМАЛ СВОИ ЯГОДИЦЫ, СОЛДАТ
+    *stopsound*
+    *fadeblind 5*
+    *hide*
+    *voidbreak*
+    *dsp 25*
+    *emitsound physics/glass/glass_largesheet_break1.wav*
+    &a5
+
+a5:
+
+    *setcam -4064.620117 -3978.834473 1402;setang -2.183855 1.593236 0.000000*
+    *setposang player -4004.620117 -3978.834473 1360.646240;setang 0 180 0.000000*
+    *setanim player swim_idle_grenade*
+    *spawn tunnel models/sunabouzu/bustunnel.mdl*
+    *setposang tunnel -4004 -3978.834473 8300;setang 0 0 -90*
+
+     *setspeaker narrator*
+    *wait 1.0*
+     *show 0.5*
+     > Вы чувствуете внезапный спазм в животе и во всем теле.
+     мир разбивается, как дешевый винный бокал! вы впадаете в
+     пустоту!
+     player:
+	&a6: АААААААААААААААААААААААААААААААА
+
+a6: 
+     > Ты падаешь мимо тысячи невозможных миров!
+     player:
+        &a7: (продолжать кричать)
+
+a7:
+    *tweenposang tunnel 5.0 -4004 -3978.834473 6000;setang 0 0 -90*
+     > Все еще падаю!
+     player:
+        &a8: (сдавленный крик)
+
+a8: 
+    *tweenposang tunnel 5.0 -4004 -3978.834473 1000;setang 0 0 -90*
+    > Падаю...?
+		player:
+        &a9: Это занимает больше времени, чем я думал.
+
+a9:
+    *tweenposang tunnel 5.0 -4004 -3978.834473 0;setang 0 0 -90*
+     > Подожди, когда это стало так темно?
+    *dsp 0*
+     &exit              

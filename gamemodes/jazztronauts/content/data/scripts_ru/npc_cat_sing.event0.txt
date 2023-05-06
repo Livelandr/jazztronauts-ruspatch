@@ -1,0 +1,284 @@
+﻿begin:
+
+###### SCENE SETUP
+	*hide*
+	*txout*
+	*setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*bgmplay sound/jazztronauts/music/events/loveaffair.mp3 .8 2.0*
+	*setcam setpos 3538.873779 7408.384277 97.349792;setang 2.355879 148.264664 0.000000*
+	*spawn metro_idiot models/combine_soldier.mdl"
+	*setposang metro_idiot setpos 4370.006836 6327.892578 0;setang 0 -91.389297 0.000000*
+	*setanim metro_idiot Walk_all*
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos 2793.226563 7960.495117 0;setang -90 225 0.000000*
+	*setnpcid cat_singer npc_cat_sing*
+	*setposang player setpos 2911.817383 7921.412109 0;setang 2 166.505203 0.000000*
+	*txin*
+	*show*
+	
+###### START
+*setspeaker narrator*
+	> "Мяузей"%.%.%.%%% 
+	Певец здесь% стучит по своему планшету.
+	&b1
+	
+b1:
+	*setcam setpos 2815.425049 7859.031250 36.395782;setang 0.438521 79.219254 0.000000* ###### CAT AND PLAYER
+	*setspeaker cat_singer*
+	> Когда вы приближаетесь,% Уши Певца*setskin cat_singer 4* поднялись.%% Они повернулись*setskin cat_singer 0*,% и 
+	помахали когда они*setanim cat_singer gesture_exchange 1.2 idle* узнали вас.%%% Маняще,% *setskin cat_singer 1*они пригласили вас в гости.
+	&b2
+	
+b2:
+	*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_confused .69 idle*
+	> Они на мгновение подпирают лапой подбородок,%%*setanim cat_singer gesture_sweep 1 idle**setskin cat_singer 0* для того чтобы
+	обвести комнату широким жестом и затем набирают 
+	короткое сообщение для вас.
+	&b3
+	
+b3:
+	*setcam setpos 2815.425049 7859.031250 36.395782;setang 0.438521 79.219254 0.000000* ###### CAT AND PLAYER
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_laugh 1 idle*
+	> Переворачивая планшет% они явно пытаются принять
+    во внимание совет бармена о том, чтобы не подпрыгивать во время 
+	чтения.%%%%*setskin cat_singer 0* Увидев, как вы в замешательстве щуритесь 
+	на ослепительно мерцающий шрифт%.%.%.%%%*setskin cat_singer 3* они сменили его на "comic sans".
+	&b4
+	
+b4:
+	*setskin cat_singer 0*
+	> Гораздо лучше.%% На этот раз у вас не возникнет проблем с разбором 
+	сообщения\:%%%*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	"ПРИВЕТ!!!%% ДОБРО ПОЖАЛОВАТЬ В "Мяузей"!!"
+	&b5
+	
+b5:
+	> Пауза,% последовавшая за *setskin cat_singer 5*пониманием о том *setanim cat_singer gesture_shock 1 idle* что 
+	это ничего *setskin cat_singer 0*не обьясняет\:%%%*setanim cat_singer gesture_exchange 1.3 idle*
+	\"Здесь я архивирую копию всего, что вы украли для нас!!!”
+	player:
+	&r1a1:
+		*setcam setpos 2810.013184 7934.865723 59.572662;setang -4.090199 -19.630844 0.000000*
+		Извини, но я нелюблю учиться.%%% Мне нужно быть в другом месте. (уйти)
+	&r2a1:
+		*setcam setpos 2810.013184 7934.865723 59.572662;setang -4.090199 -19.630844 0.000000*
+		Я догадываюсь, как вы дали ему название.
+	&r3a1:
+		*setcam setpos 2810.013184 7934.865723 59.572662;setang -4.090199 -19.630844 0.000000*
+		%.%.%.%%%Зачем?
+		
+###### BRANCH 1 EARLY Exit
+r1a1:
+	*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	*setspeaker cat_singer*
+	*setskin cat_singer 6*
+	*setanim cat_singer gesture_shock 1 idle*
+	> Певец сообщает вам, что, хотя они и думают, что это
+    очень печальное отношение,% они понимают и надеются, что вы
+    вернетесь как-нибудь в другой раз.*setskin cat_singer 0*
+	&exit
+	
+###### BRANCH 2 
+	
+r2a1:
+	*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	*setspeaker cat_singer*
+	*setskin cat_singer 4*
+	> Певец моргает,*setskin cat_singer 0* трясет *setanim cat_singer gesture_disagree 1 idle*своей головой.%%%% 
+	Очевидно, изначально они просто называли это место Музеем,% 
+	но Бармен предложила поменять название.
+	&r2a2
+	
+r2a2:
+	*setcam setpos 2815.425049 7859.031250 36.395782;setang 0.438521 79.219254 0.000000* ###### CAT AND PLAYER
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_laugh 1 idle*
+	> Певец подпрыгивает на месте и добавляет к последнему сообщению\:%% 
+	"Это делает ее такой счастливой!!!%%%%
+	Другие не согласятся*setanim cat_singer gesture_shrug 1 idle* но не смей говорить им*setskin cat_singer 0*, но им
+	это нравится тоже”
+	&r2a3
+	
+r2a3:
+	*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_foldarms 1 idle*
+	> Они прикладывают лапу *setskin cat_singer 3* 
+	ко рту с универсальным сигналом "ш-ш-ш".
+	&r2a4
+	
+r2a4:
+	*setanim cat_singer gesture_jab 1 idle*
+	> Затем они говорят вам, что "стукачам накладывают швы", так что 
+	создается впечатление, что они были совершенно серьезны.
+	player:
+	&r1a1:
+		*setcam setpos 2810.013184 7934.865723 59.572662;setang -4.090199 -19.630844 0.000000*
+		Извини, но я нелюблю учиться.%%% Мне нужно быть в другом месте. (уйти)
+	&r3a1:
+		*setcam setpos 2810.013184 7934.865723 59.572662;setang -4.090199 -19.630844 0.000000*
+		%.%.%.%%%Зачем?
+	
+	
+r3a1:
+	*setcam setpos 2819.321533 7934.137207 43.848587;setang 3.253592 118.690002 0.000000* #### SINGER ALONE
+	*setspeaker cat_singer*
+	*setskin cat_singer 5*
+	*setanim cat_singer gesture_shock 1 idle*
+	> Певец выглядит встревоженным.%% Очевидно, им часто задают этот 
+	вопрос.%%%*setanim cat_singer gesture_confused 1 idle*
+	*setskin cat_singer 4*Они подумывают о том, чтобы сделать вывеску.
+	&r3a2
+	
+r3a2:
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 1 idle*
+	> Они жестом приглашают вас следовать за ними.
+	&m1
+	
+###### MERGE POINT
+m1:
+	*hide*
+	*txout*
+	*setcam setpos 3593.667725 6683.125488 68.456795;setang 2.405043 -25.433838 0.000000*
+	*setposang cat_singer setpos 4176.487305 6288.590820 0;setang -90 0 0.000000*
+	*setposang player setpos 4178.473633 6427.166992 0;setang 0 -88.558807 0.000000*
+	*txin*
+	*wait .15*
+	*setspeaker narrator*
+	*setskin cat_singer 0*
+	*show*
+	> Певец отвел вас в манеж npc_combine.%%%%%
+	%%.%.%.%там кучка солдат Комбайна топчется на месте и падает.
+	&m2
+	
+###### CAMERA SHOULD IMPLY A FIRST PERSON PERSPECTIVE FOR NEXT BIT
+	
+m2:
+	*setcam setpos 4177.395996 6357.103027 64.031250;setang 16.806452 -90.218063 0.000000*
+	*setspeaker cat_singer*
+	> Они говорят вам смотреть на то, что находится за стеклом.%%%%*tweencam 1 setpos 4177.395996 6357.103027 64.031250;setang 0.035854 -44.271908 0.000000*%%%
+	> Ближе.%%%%
+	*setfov 70*
+	> Еще ближе.
+	&m3
+	
+m3:
+	*setfov 50* 
+	*emitsound physics/glass/glass_sheet_impact_hard3.wav .75" %%% 
+	*setfov 60* %%%%
+	> Не так близко.
+	&m4
+	
+###### Back to third person perspective here.
+	
+m4:
+	*setcam setpos 3965.816895 6339.972168 64.046211;setang -0.363447 7.983169 0.000000*
+	*setanim cat_singer gesture_laugh 1 idle*
+	> Певец лучезарно улыбается вам.*setskin cat_singer 1* "Разве они не восхитительны???" 
+	спрашивают они через планшет,%% пока вы наблюдаете, как один из NPC
+    падает и продолжает пытаться выполнить свой цикл ходьбы.
+	&m5
+	
+m5:
+	*setcam setpos 3310.753662 5280.324219 8.292404;setang -10 -25 0.000000*
+	*tweencam 20 setpos 3442.382080 5558.235352 8.292404;setang -10 -25 0.000000*
+	*setskin cat_singer 0*
+	*setanim cat_singer gesture_clap 1 idle*
+	> Очевидно, с тех пор, как коты зачищают места вдоль Пустотного 
+	пути 66 для запчастей,% Певец посвятил себя сохранению по 
+	крайней мере одной из всех уникальных вещей, которые они находят.
+	&m5b
+	
+m5b:
+	*setanim cat_singer gesture_agree 1 idle* 
+	В "Мяузее" есть дополнительное карманное измерение, набитое вещами, 
+	которые недостаточно круты для показа.
+	&m6
+	
+m6:
+	*setcam setpos 3965.816895 6339.972168 64.046211;setang -0.363447 7.983169 0.000000*
+	*setskin cat_singer 2*
+	> Видя твое неизменное выражение лица,%%*setskin cat_singer 4**setanim cat_singer gesture_sigh* они вздыхают.%%
+	"Я не вижу *setskin cat_singer 2*ПРАВИЛЬНЫМ уничтожать тяжкую работу тех
+	кто *setanim cat_singer gesture_shrug 1 idle*помог сделать эти места на первом месте навсегда!!"
+	&m7
+	
+m7:
+	*setcam setpos 4157.589844 6339.635254 38.136181;setang -4.516154 -56.943005 0.000000*
+	*setskin cat_singer 3*
+	*setanim cat_singer gesture_confused 1 idle*
+	> Плюс иногда они находят классное дерьмо.%%%% 
+	Или запасы продовольствия.%%*setanim cat_singer gesture_laugh 1 idle* Представьте себе, что они вам скажут,%%
+	про возможность клонировать вашу любимую закуску по запросу.
+	&m8
+	
+m8:
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 1.5 idle*
+	> В этом истинная, тайная сила "Мяузея".
+	&m9
+	
+m9:
+	*setcam setpos 3965.816895 6339.972168 64.046211;setang -0.363447 7.983169 0.000000*
+	*setskin cat_singer 0*
+	*setanim cat_singer gesture_agree 1 idle*
+	> Очевидно, им нужно закончить запись о тех
+    вещах, которые вы привезли обратно,%% но они были бы счастливы
+    пообщаться позже! *mark_seen*
+	&exit
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

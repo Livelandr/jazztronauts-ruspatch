@@ -1,0 +1,154 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+
+    # Spawn the cat we'll be conversing with
+    # Note this sets the cat as the 'proxy', meaning that's the model that'll show up in the bottom left dialog corner
+    *spawn cat models/andy/bartender/cat_bartender.mdl*
+    *setnpcid cat npc_cat_bar*      # Set the cat 'proxy' model to imitate npc_cat_bar
+    *setposang cat -2864.620361 3044.558594 32.417419;setang -90 90.504135 90.000000*
+    *setanim cat gesture_washing*
+    *setspeaker cat*        # Set the proxy model to be the current speaker (bottom left dialog corner)
+	*setposang player setpos -2802.731934 2956.768555 0;setang 0 112.757095 0.000000*
+
+	#camera shots
+##Shot 1- bar and player setpos -2917.238037 2928.200439 72.834885;setang 3.407556 58.931564 0.000000
+##shot 2 - bartender close up setpos -2860.020508 2989.783691 75.185051;setang 2.449231 90.502884 0.000000
+##shot3 - bar profile setpos -2672.070801 2965.057861 66.930687;setang 3.939932 176.591919 0.000000
+##shot4 - bar establish shot setpos -2995.739502 2744.655029 24.768372;setang -8.039047 67.822502 0.000000
+
+##shot5 - player shot setpos -2881.998047 3002.636719 71.382820;setang 1.064988 -54.895622 0.000000
+	*bgmplay sound/jazztronauts/music/events/bartender_song.mp3 1.0 2.0*
+    *setcam setpos -2995.739502 2744.655029 24.768372;setang -8.039047 67.822502 0.000000*
+	*txin*
+    *wait .5*
+    *setcam setpos -2917.238037 2928.200439 72.834885;setang 3.407556 58.931564 0.000000*
+
+    *wait .25*
+    *show 1.0*
+    Раз у нас есть время,%%%*setskin cat 1* как вы тут устроились?%%
+    *setskin cat 0*У нас нет идей как предоставить существам комфорт,%
+    но мне сказали что лагерь достаточно %%"уютнен"%% по сегодняшним меркам.
+    player:
+	&resp1a:
+		Эээ...да, слово уютно точно подходит.%%
+        Вы что, собрали его из всякого хлама?
+	&resp2a:
+        Я больше заинтересован в этих огромных машинах рядом с ним.%
+        Можешь рассказать о них подробнее?
+    &resp3a:
+        Нормально. Ты не против, если я расслаблюсь и поразмылю один?
+        (Уйти)
+
+###### Branch 1
+resp1a:
+    *setspeaker cat*
+    *setskin cat 2*%%*setskin cat 0*Нет, это не наших рук дело.%
+    *setcam setpos -2672.070801 2965.057861 66.930687;setang 3.939932 176.591919 0.000000*Лагерь и ванна, рядом с ним,%%*setskin cat 3* это наследие%%%*setskin cat 0*
+    прошлой группы..%%*setskin cat 1* Приятная компания.
+    &resp1b
+
+resp1b:
+    *setspeaker cat*
+    Определенно, это вызвало у некоторых удивление.*setcam setpos -2860.020508 2989.783691 75.185051;setang 2.449231 90.502884 0.000000*%% Не каждый день уви-*setskin 3*%%%%
+    Ну.*setskin cat 0*%%% Хм.*setskin cat 2*%%%%*setskin cat 0* *setanim cat gesture_dryhands*Это не моя история, чтобы ее рассказывать,% честно.%%
+    Прости,% Я стараюсь не сплетничать о своих гостях.
+    player:
+    &resp1c:
+        Давай, ты же не можешь так оборвать рассказ.
+    &resp1c:
+        Можешь рассказать, я не коп.
+    &resp1c:
+        Значит, драма?
+
+resp1c:
+    *setspeaker cat*
+    *setcam setpos -2917.238037 2928.200439 72.834885;setang 3.407556 58.931564 0.000000**setanim cat idle**setskin cat 2*Ну,*setanim cat gesture_sweep 1.0 idle* как я сказала, это не моя история, чтобы ее рассказывать.%*setskin cat 0*
+    Ничего криминального, просто глупая ситуация, о
+    которой*setskin cat 0* я бы не хотела рассказывать за их спинами.
+    &resp1d
+
+resp1d:
+    *setcam setpos -2672.070801 2965.057861 66.930687;setang 3.939932 176.591919 0.000000**setskin cat 1**setanim cat gesture_foldarms*Честно,% не видела такую жизнерадостную,% энергичную компанию.
+    Им %явно нравилось проводить время друг с другом%.%.%.
+    Кажется, их даже не волновало что они попали здесь в ловушку,%
+    главное что они были вместе.
+    &resp1e
+
+resp1e:
+    *setskin cat 0*Меня поражают такие персоны,%% серьезно.%%
+    Надеюсь, эти шестеро сейчас живут счастливо,% где бы они
+    ни были.
+    &merge1a
+
+###### Branch 2
+resp2a:
+    *setspeaker cat* 
+    Сделанная из говна и палок машина Комбайнов, с огромным ЭЛТ, 
+    подключенным к ней, ты про нее?%% *setskin cat 1*Да,% она неплохо выделяется.
+    &resp2b
+
+resp2b:
+    *setcam setpos -2672.070801 2965.057861 66.930687;setang 3.939932 176.591919 0.000000*Увы,*setskin cat 0*%*setanim cat gesture_dryhands* но это не наша разработка.%%% Вообще, это %НИЧЬЯ% разработка.%
+    Это был %очень% долгий проект..
+    &resp2c
+
+resp2c:
+    *setskin cat 2**setanim cat gesture_sweep 1.0 idle*Раньше,%% нам самим приходилось ездить по 
+    Пустотному пути 66, пытаясь найти местечко и надеясь,% что 
+    все поиски червоточин будут стоить того.
+    &resp2d
+resp2d:
+    *setcam setpos -2860.020508 2989.783691 75.185051;setang 2.449231 90.502884 0.000000*Не стоит говорить,*setanim cat gesture_foldarms*% что это неоптимально.%%*setskin cat 1* В конце концов, гостю 
+    пришла идея сделать компас, показывающий на ближайший 
+    пространственный разлом.%%%%
+    *setskin cat 0*Думаю, его кусок еще где-то в машине.
+    &resp2e
+    
+resp2e:
+    Потом, другой гость прикрутил какую-то штуку к ней,%
+    а потом *setanim cat gesture_sweep 1.0 idle*еще,%% и еще%% понемногу за раз%,
+    пока у нас не осталась эта громадная масса.%%
+    *setcam setpos -2917.238037 2928.200439 72.834885;setang 3.407556 58.931564 0.000000*Честно,%*setskin cat 3* я без понятия как чинить ее.
+    &resp2f
+resp2f:
+    Поэтому,*setskin cat 1*% будь с ней аккуратней.%%% Это давнее наследие.
+    &merge1a
+
+###### Branch 3
+resp3a:
+    *setspeaker cat*
+    *setcam setpos -2860.020508 2989.783691 75.185051;setang 2.449231 90.502884 0.000000**setskin cat 1**setanim cat gesture_sweep 1.0 idle*Хорошо.%%% Пожалуйста,% не торопись,% 
+    и скажи, когда будешь готов к следующему напитку.
+    &exit
+
+###### Merge point
+merge1a:
+    *setspeaker cat*
+    *setcam setpos -2995.739502 2744.655029 24.768372;setang -8.039047 67.822502 0.000000**setskin cat 0**setanim cat gesture_sweep 1.0 idle*В любом случае,%% прошло много времени с момента, когда тут было пусто.%%
+    Честно,% звуки суматохи и смеха, исходящие
+    из лагеря, наполняют меня гордостью.
+    &merge1b
+
+merge1b:
+    *setcam setpos -2917.238037 2928.200439 72.834885;setang 3.407556 58.931564 0.000000* *setskin cat 1**setanim cat gesture_foldarms*Возможно, такова суть моей профессии,% кто знает?
+    &merge1c
+merge1c:
+    *setskin cat 0*Надеюсь тебе будет здесь уютно.%%
+    Пожалуйста,%*setanim cat gesture_sweep 1.0 idle* не стестняйся просить, если что-то будет нужно.
+    %%*setskin cat 3*А, и еще*setskin cat 0*.%.%.
+    &merge1d
+merge1d:
+    *setcam setpos -2860.020508 2989.783691 75.185051;setang 2.449231 90.502884 0.000000*Это не обязательно,%*setanim cat gesture_jab 1.0 idle* но могу я попросить тебя провести время
+    с остальными?%%%*setskin cat 1* Они не хотят этого признавать,% но им
+    нравится находится в компании%.%.%.*setskin cat 0* да и расширение мировоззрения
+    им бы не помешало.
+    &merge1e
+merge1e:
+    Что-ж,% пришло время вернутся к работе.%%
+    Спасибо что зашел,%*setskin cat 1* надеюсь, встретимся еще.
+    *mark_seen*
+    &exit

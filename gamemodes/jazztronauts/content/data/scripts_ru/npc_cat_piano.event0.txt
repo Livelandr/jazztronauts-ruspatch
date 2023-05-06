@@ -1,0 +1,339 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 40*
+	*setcam setpos -2541.998535 2766.207031 47.017006;setang -4.312444 145.029892 0.000000*
+	*bgmplay sound/jazztronauts/music/events/plumskinzz.mp3 1.0 2.0*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setnpcid cat_bar npc_cat_bar*
+	*setposang cat_bar -2864.620361 3044.558594 32.417419;setang -90 90.504135 90.000000*
+    *setanim cat_bar gesture_washing*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -2910.271484 2959.740967 37;setang -90 0 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+	*setposang player setpos -2819.218018 2921.491211 0;setang -1.969878 148.162308 0.000000*
+	*txin*
+	
+###### START
+	*setspeaker narrator*
+	*show 0.5*
+	>Пианист и Бармен беседуют в "Самсаре"...
+	&b1
+	
+b1:
+	*setspeaker cat_piano*
+	Все, что я хочу сказать, это то,*setanim cat_piano gesture_shrug 1 idle*%*setcam setpos -2781.879395 3055.809082 68.602539;setang -1.149190 -150.279190 0.500000* что мы, вероятно, привлекли бы сюда 
+	больше клиентов, если бы было где позависать.%%*setanim cat_piano gesture_disagree 1 idle* Не пойми меня неправильно,
+	Мне нравится эстетика здесь, но она такая.%.%.%.%
+	&b2
+	
+b2:
+	*setfov 70*
+	*setcam setpos -946.128357 319.598175 221.469360;setang 14.655734 159.629013 0.000000*
+	.%.%.%Безмятежная.
+	&b3
+	
+b3:
+	*setspeaker cat_bar*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	*setskin cat_bar 4**setskin cat_bar 3**setanim cat_bar gesture_confused 1 idle*Предложение, которое я бы приняла во внимание,%*setskin cat_bar 0* если бы не 
+	тот факт что я знаю твою концепцию% "позависать".%%%%
+	*setskin cat_bar 4**setskin cat_bar 2*Очень трудно вывести кровь из затирки для плитки,% знаешь ли.
+	&b4
+	
+b4:
+	>*setskin cat_bar 1* Бармен замечает вас и машет рукой, явно испытывая облегчение.
+	&b5
+	
+b5:
+	*setfov 30*
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	О,% *player*!%% Добро пожаловать,*setskin cat_bar 0*% присаживайся.%% 
+	*setanim cat_bar gesture_confused 1 idle*Не хочешь печенье?%% Я бы могла\-
+	&b6
+	
+b6:
+	*setposang cat_piano setpos -2910.271484 2959.740967 37;setang -90 270 0.000000*
+	*setspeaker cat_piano*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	>*setanim cat_piano gesture_anger 1 idle* Пианист хлопает лапой по барной стойке и
+    поворачивается к вам лицом,% глаза сузились.
+	&b7
+	
+b7:
+	Ты.%%*setanim cat_piano gesture_jab 1 idle* Поддержи меня здесь.%%
+	*setskin cat_piano 1*Это место было бы бесконечно более привлекательным, 
+	если бы здесь было место для занятий, более стимулирующих, 
+	чем медитация% или эрудированный разговор.
+	&b8
+	
+b8:
+	*setskin cat_piano 0*
+	*setcam setpos -2847.833496 2995.645752 86.707962;setang -2.016987 -150.368286 0.000000*
+	*setfov 60*
+	*setanim cat_piano gesture_agree 1 idle*Что-нибудь, чтобы заставить кровь течь быстрее.
+	%%%%*setskin cat_piano 1*
+	По типу колизея.
+	
+	player:
+	&r1a1:
+		Я предпочитаю, чтобы моя кровь текла внутри моего тела.
+		Я возьму печенье на вынос. (уйти)
+	&r2a1:
+		Ладно, отличное предложение, но выслушай меня\: Танцевальные бои.
+		Все острые ощущения, ни одного убийства.
+	&r3a1:
+		Если бы пол был песчаный, 
+		то не нужно было бы вытирать кровь!
+	
+	
+###### Branch 1 (early exit)
+r1a1:
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_disagree 1 idle*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	> Пианист закатывает глаза.
+	&r1a2
+	
+r1a2:
+	*setanim cat_piano gesture_sigh 1 idle*Никто не ценит мое художественное видение.%% У нас есть хлеб,% 
+	нам нужно зрелище.%%*setskin cat_piano 1* История здесь на моей стороне.
+	&r1a3
+	
+r1a3:
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_exchange 1 idle*
+	> Бармен,% сияя,% пододвигает к вам тарелку с печеньем.
+	&r1a4
+	
+r1a4:
+	*setanim cat_bar gesture_agree 1 idle*
+	Спасибо за заказ,% *player*.%%%
+	
+	>Она снова обращает свое внимание *setanim cat_bar gesture_facepalm*на *setskin cat_bar 4*Пианиста
+	и закрывает лицо лапой.
+	&r1a5
+	
+r1a5:
+	*setskin cat_bar 2*
+	*setanim cat_bar gesture_sigh 1 idle*
+	Пианист.%% Мы уже говорили об этом.%%%%
+	Многим заведениям удается процветать, не имея специального
+    места для проведения ритуальных боев.%% Нам не нужно-
+	&r1a6
+	
+r1a6:
+	*setspeaker narrator*
+	>Они возобновляют свой обычный разговор.%% 
+	Вы решаете схватить свое печенье и свалить.
+	&exit
+	
+###### Branch 2
+r2a1:
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_confused 1 idle*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	>Пианист пялится на тебя.%% Ее голова склоняется набок.%%%
+	По ее отсутствующему выражению лица трудно сказать, думает ли она о
+    вашем предложении,% или метит оптимальный способ расчленить тебя.
+	&r2a2
+	
+r2a2:
+	*setanim cat_piano gesture_disagree 1 idle*
+	*setcam setpos -2847.833496 2995.645752 86.707962;setang -2.016987 -150.368286 0.000000*
+	*setfov 60*
+	Нет.
+	&r2a3
+	
+r2a3:
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_confused 1 idle*
+	*setfov 40*
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	Я не знаю,% Я нахожу эту идею весьма очаровательной.%% И не было бы
+    необходимости строить место для проведения этого мероприятия.%%%*setanim cat_bar gesture_laugh 1 idle* *setskin cat_bar 1*
+	У нас достаточно места!% Я могла бы попросить Певца сделать для нас 
+	красивый баннер,%% выпустить несколько брошюр%.%.%.
+	&r2a4
+	
+r2a4:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Я не могу поверить, что ты воспринимаешь это всерьез.
+	&r2a5
+	
+r2a5:
+	*setspeaker cat_bar*
+	*setskin cat_car 4*
+	*setanim cat_bar gesture_foldarms 1 idle*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	> Бармен, похоже, погружена в глубокую задумчивость.*setskin cat_bar 1* 
+	*setanim cat_bar gesture_clap 1 idle* Она хлопает, сияя.
+	&r2a6
+	
+r2a6:
+	*setfov 40*
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	О!*setskin cat_bar 0* Мы могли бы позволить клиентам проголосовать по этой теме.% *setanim cat_bar gesture_agree*
+	Участие сообщества!
+	&r2a7
+	
+r2a7:
+	*setspeaker cat_piano*
+	*shake 1.25*
+	*setskin cat_bar 3*
+	> Пианист ударяется головой о стойку бара.%*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+
+	.*setfov 70*%.%.%это было достаточно громко%.%.%.
+	&r2a8
+	
+r2a8:
+	*setskin cat_bar 0*
+	Я щас здохну.%%%
+	Однажды ты найдешь меня под столом% с маленькой эпитафией, 
+	написаной на лезвии топора, который ты не даешь мне использовать.%% 
+	И все, что я скажу, это% "Здесь покоится Пианист.%% Умерла от скуки."
+	&m1
+	
+###### Branch 3
+r3a1:
+	*setspeaker cat_piano*
+	*setfov 70*
+	*setcam setpos -2923.515625 3047.270020 83.972519;setang 4.538206 -44.430779 0.000000*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_clap 1 idle*
+	Видишь!%%
+	Теперь то запахло жареным.%
+	Этот чувак шарит.
+	&r3a2
+	
+r3a2:
+	*setanim cat_piano gesture_foldarms*
+	*setskin cat_piano 4*
+	*setcam setpos -2847.833496 2995.645752 86.707962;setang -2.016987 -150.368286 0.000000*
+	*setfov 60*
+	Песчаный пол,% поднятые сидения чтобы уменьшить шанс 
+	случайного получения по роже%.%.%.%
+	&r3a3
+	
+r3a3:
+	*setskin cat_piano 1*
+	Мы наконец-то найдем ебанное применение игрушкам Певца.%%*setanim cat_piano gesture_agree 1 idle*
+	Гениально!
+	&r3a4
+	
+r3a4:
+	*setspeaker cat_bar*
+	*setskin cat_bar 2*
+	*setanim cat_bar gesture_disagree 1 idle*
+	*setfov 40*
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	Песок будет везде, Пианист. Я знаю, ты в восторге, но
+	подумай о последствиях.%%*setskin cat_bar 0* 
+	Ты реально*setanim cat_bar gesture_sigh 1 idle* хочешь тратить по
+	пять часов чтобы достать весь пропитанный внутренностями песок из своей шерсти?
+	&r3a5
+	
+r3a5:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_agree 1 idle*
+	*setcam setpos -2847.833496 2995.645752 86.707962;setang -2.016987 -150.368286 0.000000*
+	*setfov 60*
+	Да.
+	&m1
+	
+	
+###### MERGE BACK TO COMMON ROUTE
+m1:
+	*setspeaker cat_bar*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_disagree 1 idle*
+	.%.%.%Извините%, но, боюсь, мне придется и дальше накладывать вето на идею
+    колизея.%%% Во-первых,%% отставив все этические нормы,% получение 
+	*setanim cat_bar gesture_shrug 1 idle*разрешения на такое будет нескончаемым кошмаром.
+	&m2
+	
+m2:
+	*setfov 40*
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	Во-вторых,% я прямо чувствую что ты закончишь тем, что%.%.%.%% 
+	убьешь% всех наших клиентов.%%%% *setskin cat_bar 3*
+	
+	Я права?
+	&m3
+	
+m3:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	*setfov 70*
+	*setcam setpos -2800.078125 2837.285889 96.239883;setang 6.929268 109.376999 0.000000*
+	%.%.%.%*setskin cat_piano 0*Нет.
+	&m4
+	
+m4:
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_confused 1 idle*
+	Я так не думаю.%%%% 
+	
+	Я*setanim cat_bar gesture_shrug 1 idle* знаю*setskin cat_bar 4*, это сложно,% но ты должна найти себе 
+	другое развлечение.*setskin cat_bar 0*
+	&m5
+	
+m5:
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	Ладно.*setskin cat_piano 0*
+	&m6
+	
+m6:
+	> Пианист выпивает остаток своего напитка.%%
+	После чего*setanim cat_piano gesture_exchange 1 idle* она хватает полную пачку печенек и уходит.
+	&m7
+	
+m7:
+	*setcam setpos -2833.329102 2918.047363 67.908310;setang -1.925611 103.680092 -0.450000*
+	*setspeaker cat_bar*
+	> Бармен поворачивается к вам,%%*setskin cat_bar 1* и улыбается.
+	&m8
+	
+m8:
+	*setskin cat_bar 0*
+	Теперь,% что я могу вам предложить?
+	*mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

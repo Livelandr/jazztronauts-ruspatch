@@ -1,0 +1,437 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+
+    spawngang()
+	*bgmplay sound/jazztronauts/music/events/pocket.mp3 1.0 2.0*
+	*setposang cat_bar setpos -2038.926880 3016.902588 0;setang -90 90 0.000000*
+	*setanim cat_bar bartender_search*
+
+	*setcam setpos -1828.895630 3177.182617 44.253838;setang 3.336848 -144.710831 0.000000* ###### ESTABLISHING SHOT
+	*setposang cat_piano setpos -1988.379272 2886.988525 0;setang -90 321 0.000000*
+
+	*setposang cat_cello setpos -1946.280029 2917.553955 16;setang -90 336 0.000000*
+	*setposang cat_singer setpos -1985.466431 2938.500244 16;setang -90 290 0.000000*
+
+
+    *setfov 70*
+	*setskin cat_singer 1*
+	*setposang player setpos -2012.907837 2954.654785 16;setang 0 30 0.000000*
+	*setanim player sit*
+	*txin*
+	*setspeaker narrator*
+    *show 0.5*
+    > Склад Самсары%.%.%.%%% Видимо,% сегодня ночь фильмов.%%%
+    Певец скачут в своем кресле, пока Бармен перебирает кассеты.
+	&a1
+
+a1:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_shrug 1 idle*
+	*setskin cat_piano 1*
+    Фу.%%% Мне интересно, хоть кому-то здесь нравится ночь фильмов.
+    &a2
+
+a2:
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_agree 1.5 idle*
+	*setskin cat_singer 1*
+    >Певец с энтузиазмом кивает.
+    &a3
+
+a3:
+    *setspeaker cat_piano*
+	*setskin cat_piano 0*
+    Знаю что тебе.%*setanim cat_piano gesture_facepalm 1 idle*%%% Поэтому я и сказала это таким тоном.%%%*setanim cat_piano gesture_disagree 1 idle* 
+    Я не спрашив-
+    &a4b
+
+a4b:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+	*setposang cat_bar setpos -2021.996704 2994.898438 0;setang -90 260 0.000000*
+	*setspeaker narrator*
+	*setanim cat_piano gesture_shock 1 idle*
+    > Видеомагнитофон издает громкий щелчок.%%*setskin cat_piano 3*
+    &a4
+
+a4:
+	*setskin cat_piano 0*
+    *setspeaker cat_bar*
+	*setcam setpos -1923.104980 2947.054443 44.383396;setang 3.177165 166.574677 0.000000* ####### PLAYER AND BAR
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_clap 1 idle*
+    Ах,%% вот так-то.%%%% Полностью перемотано!%%*setskin cat_bar 0* Посмотрим, что на этой кассете.
+    &a5
+
+a5:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+    *setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_sweep 1 idle*
+    лично я надеюсь что какой-нибудь отважный герой вот-вот проинструктирует 
+    мою жалкую задницу о правильной технике огранки камня или еще о какой-то
+    такой херне
+    &a6
+
+a6:
+	*setskin cat_cello 0*
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_agree 1 idle*
+    Нам должно повести.
+    &a7
+
+a7:
+    *setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_shrug 1 idle*
+    слушай если это не очередная кассета с Тхэ бо
+    я буду рад
+    &a8
+
+a8:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker cat_singer*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 1.8 idle*
+    >Певец радостно показывает на экран!
+    &a9
+
+a9:
+    *setspeaker narrator*
+    >Появляется логотип компании на экране.%%% Это синий шестиугольник который
+    стилизован под буквы C и G, которые в последствии, смыкаются.%% Слово 
+    'Cannon' появляется под ним.
+    &a10
+
+a10:
+	*setskin cat_cello 0*
+    *setspeaker cat_cello*
+	*setanim cat_cello gesture_shock 1.3 idle*
+    не может блять быть
+    &a11
+
+a11:
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_agree 1 idle*
+    *setspeaker cat_piano*
+    Нихера себе.
+    &a12
+
+a12:
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_confused 1 idle*
+    >Певец кивает,%% все еще радостно.
+    &a13
+
+a13:
+    *setspeaker cat_bar*
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_foldarms 1 idle*
+    Будет интересно,%%%% во всяком случае.
+    player:
+	
+	&branch1:
+	*setcam setpos -1924.575073 3021.162109 48.970943;setang 1.633228 -143.166870 0.000000*
+	 Это хорошо?
+	&branch2:
+   	*setcam setpos -1924.575073 3021.162109 48.970943;setang 1.633228 -143.166870 0.000000* 
+	Cannon Films!? Пожалуйста пусть это будет тот
+    где космические вампиры съедают Пикарда. 
+	&branch3: 
+	 *setcam setpos -1924.575073 3021.162109 48.970943;setang 1.633228 -143.166870 0.000000*
+	 Нет, спасибо.
+     Я знаю к чему это идет. (уйти) 
+
+#### BRANCH 1
+
+branch1:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+	*setanim cat_piano gesture_agree 1 idle*
+    *setspeaker cat_piano*
+    Ага такое бывает достаточно редко.%%%% 
+	Нам повезло если это фильмы.
+    &b1a
+
+b1a:
+	*setanim cat_cello gesture_disagree 1 idle*
+    *setspeaker cat_cello*
+    без разницы это может быть фильм где всех со сто процентной
+    вероятностью хреначили молотком во время записи
+    &c1
+
+#### BRANCH 2
+
+branch2:
+	*setcam setpos -1923.104980 2947.054443 44.383396;setang 3.177165 166.574677 0.000000*
+	*setanim cat_bar gesture_foldarms 1 idle*
+	*setspeaker cat_bar*
+	Ах,%% ты про Жизненную силу. Признаюсь, я испытываю
+    меланхолию, когда смотрю его,% учитывая что это
+    фильм который похоронил карьеру Тоуба Хупера.
+	&b2a
+
+b2a:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+	*setspeaker cat_cello*
+    слушай все что я помню так это сцену где у патрика
+    стюарта взорвалась голова и все мясо превратилось
+    в голую леди которая взрывается в еще большее мясо
+    и именно тогда я отрубился от смеха
+	&c1
+	
+#### BRANCH 3 (EARLY EXIT)
+branch3:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUPs
+	*setskin cat_piano gesture_agree 1 idle*
+    *setspeaker cat_piano*
+    Да, это вариант получше, чем оставатся здесь.%%% Ты должен уходить
+    до того пока мы не одичаем.
+    &exit
+
+### BRANCH 4 (THE MOVIE)
+
+c1:
+	*hide*
+	*txout*
+	*wait .1*
+	*txin*
+	*show*
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker narrator*
+    > Мы закончили с титрами,%% там было много снимков
+    полей для гольфа.%%%% Настроение унылое.
+    &c2
+
+c2:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+    *setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_jab 1 idle*
+    мы блять уверены что это cannon files так-как сейчас большинство всех кто*setanim cat_cello gesture_shrug 1 idle* 
+    набрал десять фунтов от всех пуль которыми их набили*setanim cat_cello gesture_confused 1 idle*.
+    &c3
+
+c3:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker narrator*
+	*setskin cat_cello 1*
+	*setskin cat_piano 1*
+	*setskin cat_bar 3*
+	*setskin cat_singer 1*
+    >Внезапно,%%% ниндзя появился*setskin cat_bar 1* позади бизнесмена среднего возраста 
+    пытающийся выбратся из песчаной ловушки в 9 яме.%%%% 
+	Дело приняло неожиданный оборот.
+    &c4
+
+c4:
+    *setspeaker cat_piano*
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+	*setanim cat_piano gesture_anger 1.5 idle*
+    О мой ебаный бог РАЗЪЕБИ ЕГО НИНДЗЯ ДАВАЙ ДА
+    &c5
+
+c5:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker narrator*
+    > Словно услышав Пианиста, ниндзя хватает шар для гольфа мужика,%%%
+    и сжимает его в пыль голыми руками прямо перед ним*setanim cat_piano gesture_clap 1.3 idle*,
+    после чего начинает бить и пырять все что движется.
+    &c6
+
+c6:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+    *setspeaker cat_cello*
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_agree .65 idle*
+    я хочу взять назад свои слова и поблагодорить создателей кокаина
+    за*setskin cat_cello 0* то что я вижу своими глазами
+    &c7
+
+c7:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+	*setskin cat_cello 0*
+	*setskin cat_piano 0*
+	*setskin cat_bar 0*
+	*setskin cat_singer 0*
+    *setspeaker narrator*
+    > Полиция%.%.%.%%% гольфа?%%%% по видимому теперь гонится за ниндзя.%% Заслуженно.%%%
+    Он убивает одного с помощью сюрикена,% другой достает
+    свой ствол.
+    &c8
+
+    [cats all switch to their HOLY SHIT faces at once]
+c8:
+	*setskin cat_cello 3*
+	*setskin cat_piano 2*
+	*setskin cat_bar 3*
+	*setskin cat_singer 3*
+    >%.%.%.%Нихрена себе,%*setskin cat_piano 1*%% ниндзя попал из трубки прямо в
+    ствол пушки копа как только он выстрельнул,%% от чего произошел взрыв.
+    &c9
+
+c9:
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_exchange 2.2 idle*
+    > Вы никогда не видели певца *setanim cat_singer gesture_exchange 2.2 idle*таким взбешенным.%%% Они боксировали*setanim cat_singer gesture_exchange 2.2 idle* с воздухом в 
+    своем кресле,%%*setanim cat_singer gesture_anger 2.3 idle* а их хвост был достаточно вспушенным.
+    &c10
+
+Fade to black
+
+Fade from black
+
+c10:
+	*hide*
+	*txout*
+	*wait .1*
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+	*setskin cat_cello 1*
+	*setskin cat_piano 1*
+	*setskin cat_bar 1*
+	*setskin cat_singer 1*
+	*txin*
+	*show*
+    *setspeaker narrator*
+    > Фильм длится уже 45 минут, в течении которых ниндзя имел
+    богатых людишек.%%% Честно,% он превосходен.
+    &c11
+
+c11:
+	*setcam setpos -1923.104980 2947.054443 44.383396;setang 3.177165 166.574677 0.000000* ####### PLAYER AND BAR
+	*setanim cat_bar gesture_foldarms 1 idle*
+	*setskin cat_bar 4*
+    *setspeaker cat_bar*
+    Ах,%% это заставляет меня вспомнить хорошие времена.
+    &c12
+
+c12:
+    *setspeaker narrator*
+	*setskin cat_bar 0*
+    > %.%.%.%По видимому, Бармен говорит о высокоскоростной погоне с полицией в
+    которой учавствует ниндзя,% находясь на крыше полицейской машины.%%%
+    Он достает свою катану%.%.%.%
+    &c13
+
+c13:
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+    *setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_jab 1 idle*
+    Чувак, я знаю*setskin cat_piano 0* к чему все идет, но-
+    &c14
+
+c14:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker narrator*
+    > Ниндзя пробил крышу автомобиля, одновременно пробив череп полицейского. %%%%
+    Офицеру, который ведет машину, явно это не нравится.
+    &c15
+
+c15:
+    *setspeaker narrator*
+    >Ох,% проблема решена.%%% Нинздя ослепил его ударом в глаза.%%
+    Сюрикеном.%%% Через крышу тачки.%%% Снова.
+    &c16
+
+c16:
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+    *setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_anger 2.2 idle*
+    Ох ну блять,% нет ни единого шанса*setanim cat_piano gesture_disagree 1 idle* что этот чувак смог 
+    бы пробить стальную полицейскую машину,%%*setanim cat_piano gesture_confused 1 idle* не так ли?%%%
+    Подсоби мне,% Певец.
+    &c17
+
+c17:
+    *setspeaker cat_singer*
+	*setskin cat_singer 3*
+	*setanim cat_signer gesture_exchange 2 idle*
+    > Певец держит планшет своей лапой,%% с текстовым документом где просто написано
+    'НАХУЙ КОПОВ',%%%% размер шрифта 72pt,%% выглядит как Impact.%%% Кажется,% они
+    полностью на стороне ниндзя.
+    &c18
+
+#Fade to black
+
+#Fade from black
+
+c18:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+	*hide*
+	*txout*
+	*wait .1*
+	*txin*
+	*show*
+    *setskin cat_piano 1*
+    *setspeaker narrator*
+    > Была показана крайне крутая погоня.%%%% Ниндзя снес вертолет подпрыгнув до
+    него и подарив пилоту апперкот.%%% Так или иначе, он окружен,% 50 мертвыми
+    телами.
+    &c19
+
+c19:
+	*setcam setpos -1923.104980 2947.054443 44.383396;setang 3.177165 166.574677 0.000000* ####### PLAYER AND BAR
+    *setspeaker cat_bar*
+    Ну.% Видимо это все что было у этого фильма.%%%%*setanim cat_bar gesture_confused 1 idle* Так или иначе,*setskin cat_bar 1* неплохо,%
+    согласны?
+    &c20
+
+c20:
+	*setcam setpos -1951.250977 2965.822510 63.048851;setang 9.619200 -127.993073 0.000000* ##### SINGER AND PIANO
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_agree 1 idle*
+    Ага, я погрузилась в него под конец.
+    &c21
+
+c21:
+    *setspeaker narrator*
+    > Ох, происходит что-то еще.%%%*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* Ох, ниндзя смыкает руки,
+    и поет%.%.%.%%%теперь он крутится на месте%.%.%.%%%%%
+
+    Нинздя бурит землю.
+    &c22
+
+c22:
+	*setcam setpos -1965.221069 2973.723145 66.755920;setang 13.665466 -79.118851 0.000000* ###### CELLO AND PIANO
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_agree 1 idle*
+    *setspeaker cat_cello*
+    ага я уверен это работает именно так
+    &c24
+
+c24:
+	*setcam setpos -1899.969360 3068.514404 75.931953;setang 14.517277 -121.977173 0.000000* ##### GROUP
+    *setspeaker narrator*
+    > Ага.%% Нинздя уже по шею в земле.%%%% Слышен злобный смех,% и ниндзя,
+    по видимому, ждет еще больше копов?%%%% Экран, вскоре, затемняется,% и
+    появиляются титры.
+    &c25
+
+c25:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_shock 1 idle*
+    *setspeaker cat_piano*
+    Ёмана,% это жесткий ниндзя.%%%*setanim cat_piano gesture_agree 1 idle* Уважаю.%%%% 
+	Ему никогда не хватит крови.
+    &c27
+
+c27:
+    *setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_exchange 1 idle*
+    йоу ебаный свет они сделали фильм про кровожадного ниндзю но вдруг
+    ниндзя не*setskin cat_cello 1* ниндзя а дракула который стал ниндзя
+    &c28
+
+c28:
+    *setspeaker narrator*
+    > Ночь превращается в оживленный разговор об этом фильме,%
+    и про фильмы в целом.%%% Они, видимо, забыли что здесь еще
+    много кассет которые можно посмотреть%.%.%.%%*mark_seen*
+    &exit

@@ -1,0 +1,144 @@
+﻿SKIP_OPEN = true
+###### technically 7th bartender event?
+begin:
+	*hide*
+	*txout*
+    *spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*bgmplay sound/jazztronauts/music/events/warm_song.mp3 .75 3*
+	*setposang npc_cat_bar setpos 2.762444 693.325500 32;setang -90 180 0.000000*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setnpcid cat_piano npc_cat_piano*
+	*setposang cat_piano setpos 48.296669 612.397583 36;setang -90 0 0.000000*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setnpcid cat_cello npc_cat_cello*
+	*setposang cat_cello setpos 98.372551 608.679138 36;setang -90 0 0.000000*
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setnpcid cat_singer npc_cat_sing*
+	*setposang cat_singer setpos -47.646004 603.924561 36;setang -90 0 0.000000*
+	*setposang player setpos -95.336090 612.937744 36;setang 8.394650 88.524963 0.000000*
+	*setanim player sit*
+    *setspeaker npc_cat_bar*
+	*txin*
+	*show*
+	*setskin npc_cat_bar 1*
+	*setanim npc_cat_bar gesture_confused 1 idle*
+    Я так обожаю посещать этот центр.*setskin npc_cat_bar 0* 
+    &a1
+
+a1:
+	*setcam setpos -88.607697 734.805664 73.845703;setang 3.762802 -56.225506 0.000000*
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_shrug 1 idle*
+    > Певец считает, что им всем следует ходить почаще, на
+    этот раз группе показалось немного одиноко.
+    &a2
+
+a2:
+	*setcam setpos 64.112801 698.983398 68.279556;setang -8.162957 -100.041962 0.000000*
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_agree 1 idle*
+    Согласованно. Подписано и скреплено печатью.
+    &a3
+
+a3:
+	*setcam setpos 106.320221 682.876343 71.643219;setang -8.056485 -96.261955 0.000000*
+    *setspeaker cat_cello*
+	*setanim cat_cello gesture_shrug 1 idle*
+    да, мне бы не помешало почаще счищать корку экзистенциального 
+    отчаяния со своего мозга пескоструйной обработкой.
+    player:
+        &a4: 
+		*setcam setpos -185.023544 678.457520 65.429253;setang -0.230201 -31.948051 0.000000*
+		Почему бар такой нетронутый?
+        Потому что я отчетливо помню, как по-королевски все испортил.
+
+a4:
+	*setcam setpos 6.081810 423.574524 67.019852;setang 0.568399 89.705330 0.000000*
+    *setspeaker npc_cat_bar*
+	*setanim npc_cat_bar gesture_sweep 1 idle*
+    Чтобы достичь Центра, ты должен отбросить все земные%- или Пустотные-%%
+    привязанности.%%%*setanim npc_cat_bar gesture_jab 1 idle* Включая твою привязанность к самому себе,%% 
+    для этого и нужен сок из осколков.
+    &a5
+
+a5:
+	*setcam setpos 167.714569 698.494568 69.958344;setang 0.461915 -155.030075 0.000000*
+    *setspeaker cat_cello*
+	*setanim cat_cello gesture_laugh 1 idle*
+    оказывается, дистиллированная эссенция творчества может перегрузить твои
+    нейроны и временно превратить тебя в трансцендентное существо, способное
+    видеть сквозь время и пространство
+    &a6
+
+a6:
+	*setanim cat_cello gesture_shrug 1 idle*
+    если вы не можете использовать свой собственный творческий порыв,%% 
+    можно использовать украденный
+    &a7
+
+a7:
+	*setanim cat_cello gesture_agree 1 idle*
+    короче говоря, на самом деле мы никуда физически не поехали, мы просто сели
+    в автобус и отправились в глубокое ментальное путешествие, подпитываемое всеми
+    теми осколками, которые ты крал.
+    &a8
+
+a8:
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_confused 1 idle*
+    Должно хватить еще на двадцать поездок, легкотня, благодоря твоей помощи
+    в пойске этих осколков.
+    &a9
+
+a9:
+	*setcam setpos 6.081810 423.574524 67.019852;setang 0.568399 89.705330 0.000000*
+    *setspeaker npc_cat_bar*
+	*setskin npc_cat_bar 2*
+    Которые я помещу на хранение в хранилище "Мяузея" Певца.,%%*setskin npc_cat_bar 0* прежде чем у вас
+    двоих появятся какие-нибудь идеи.
+    &a10
+
+a10:
+	*setcam setpos -63.723694 670.468201 68.035347;setang -1.188524 -42.587250 0.000000*
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_agree 1.3 idle*
+    > Певец твердо кивает и прищуривает глаза, когда виолончелист
+    и пианист начинают возражать.%%% Они немедленно заткнулись.
+    &a11
+
+a11:
+	*setcam setpos -185.023544 678.457520 65.429253;setang -0.230201 -31.948051 0.000000*
+    *setspeaker npc_cat_bar*
+	*setanim npc_cat_bar gesture_agree 1 idle*
+    Мы глубоко признательны тебе за помощь,%% *player*.%%%% Это было так давно 
+    с момента нашего последнего настоящего отпуска.
+    condition:
+    &complete1:
+        return finishedmissions()
+    &incomplete1:
+        return true	
+
+incomplete1:
+	*setanim npc_cat_bar gesture_confused 1 idle*
+    У нас есть для тебя еще работа, если тебе интересно. 
+    &a12
+
+complete1:
+	*setanim npc_cat_bar gesture_laugh 1 idle*
+    Было приятно видеть тебя в нашем обществе, и, конечно же, ты можешь оставаться
+    в баре "Самсара" столько, сколько захочешь.
+    &a12
+
+a12:
+    *setspeaker narrator*
+    Вы разблокировали *c 0 200 0*Новую игру плюс*c*! Этот режим позволит вам начать
+    игру заново с множителем к заработанным денежным средствам.
+    В нем также может быть какой-то бонусный сюжетный контент...
+    &a13
+
+a13:
+    Чтобы начать все сначала, попросите свою группу еще раз вызвать 
+    бак с осколками, чтобы сбросить ваш прогресс и начать ваше *c 0 200 0*НИ+*c* приключение.
+    *mark_seen*
+    &exit

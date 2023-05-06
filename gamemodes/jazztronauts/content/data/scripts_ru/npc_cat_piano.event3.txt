@@ -1,0 +1,356 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*bgmplay sound/jazztronauts/music/events/allspice.mp3 .75 2.0*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -1187.520996 467.479309 -64;setang -90 294.221405 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos -2907.271484 2958.740967 -64;setang -90 10.601639 0.000000*
+	*setnpcid cat_cello npc_cat_cello*
+	
+	*setposang player setpos -1069.755615 521.588379 -64;setang 0 -165.918091 0.000000*
+	*setcam setpos -788.870239 600.943054 23.847630;setang 5.117703 -166.131042 0.000000*
+	*txin*
+
+###### START	
+	*setspeaker narrator*
+	*show*
+	> Пианист, по-видимому, делает приседания в концертном зале.%%%%
+	Она замечает тебя довольно быстро.
+	&b1
+	
+b1:
+	*setcam setpos -1117.362671 507.229401 -2.390579;setang 8.584972 -162.514069 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_jab 1 idle*
+	Ты.%%%%
+	
+	Я ждала,*setanim cat_piano gesture_agree 1 idle* когда ты появишься.%% Иди сюда,% и пожалуйста, говори потише.
+	&b2
+	
+b2:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_laugh 1 idle*
+	Слушай,% *player*.%%% Мы через многое прошли вместе.
+	Мы объединились из-за приобретения еды на вынос.%%*setcam setpos -1153.211426 490.722992 -8.163246;setang 10.643499 -147.581436 -0.175000*%*setanim cat_piano gesture_agree 1 idle*
+	И я только что решила, что это значит, что теперь мы друзья.
+	&b3
+
+b3:
+	*setcam setpos -1117.362671 507.229401 -2.390579;setang 8.584972 -162.514069 0.000000*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_foldarms 1 idle*
+	Я знаю, это нелегко воспринять,% но не забывай дышать.%%
+	Мое доверие дается нелегко,% но я думаю, что ты его заслужил.%%
+	*setanim cat_piano gesture_disagree 1 idle*Но мы не должны забывать о нашем происхождении.
+	&b4
+	
+b4:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_sweep 1 idle*
+	Итак,% мы собираемся укрепить эту дружбу весьма символичным и
+	подходящим способом\:%%%%*setanim cat_piano gesture_laugh 1 idle*
+	*setskin cat_piano 1*Это очень причудливый и обходной способ сказать тебе, что мы
+    собираемся украсть для меня еще больше дерьма.
+	player:
+	&r1a1:
+		*setcam setpos -1280.686523 502.198822 4.809135;setang 6.335543 -15.807698 0.000000*
+		Мне не нравится выражение твоих глаз, и я не хочу спровоцировать
+        еще один инцидент с Певцом. Так что я пас 
+		и неважно что ты тут планируешь. (уйти и завершить)
+	&r2a1:
+		*setcam setpos -1280.686523 502.198822 4.809135;setang 6.335543 -15.807698 0.000000*
+		Или, мы могли бы сесть, выпить и поговорить о наших чувствах 
+		и общих интересах?
+	&r3a1:
+		*setcam setpos -1280.686523 502.198822 4.809135;setang 6.335543 -15.807698 0.000000*
+		Я блять живу воровством.
+		
+		
+###### BRANCH 1 (early exit)
+r1a1:
+	*setcam setpos -788.870239 600.943054 23.847630;setang 5.117703 -166.131042 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_sigh 1 idle*
+	Вот,% дрянь.%%% На самом деле я этого не планировала,% но.%%
+	Я уважаю твою самостоятельность, приятель.%% Иди и будь "надежным".*setanim cat_piano gesture_shrug 1 idle* или делай еще чтонибуть
+	скучное что у тебя на уме,% если это то, что ты действительно хочешь сделать.*mark_seen*
+	&exit
+	
+###### BRANCH 2 
+r2a1:
+	*setcam setpos -1153.211426 490.722992 -10.163246;setang 10.643499 -147.581436 -0.175000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_confused 1 idle*
+	> Пианист пристально смотрит на тебя,% голова наклонена набок.%%% 
+	Вы почти видите, как крутятся шестеренки в ее голове,*setanim cat_piano gesture_disagree 1 idle* прежде чем она 
+	поворачивается и,% ухмыляясь,% *setskin cat_piano 1* качает головой.
+	&r2a2
+
+r2a2:
+	*setcam setpos -788.870239 600.943054 23.847630;setang 5.117703 -166.131042 0.000000*
+	*setanim cat_piano gesture_disagree 1 idle*
+	У нас не такие отношения, приятель.%%*setskin cat_piano 0*
+	Наши отношения основаны на другом типе взаимных уступок.%*setcam setpos -1117.362671 507.229401 -2.390579;setang 8.584972 -162.514069 0.000000*
+	Из тех,*setanim cat_piano gesture_jab 1 idle* где ты берешь дерьмо у других людей и отдаешь его мне.
+	player:
+	&r1a1:
+	*setcam setpos -1280.686523 502.198822 4.809135;setang 6.335543 -15.807698 0.000000*
+		Мне не нравится выражение твоих глаз, и я не хочу спровоцировать
+        еще один инцидент с Певцом. Так что я пас 
+		и неважно что ты тут планируешь. (уйти и завершить)
+	&r3a1:
+	*setcam setpos -1280.686523 502.198822 4.809135;setang 6.335543 -15.807698 0.000000*
+		Я блять живу воровством.
+		
+###### BRANCH 3 (Also merge point)
+r3a1:
+	*setspeaker cat_piano*
+	*setcam setpos -788.870239 600.943054 23.847630;setang 5.117703 -166.131042 0.000000*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_clap 1 idle*
+	> Пианист хлопает в ладоши и сияет,% 
+	хвост хлещет от возбуждения.
+	&r3a2
+	
+r3a2:
+	*setcam setpos -1117.362671 507.229401 -2.390579;setang 8.584972 -162.514069 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_laugh 1 idle*
+	Черт возьми, да, это так.
+	&r3a3
+
+r3a3:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_sweep 1 idle*
+	Я сама подниму посылку,%% но мне просто нужно, чтобы ты был начеку.%%
+	А наша цель - *setanim cat_piano gesture_shrug 1 idle*ебанный идиот, у которого нет никакого пространственного восприятия, 
+	о котором можно было бы говорить.%%%
+	Это легкая работа.%*setanim cat_piano gesture_agree 1 idle* Давай, пошевеливайся.
+	&m1
+
+m1:
+*hide*
+*txout*
+	*setposang cat_piano setpos -2829.242188 3937.424805 0;setang -90 144.140579 0.000000*
+	*setcam setpos -2862.619141 3833.609863 21.781422;setang -1.518007 84.334892 0.000000*
+	*bgmplay sound/jazztronauts/music/events/dangersong.mp3 1 2.0*
+	*setposang player setpos -2875.208740 3945.959717 0;setang 0 40.999508 0.000000*
+*txin*
+*wait .4*
+*setspeaker narrator*
+*show*
+	> Бар "Самсара",%% Комната Виолончелиста%.%.%.%.%%%
+	*setcam setpos -2846.563721 3939.643799 66.705505;setang 12.856805 102.003944 0.000000*
+	Виолончелист внутри,% окружен%.%.%.% веществами.%%% Он выглядит совершенно
+    без сознания.
+	&m2
+	
+m2:
+	*setanim cat_piano gesture_jab 1 idle*
+	*setcam setpos -2862.619141 3833.609863 21.781422;setang -1.518007 84.334892 0.000000*
+	> Пианист поднимает лапу,% затем указывает на%.%.%.% верстак Виолончелиста?%%%
+	Ассортимент выставленной атрибутики поражает воображение,% 
+	и вероятное нарушает практически все существующие законы о наркотиках.
+	&m3
+	
+m3:
+	> Она поворачивается к вам,% и говорит едва слышным шепотом.
+	&m4
+	
+m4:
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_agree 1 idle*
+	Хорошо.%% Вот как будет.%%%
+	Входим,% выходим.% Максимум% десять секунд.%%%%
+	
+	*setanim cat_piano gesture_jab 1 idle*И готово.%%*setcam setpos -2834.555664 4210.392090 58.149071;setang 19.085867 116.498489 0.000000*
+	&m5
+
+m5:
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Я знаю, как работает этот ублюдок.%%*setcam setpos -2858.916504 3892.224121 51.301437;setang 8.394613 74.811508 0.000000* Все эти высокие концепции,% 
+	вероятно, взрывчатые материалы?%%%%
+	
+	*setanim cat_piano gesture_confused 1 idle*Это самое слабое дерьмо.
+	&m6
+	
+m6:
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	И я хочу получить.%%
+	
+	Отвал.%%%*setcam setpos -2845.504395 3920.990967 49.013336;setang 0.159046 42.947407 0.000000*%*setskin cat_piano 1*
+	&m7
+
+m7:
+	*setcam setpos -2862.619141 3833.609863 21.781422;setang -1.518007 84.334892 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_foldarms 1 idle*
+	Я не хочу быть в состоянии думать целую неделю, и я хочу сделать действительно
+    глупый жизненный выбор.%%*setanim cat_piano gesture_jab 1 idle* Ты просто наблюдаешь, как он дергается.
+	player:
+	&m8:
+		Почему бы тебе просто не спросить ег-
+	&m8:
+		Это действительно плохая иде-
+	&m8:
+		Ты ослепнешь, ты вкурс-
+		
+m8:
+	*setposang cat_piano setpos -2860.124023 4046.866211 0;setang -90 6.9 0.000000*
+	*setcam setpos -2821.140869 3879.906006 83.275093;setang 12.118111 104.898827 0.000000
+	*setspeaker narrator*
+	> Пианист игнорирует вас,% крадясь к верстаку.
+	&m8b
+
+m8b:
+	*setposang cat_piano setpos -2865.623291 4168.965820 0;setang -90 3.5 0.000000*
+	*setcam setpos -2977.323242 4272.699707 65.491096;setang 10.021772 -42.143280 0.000000*
+	Она осторожно обходит отрубленного Виолончелиста,% 
+	и разбросанные%.%.%.%% вещи,%.%.%.%% окружающие его
+	&m9
+	
+m9:
+	*setposang cat_piano setpos -2863.152832 4235.968750 -10;setang -90 0 0.000000*
+	*setcam setpos -2818.711670 4181.534668 54.234352;setang 8.238340 122.789406 0.000000*
+	*setspeaker narrator*
+	> Ее хвост застыл позади нее,% она наклоняется еще и еще%.%.%.%%%*setcam setpos -2823.478516 4228.416992 42.383907;setang -0.745903 148.544296 0.000000*
+	и еще%.%.%.%%%
+	и%.%.%.%%*setcam setpos -2850.054443 4247.673828 42.791172;setang 10.664083 139.080826 0.000000*%*setanim cat_piano gesture_exchange 3 idle*
+	Достала!
+	&m10
+	
+m10:
+	*setcam setpos -2833.861816 3878.607178 68.166077;setang 4.524848 96.675133 0.000000*
+	*setspeaker narrator*
+	> Виолончелист начинает шевелиться, и вы отчаянно сигнализируете своему
+    партнеру по ограблению, чтобы она убиралась оттуда.%%% 
+	Вы вдвоем уединяетесь в укромном уголке, чтобы разделить добычу.
+	&m11
+	
+m11:
+*hide*
+*txout*
+	*bgmplay sound/jazztronauts/music/events/loveaffair.mp3 1 2.0*
+	*setposang cat_piano setpos -1187.520996 467.479309 -64;setang -90 294.221405 0.000000*
+	*setcam setpos -788.870239 600.943054 23.847630;setang 5.117703 -166.131042 0.000000*
+*txin*
+*wait .25*
+*show*
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_laugh 1 idle*
+	Мы, блять, сделали это.%% Мы достали% отличное дерьмо.%%%*setcam setpos -1117.362671 507.229401 -2.390579;setang 8.584972 -162.514069 0.000000*
+	Он знает, что*setanim cat_piano gesture_shrug 1 idle* я знаю, что он скрывает тяжелую дрянь,% так что, конечно, он
+	он оставил это открытым, как нечто очевидное и безобидное.%%%% 
+	*setanim cat_piano gesture_confused 1 idle*Виолончелист умнее, чем кажется,% знаешь ли.
+	&m12
+	
+m12:
+	*setspeaker narrator*
+	> Она зажигает эту штуку паяльной лампой,%% именно такого рода
+    чрезмерных действий вы привыкли ожидать.%%% 
+	Она делает глубокую затяжку,% ее уши прижались
+    к голове, а зрачки расширились.
+	&m13
+	
+m13:
+	*setspeaker cat_piano*
+	Иееееееееее%е%е%е%е%е%е%еееееееааа.
+	
+	> Ты чувствуешь запах%.%.%.% цветов?%%% Это лаванда?%%% И ромашка?
+	&m14
+	
+m14:
+	*setspeaker cat_piano*
+	Договор о дружбе скреплен печатью.%%%%*setskin cat_piano 4*
+	*setanim cat_piano pose_passedout*
+	> Глаза пианиста становятся пустыми,% и она падает навзничь на пол.
+	&m15
+	
+m15:
+	*setcam setpos -1176.494019 380.049255 12.085655;setang 16.384089 79.724792 0.000000*
+	*setspeaker narrator*
+	> Слегка подталкивая ее,% вы устанавливаете, что она не мертва.%%%*setcam setpos -1140.250366 476.109009 -12.205513;setang 41.300411 -174.800049 0.000000* 
+	Мгновение спустя,% храп подтверждает, что она просто крепко спит.%%%
+    В воздухе восхитительно пахнет.
+	&m16
+	
+m16:
+	*setposang cat_cello setpos -1057.220947 528.489380 -64;setang -90 105.667139 0.000000*
+	*setspeaker narrator*
+	Когда ты поворачиваешься, чтобы оставить ее дремать,%% Виолончелист появляется в 
+	поле зрения и садится на корточки рядом с ней.
+	&m17
+	
+m17:
+	*setcam setpos -1215.927002 386.680145 -10;setang 23.451723 54.179680 0.000000*
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_shrug 1 idle*
+	бля так и знал что сработает%%%%
+	она всегда предполагает, что у меня есть способность к интеллектуальным играм, и
+    настраивает себя на то, чтобы делать что-то предсказуемое.%%%%*setanim cat_cello gesture_agree 1 idle*
+	спасибо, что дал ей возможность.
+	&m18
+	
+m18:
+	*setcam setpos -1108.357666 512.272339 -8.689590;setang 4.641195 20.931328 0.000000*
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	о,%% стоит отметить, что на самом деле она не*setanim cat_cello gesture_disagree 1 idle* достала мою самую ахуенную дрянь%%%%
+	ты бы смог определить, так ли это, по постоянным крикам
+	&m19
+	
+m19:
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_shrug 1 idle*
+	*setskin cat_cello 1*
+	я только что скатал косяк, полный ароматерапевтических средств, 
+	которые украл из постели, ванны и не только%%%*setcam setpos -1215.927002 386.680145 23.725632;setang 23.451723 54.179680 0.000000* 
+	и кажись это сработало.*setskin cat_cello 0*%%*setanim cat_cello gesture_confused 1 idle* теперь, может быть, она проспит больше
+    часа, а потом проснется спокойной и подарит нам всем немного
+    тишины и покоя на день или два.
+	&m20
+	
+m20:
+	*setspeaker narrator*
+	*setanim cat_cello gesture_agree 1 idle*
+	> Виолончелист кивает сам себе,% явно удовлетворенный,%% и уходит.
+	&m21
+	
+m21:
+	Ошеломленный,% вы выбрасываете косяк и оставляете спящую кошку в покое.*mark_seen*
+	&exit
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

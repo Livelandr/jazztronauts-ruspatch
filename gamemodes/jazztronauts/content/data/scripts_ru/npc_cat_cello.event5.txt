@@ -1,0 +1,574 @@
+﻿SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setposang cat_bar setpos -2889.937988 2926.586670 0;setang -90 180 0.000000*
+	*setnpcid cat_bar npc_cat_bar*
+	*setcam setpos -2595.013428 2744.007568 85.509125;setang 6.983787 148.065491 0.000000*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -2927.378174 2883.511963 0;setang -90 300 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+	*setposang player setpos -2726.948975 2782.044189 0;setang 3.300901 140.335999 0.000000*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos 3586.341309 522.965698 0;setang -90 270 0.000000*
+	*setanim cat_cello pose_sit01*
+	*setskin cat_cello 5*
+	*setnpcid cat_cello npc_cat_cello*
+
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos -2856.525635 2876.622559 0;setang -90 51 0.000000*
+	*setnpcid cat_singer npc_cat_sing* 
+
+	*txin*
+	
+###### START
+	*setspeaker narrator*
+	*show*
+	> Бар Самсара%.%.%.%% %.%.%.%хм.%%%
+	Здесь три кота,% и выглядят они обеспокоено.
+	&b1
+
+b1:
+	*setposang cat_bar setpos -2889.937988 2926.586670 0;setang -90 216 0.000000*
+	*setposang cat_piano setpos -2927.378174 2883.511963 0;setang -90 230 0.000000*
+	*setposang cat_singer setpos -2856.525635 2876.622559 0;setang -90 216 0.000000*
+	*setspeaker cat_piano*
+	*setcam setpos -2851.549805 2833.720459 57.335415;setang 8.687464 145.084076 0.000000* #### PIANO
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_anger 2*
+	Вот ты где.%%%
+	Слушай,%% Виолончелисту нужна твоя помощь.
+	&b2
+	
+b2:
+	*setcam setpos -2833.064697 2905.589111 54.574524;setang 10.870310 155.732285 0.000000* ###### BAR
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_sweep 1 idle*
+	Он недавно был тут что-то попивая,%% а потом становился все больше
+	и больше взбудораженным, после чего он бросил стакан через всю комнату
+	и убежал.
+	&b3
+
+##bartender scowls while goin like bitch i know what you did but continues neutrally after that	
+b3:
+	Если это связано со всеми этими*setskin cat_bar 2* коробками молока%% которые
+	он раздобыл,%%%%*setanim cat_bar gesture_sigh 1 idle* *setskin cat_bar 0*то я догадываюсь что не так.
+	&b4
+	
+b4:
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_disagree 1 idle*
+	Я не буду стесняться в выражениях.%%%%*setskin cat_bar 0* Виолончелист не в себе,%%% и он продолжает 
+	возлагать свои надежды на волшебные лекарства и мгновенные решения.%%%%%*setanim cat_bar gesture_sweep 1 idle* Кажется 
+	его последняя попытка не удалась.
+	&b5
+	
+b5:
+	*setanim cat_bar gesture_disagree 1 idle*
+	Такие неудачи редко хорошо сказываются на его психологическом
+	состоянии,%%*setanim cat_bar gesture_foldarms 1 idle* но учитывая его настроение%.%.%.%.%%
+	&b6
+	
+b6:
+	*setcam setpos -2810.619873 2851.688965 35.836128;setang -0.017270 148.544876 0.000000* ####### SINGER
+	*setspeaker cat_singer*
+	*setskin cat_singer 5*
+	*setanim cat_singer gesture_exchange 1.4 idle*
+	> Певец беспокойно объясняют что Виолончелист никого не слушает, %%
+	даже когда Певец пытались дать понять что они больше волнуются о нем,
+	чем расстроены его вспышкой гнева, они подарили ему утяжеленное одеяло,
+	с рисунком с листьями конопли.
+	&b7
+	
+b7:
+	*setanim cat_singer gesture_anger 1.4 idle*
+	> "Если он не послушает тебя, то кого он вообще послушает??%%%
+	Он говорил с тобой больше чем со всеми кого мы знали даже несмотря
+	на то, что он был на спаде!!!%%%%*setanim cat_singer gesture_agree 1 idle*
+	Удивительно!!!"
+	&b8
+	
+b8:
+	*setcam setpos -3009.787842 2799.737305 87.404266;setang 7.835631 19.437826 0.000000* 
+	*setspeaker narrator*
+	> Это последнее событие у Виолончелиста.%% Возможно
+	вам понадобится предупредить остальных игроков что вы будете заняты 
+	некоторое время.%
+	&b9
+	
+b9:
+	*setspeaker narrator*
+	> К тому же,%% следующая сцена содержит более серьзное описание
+	проблем Виолончелиста.%%%% Ниже вы можете пропустить ее и прочитать
+	краткое содержание,% если вы не хотите его смотреть.%%%
+	player:
+	&m1:
+		Покажите куда идти.
+	&r1a1:
+		Хочу узнать впорядке ли он. (Краткое содержание)
+	&r2a1:
+		Мне нужно время перед таким разговором.
+		Я вернусь когда буду готов. (уйти)
+
+
+###### OPTIONAL SUMMARY. Y'know the one we have in case someone who has these same issues plays our game.
+###### so that they don't get reminded of the shit that they are attempting to forget about via escapism and videogames.
+###### please don't be weird about inclusivity features, if you are reading this file purely to try and own us for doing this.		
+r1a1:
+	*hide*
+	*txout*
+	*setspeaker narrator*
+	*wait .1*
+	*show*
+	После попадания на крышу, Виолончелист набрасывается на вас в гневе,
+	думая что вы пришли просто чтобы пожалеть его и дать ему пустые
+	банальности, после чего извинился за свой выход из себя.
+	&r1a2
+	
+r1a2:
+	Он объясняет причины своего злоупотребления наркотиками (в основном
+	самоненависть), и пренебрежительно списывает себя со счетов,
+	считая что другие коты держат его рядом с собой только из жалось,
+	и хочет чтобы его выбросили чтобы он мог закончить саморазрушатся.
+	&r1a3
+	
+r1a3:
+	Когда на него давят, он признает что знает, что им не все равно, 
+	но все равно ненавидит себя за то, что разочаровывает их, когда
+	возвращается к старым привычкам, в то время как они пытаются ему
+	помочь, и пытается оттолкнуть их для их же блага, думая, что это
+	заставит их перестать причинять себе боль.
+	&r1a4
+	
+r1a4:
+	Ты обьясняешь ему что затыкание своих друзей вызывает еще больше
+	боли, что они готовы мирится с промахами и нестабильностью, но 
+	его закрытость и саморазрушение гораздо хуже.
+	&r1a5
+	
+r1a5:
+	Осознав это, Виолончелист сломался и разразился слезами. Ты сидишь с
+	ним пока он не успокоился. Вы оба понимаете что его проблемы не решены,
+	но теперь он понимает что его друзья пытаются сделать, и позволит
+	им помочь ему. *mark_seen*
+	&exit
+	
+###### EARLY EXIT
+r2a1:
+	*setcam setpos -2833.064697 2905.589111 54.574524;setang 10.870310 155.732285 0.000000* ###### BAR
+	*setspeaker cat_bar*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_facepalm 1 idle*
+	Это вполне объяснимо,%% но пожалуйста,%%% когда будешь готов
+	приди как можно скорее.
+	&exit
+	
+###### MERGE Point
+m1:
+	*setcam setpos -2851.549805 2833.720459 57.335415;setang 8.687464 145.084076 0.000000* #### PIANO
+	*setanim cat_piano gesture_exchange 1 idle*
+	*setspeaker cat_piano*
+	Он на балконе с видом на озеро.
+	&m2
+	
+m2:
+	*setcam setpos -2810.619873 2851.688965 35.836128;setang -0.017270 148.544876 0.000000* ####### SINGER
+	*setanim cat_singer gesture_clap 1 idle*
+	*setspeaker cat_singer*
+	> "Ты справишься, я уверен! ✧/ᐠ-ꞈ-ᐟ\"
+	&m3
+	
+m3:
+	*setcam setpos -2833.064697 2905.589111 54.574524;setang 10.870310 155.732285 0.000000* ###### BAR
+	*setanim cat_singer gesture_agree 1 idle*
+	*setspeaker cat_bar*
+	Спасибо.
+	&m4
+	
+m4:
+	*hide*
+	*txout*
+	*setspeaker cat_cello*
+	*setcam setpos 2998.774902 710.683411 122.469833;setang 18.723225 -49.392609 0.000000*
+	*setposang player setpos 3105.299072 523.735535 0;setang 0.701462 -2.710294 0.000000*
+	*txin*
+	*wait 2.3*
+	*show*
+	я так полагаю ты здесь чтобы помочь мне.
+	&m5
+	
+m5:
+	*setcam setpos 3155.001221 515.577759 61.548340;setang 2.618130 -1.689524 0.000000*
+	*tweencam 40 setpos 3295.045654 512.204102 55.122147;setang 2.644750 -0.890923 0.00000*
+	чтобы сказать что-то волшебное что уберет все дерьмо из моей души,%%%
+	чтобы разбубнить мне про то что нормально чувствовать себя грустным
+	иногда и не знать как с этим справится тоже окей
+	&m6
+	
+m6:
+	ты блять понимаешь сколько раз я блять слышал то что ты хочешь
+	мне сейчас сказать?%% ты настолько наивен чтобы считать что %нет%,
+	естественно,%% все что ему нужно это услышать правильные слова
+	и его жизнь сразу перевернется?
+	&m7
+	
+m7:
+	*setskin cat_cello 2*
+	что он не знает что он неудачник?%%% ты блять понимаешь с кем ты
+	говоришь?%%%% с ЧЕМ ты говоришь?%% у тебя есть хоть ПОНИМАНИЕ
+	что ты предлагаешь?
+	&m8
+	
+m8:
+	*setcam setpos 3500.529297 508.445374 33.953777;setang -7.843515 0.448955 0.000000*
+	*setposang cat_cello setpos 3586.341309 522.965698 0;setang -90 90 0.000000*
+	*setanim cat_cello gesture_anger 2 idle*
+	я не ХОЧУ помощи!%%%*setanim cat_cello gesture_anger 1.6 idle* я не ХОЧУ чтобы меня жалел такой
+	ебаный бесполезный эфемерный кусок дерьма по типу тебя!%%%%*setcam setpos 3637.327881 379.558289 106.256882;setang 11.908493 144.249985 0.000000*%*setanim cat_cello gesture_facepalm 1 idle*
+	
+	я%.*setskin cat_cello 4*%.%.%%*bgmplay sound/jazztronauts/music/events/pariah.mp3 .75 10*    мне%*setanim cat_cello gesture_sigh 1 idle*.%.%.%%%*setskin cat_cello 2*
+	&m9
+
+m9:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setskin cat_cello 5*
+	*setposang player setpos 3332.448486 503.497314 0;setang 0.941127 0.297801 0.000000*
+	*setanim cat_cello gesture_embarass 1 idle*
+	мне жаль,% *player*.%%%%
+	я устал% быть усталым.
+	player:
+	&concern:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Слушай,% если тебе нужно одиночество,%% я дам его тебе,%%%% но я
+		волнуюсь о тебе.
+	&others:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000*
+		Все охренеть как волнуются о тебе.
+	&yoga:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000*
+		Я знаю все это предлагают,%%% но пробовал ли ты-
+
+###### RESPONSE 1		
+concern:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_sigh 1 idle*
+	я%.%.%.%% я ценю предложение.%%% и волнение.%%%%*setanim cat_cello gesture_disagree 1 idle* но я не знаю
+	что мне сейчас нужно.
+	&concern1
+	
+concern1:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setskin cat_cello 2*
+	%.%.%.%Ну.%%%*setanim cat_cello gesture_confused 1 idle* Я знаю что мне нужно,%% но часть меня
+	слишком упряма, чтобы настаивать на своем%%%%*setanim cat_cello gesture_shrug 1 idle*
+	Поэтому я выбираю лучший вариант.
+	&n1
+	
+###### RESPONSE 2
+others:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_laugh 1 idle*
+	*setskin cat_cello 5*
+	Хах.%%%*setanim cat_cello gesture_disagree 1 idle* Они даже не потрудились прийти
+	с тобой,% не так ли?%%% Я знаю что они на самом деле думают обо
+	мне,%%*setanim cat_cello gesture_sigh 1 idle* даже если они этого не признают.%%%% Это просто дело
+	времени пока им не надоест перестраивать сожженные мосты.
+	&n1
+	
+###### RESPONSE 3
+yoga:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setskin cat_cello 2*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_sigh 1 idle*
+	Пожалуйста,%% я знаю ты хочешь помочь,%%% но я клянусь что пробовал
+	медитацию,% я пробовал упражнения,% я пробовал осознанность,% я
+	пробовал каждую*setanim cat_cello gesture_anger 2 idle* блядскую программу йоги для мамочек.%%%%
+	Ничто не исправило то что я,%% фундаментально,%%% и есть проблема.
+	&n1
+	
+	
+###### MERGE
+n1:
+	*setcam setpos 3438.793213 462.698669 9.742290;setang -4.515965 35.702534 0.000000*
+	*setskin cat_cello 2*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_confused 1 idle*
+	Ты думаешь, я сбежал так далеко в измененные состояния ради забавы?%%%*setanim cat_cello gesture_disagree 1 idle* Нет,%
+	потому что я блять себя ненавижу.%%%%*setanim cat_cello gesture_facepalm 1 idle* 
+	&n1b
+	
+n1b:
+	Быть одним в моей голове,%%
+	с чистотой разума,%%% с ничем между мной и только мной%.%.%.%%%%*setanim cat_cello gesture_disagree 1 idle*
+	никто не смог бы изобразить мне более убедительный Ад.
+	&n2
+	
+n2:
+	*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+	*setskin cat_cello 5*
+	*setanim cat_cello gesture_shrug 1 idle*
+	Может ты сможешь это понять.%%%%*setanim cat_cello gesture_disagree 1 idle* Надеюсь что нет.%%%%%%% Но
+	забавная часть побега от своих проблем в том что ты должен
+	бежать настолько быстро насколько сможешь, просто ради того
+	чтобы остатся на том же месте.
+	&n3
+	
+n3:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_jab 1 idle*
+	Вот что произошло со мной когда мне%.%.%.%%%*setanim cat_cello gesture_confused 1 idle*
+	слово повезло не подходит.
+	&n4
+	
+	
+n4:
+	*setcam setpos 3435.073975 511.132660 43.181072;setang 1.260591 -0.926584 0.000000*
+	*tweencam 15 setpos 3331.607666 512.866028 45.466423;setang 1.287210 -0.979824 0.000000*
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_foldarms .75 idle*
+	Много лет назад,% я видел%% в%с%е.%%% Чтобы я не делал,%*setskin cat_cello 0* под чем бы я ни был,%%
+	каким бы ни было мое настроение,%%% все это соединилось воедино.%%%%*setanim cat_cello gesture_agree 1 idle* Я мог видеть
+	все на своих местах.%%% Я не могу описать что я видел и 
+	чувствовал,%%*setanim cat_cello gesture_disagree 1 idle* потому что я не помню.
+	&n5
+	
+n5:
+	В этом мимолетном взгляде,%%% тот трип, который длился десять
+	тысяч лет в мгновение ока,%%% Наконец-то я почувствовал себя 
+	комфортно в своей собственной шкуре.%%%% Я знал, где мое место.%% Я знал к чему
+	все идет,%% что нас ждало%.%.%.%
+	&n6
+	
+n6:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_facepalm 1 idle*
+	%.%.%.%а потом я сломался.%%%%*setskin cat_cello 2*
+	&n7
+	
+n7:
+	*setcam setpos 3536.503662 494.431030 48.873035;setang 1.846230 22.339319 0.000000* ####### CELLO HEADSHOT
+	*setskin cat_cello 5*
+	*setanim cat_cello gesture_disagree 1 idle*
+	Все это было снято с меня, пока я отходил.%%% Это чувство единства,%
+	эта самореализация,%*setanim cat_cello gesture_anger 2 idle* все это исчезло кроме эха того как это 
+	ощущалось.%%% У меня не осталось ничего, кроме воспоминания.%%%%*setanim cat_cello gesture_shrug 1 idle* Это издевательство.
+	&n8
+	
+n8:
+	*setcam setpos 2983.167969 338.489960 166.048889;setang 13.931705 19.251358 0.000000*
+	Мне нужно было увидить это все снова.%%%%
+	Снова это почувствовать.%%%%
+	Снова сбежать.
+	&n9
+	
+n9:
+	*setcam setpos 3507.908203 458.545197 71.318253;setang 18.004484 36.705151 0.000000* ###### CELLO 3/4
+	*setanim cat_cello gesture_sweep 1 idle*
+	И это привело меня к тому, что со мной сейчас.%%% Выгоревшие
+	наркозависимые руины гонящиеся за миражом.%%%%*setanim cat_cello gesture_disagree 1 idle* 
+	&n9b
+	
+n9b:
+	Это было так давно что я даже не могу быть уверенным что это реальные
+	воспоминания,% или какие-то призраки газлайтинга которых придумал мой
+	разум чтобы оправдать саморазрушение.
+	&n10
+	
+n10:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setanim cat_cello gesture_sigh 1 idle*
+	Я бесполезен.%%%% Я не приношу ничего нашей команде.%%%%*setanim cat_cello gesture_anger 2 idle*
+	Я просто барахтающийся кусок дерьма, питающийся былой славой и 
+	симпатиями, пока они не поймут-
+	&n11
+	
+n11:
+	*setcam setpos 3536.503662 494.431030 48.873035;setang 1.846230 22.339319 0.000000* ####### CELLO HEADSHOT
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_shock 1 idle*
+	-поймут что от меня больше проблем, чем пользы,%*setanim cat_cello gesture_anger 2 idle*
+	и что я никогда не смогу реализовать свой "потенциал",%%%*setskin cat_cello 5* 
+	и потом они выкинут меня к херам.
+	&n12
+	
+n12:
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_facepalm 1 idle*
+	Поэтому,%% оставь меня одного.%%%*setskin cat_cello 5* Позволь мне спокойно добить себя.%%%%
+	Если от меня не осталось ничего, о чем можно волноватся,%% 
+	то и не осталось никого, кто бы заботился обо мне%.%.%.%
+	&n13
+	
+n13:
+	*setanim cat_cello gesture_sigh 1 idle*
+	*setskin cat_cello 5*
+	это все о чем я могу надеятся.
+	player:
+	&n14:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Ты пытаешься убедить меня в этом,% или себя?
+		
+n14:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setspeaker cat_cello*
+	%.%.%.%
+	player:
+	&n15:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Я не собираюсь притворятся что знаю как ты себя чувствуешь,
+		но я точно могу сказать ты не прав насчет своих друзей.
+		Они видят, как тебе больно, и хотят помочь.
+		
+n15:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_anger 2 idle*
+	И когда они пытаются, я просто делаю им больно.%%%% Ты
+	видел что было с Певцом.%%% *setanim cat_cello gesture_disagree 1.3 idle*Они такого не заслужили.% 
+	Никто из них не заслужил.%%%%% Я слишком сильно забочусь о них, 
+	чтобы видеть, как они проходят через это.
+	player:
+	&n16:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Значит, ты думаешь, что причинение им боли 
+		намеренно компенсирует причинение боли случайно?
+	
+n16:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setspeaker cat_cello*
+	%.%.%.%.%.%.%
+	player:
+	&n16b:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Затыкание причиняет им боли больше, не меньше.
+		Они продолжают протягивать к тебе руки, даже когда
+		ты их обжигаешь.
+
+n16b:
+		*setspeaker player*
+		Они знают через что ты проходишь.
+		Они хотят помочь.
+		Они заботятся о тебе достаточно чтобы
+		дождатся тебя.
+		&n17
+		
+n17:
+	*setcam setpos 3264.319092 433.748749 34.417999;setang 2.165646 34.744156 0.000000* ###### PLAYER AND CELLO CELLO DOMINANT
+	*setspeaker cat_cello*
+	%.%.%.%.%.%.%.%.%.%
+	player:
+	&n18:
+		*setcam setpos 3574.678711 368.897400 48.877308;setang 3.336928 125.092468 0.000000* ###### PLAYER AND CELLO PLAYER DOMINANT
+		Не так поздно взять их за руки.
+		
+n18:
+	*setcam setpos 3204.602783 514.840210 76.961311;setang 5.706127 -0.074771 0.000000*
+	*setposang cat_cello setpos 3586.341309 522.965698 0;setang -90 270 0.000000*
+	*setanim cat_cello pose_sit01*
+	*setskin cat_cello 5*
+	*setposang player setpos 3578.333008 494.673340 5;setang 12.760320 -1.751974 0.000000*
+	*setanim player sit*
+	*setspeaker narrator*
+	> После этого,%%% внутри Виолончелиста что-то щелкает,% и он
+	падает на пол, разразившись слезами которые он долго сдерживал.%
+	&n18b
+	
+n18b:
+	*setcam setpos 3204.602783 514.840210 76.961311;setang 5.706127 -0.074771 0.000000*
+	*setposang cat_cello setpos 3586.341309 522.965698 0;setang -90 270 0.000000*
+	*setanim cat_cello pose_sit01*
+	*setskin cat_cello 5*
+	*setposang player setpos 3578.333008 494.673340 5;setang 12.760320 -1.751974 0.000000*
+	*setanim player sit*
+	Ты сидишь рядом с ним пока рыдания сотрясают его тело,%
+	обнимаешь за плечо% и кладешь ладонь на его руку.
+	&n19
+	
+n19:
+	> Ты сидишь с ним пока у него не закончились слезы.%%%% Вы оба знаете
+	что это будет непростая дорога,% и сколько раз он будет спотыкаться.%%%
+	Привычки не меняются за один день,%%% но любое приключение кажется короче
+	если проводить его вместе с хорошими друзьями%.%.%.%
+	&n20
+	
+n20:
+	и Виолончелист осознал, что настал момент позволить
+	кому-то пройти с ним. *mark_seen*
+	&exit
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

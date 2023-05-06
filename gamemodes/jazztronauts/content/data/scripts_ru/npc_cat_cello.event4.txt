@@ -1,0 +1,238 @@
+﻿SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos -2912.563965 2959.992920 36;setang -90 0 0.000000*
+	*setskin cat_cello 2*
+	*setanim cat_cello pose_sit02*
+	*setnpcid cat_cello npc_cat_cello*
+	*bgmplay sound/jazztronauts/music/events/allspice.mp3 .5 2.0*	
+    *spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos -2681.986572 2795.670410 0;setang -90 51 0.000000*
+	*setskin cat_singer 2*
+	*setnpcid cat_singer npc_cat_sing*
+	*setcam setpos -2801.732178 2749.402588 65.024940;setang -1.082185 105.084007 0.000000*
+	*setposang player setpos 122.167236 3117.539795 24;setang 0 -177.779892 0.000000*
+	*setanim player sit*
+	*txin*
+	
+###### START
+     *setspeaker narrator*
+	 *show*
+     >Бар Самcара.%%%%%%*setcam setpos -92.599274 2894.528809 95.031448;setang 7.010281 47.859997 0.000000* Вы занимаетесь своими делами в киоске рядом 
+     с баром,%% отдыхая и смотря как Виолончелист 
+     пьет что-то похожее на порцию антифриза,%*emitsound physics/wood/wood_panel_impact_hard1.wav 0.45*%*setcam setpos -2889.212646 3035.416260 68.696411;setang 4.880709 -48.762085 0.000000* в тот момент 
+     Певец врывается в комнату.%%% Они выглядят,% э,%% обиженными.
+     &a2
+
+a2:
+	*setcam setpos -2906.829590 3070.279053 62.922913;setang 1.979135 -86.136635 0.000000*
+     *setspeaker cat_cello*
+	 *setskin cat_cello 2*
+     о черт началось
+     player:
+          &a3: 
+*setcam setpos -2801.732178 2749.402588 65.024940;setang -1.082185 105.084007 0.000000*
+		  [тихо смотреть]
+          &cheeseit: 
+			*setcam setpos -2801.732178 2749.402588 65.024940;setang -1.082185 105.084007 0.000000* 
+		  Кажется, я должен быть где угодно, но никак не здесь. (уйти)
+
+
+### EARLY EXIT
+
+cheeseit:
+     *setspeaker narrator*
+     Вы решаете что вам лучше прийти потом.%%% Вы не особо хотите
+     посмотреть на драку.
+     &exit
+
+### MAIN BRANCH
+
+a3:
+	*setposang cat_cello setpos -2912.563965 2959.992920 36;setang -90 231 0.000000*
+	*setposang cat_singer setpos -2786.335693 2828.759277 0;setang -90 51 0.000000*
+     *setspeaker cat_singer*
+     >Вы видите только небольшую часть планшета Певца с такой дистанции,%%
+     но даже отсюда видно что там много ругательств.%%%%%*setanim cat_singer gesture_anger 1.7 idle* 
+     Всмысле,%*setanim cat_cello gesture_shock 1.4 idle* МНОГО ругательств.
+     &a4
+
+a4:
+	*setcam setpos -2810.136963 2743.730713 17.970165;setang -9.600546 108.446877 0.000000*
+     *setspeaker cat_cello*
+	 *setskin cat_cello 4*
+	 *setanim cat_cello gesture_facepalm 1 idle*
+     слушай я знаю что ты знаешь о кляйнере% и я понимаю что ты зол
+     но*setskin cat_cello 0* у нас уже есть много вещей о которых ты
+     сами говорили что нам пришлось дать им пропохвататели чтобы%%%%*setanim cat_cello gesture_disagree 1 idle*
+     "дать им чем-то занятся"
+     &a5
+
+a5:
+	*setanim cat_cello gesture_shrug 1 idle*
+     я осознаю и понимаю что мой метод воровства его знаний был слегка
+     неортодоксальный% но что ты хотел чтобы я сделал,%%*setanim cat_cello gesture_confused 1.2 idle* декомпилировал его?%%%
+     отрубил ему голову?%%%*setanim cat_cello gesture_disagree 1 idle* это ниразу не более жестоко чем
+     половина того что мы видели гоняя на каталке.
+     &a6
+
+a6:
+	*setcam setpos -2598.027100 3051.372070 79.533783;setang 4.561276 -148.862167 0.000000*
+     *setspeaker cat_singer*
+	 *setanim cat_singer gesture_anger 2 idle*
+     >Певец махает руками, позволяя вам увидеть что написано на планшете.%%%%*setanim cat_singer gesture_shock 1 idle*
+     Их явно ужаснуло что Кляйнер был безвозвратно уничтожен,%%*setanim cat_singer gesture_anger 2 idle*
+     продолжая рассказывать о том, как, скорее всего, 
+     было страшно ему осознавать что происходит.
+     &a7
+
+a7:
+	*setcam setpos -2899.017090 3001.060791 74.680466;setang 12.094728 -81.194077 0.000000*
+     *setspeaker narrator*
+     >%.%.%.%вы замечаете, что Виолончелист сжимает рюмку крепче, чем в тисках,
+     после чего она вдребезги разлетается в его лапе,%% после чего он
+     срывается.
+     &a8
+
+a8:
+	*setcam setpos -2818.010254 2747.359375 63.005245;setang 2.751089 107.754669 0.000000*
+	*setposang cat_cello setpos -2895.698242 2940.927979 0;setang -90 231 0.000000*
+	*setanim cat_cello gesture_anger 2.2 idle*
+     *setspeaker cat_cello*
+     ради.%%*setanim cat_cello gesture_facepalm 1.8 idle* блять.%*setcam setpos -2850.703613 2846.708984 54.163239;setang 4.508009 110.150406 0.000000*%%%*setanim cat_cello gesture_exchange 2.3 idle* БОГА.*setskin cat_cello 2**setcam setpos -2871.407959 2902.950928 51.328709;setang 4.854068 113.664223 0.000000*
+     &a9
+
+a9:
+	*setcam setpos -2858.027832 2916.603027 50.138813;setang 13.851631 144.117416 0.000000*
+	*setskin cat_singer 5*
+	*setanim cat_cello gesture_anger 2 idle*
+     они просто роботы. ебаные роботы из фикспрайса с самосознанием как
+     у ферби.%%%*setanim cat_cello gesture_clap .5 idle* они.%% не.%% настоящие.%%%%% и НИКОГДА не будут 
+     реальными*setanim cat_cello gesture_disagree 1,6 idle*.%%%% все что ты делаешь это проявляешь чувства к
+     безделушкам тупее чатбота,%% ты это понимаешь?%%%%*setanim cat_cello gesture_anger 2 idle* ОНИ БЛЯТЬ НЕ НАСТОЯЩИЕ.
+     &a10
+
+a10:
+	*setcam setpos -2871.787842 2911.376709 24.914227;setang -33.106087 109.990471 0.000000*
+	*setskin cat_singer 6*
+	*setanim cat_cello gesture_facepalm 1.5 idle*
+     коала с непоправимым повреждением мозга более самосознательна чем
+     эти штуки.%%%*setanim cat_cello gesture_shrug 1 idle* им ВСЕ РАВНО что ты стараешься чтобы
+     им было тепло и что у них есть мягенькие подушечки чтобы они могли
+     спать*setanim cat_cello gesture_anger 2 idle* потому что у них НЕТ БЛЯТЬ ЧУВСТВ.
+     &a11
+
+a11:
+	*setcam setpos -2897.719727 2912.082031 49.077942;setang -1.667793 47.167252 0.000000*
+	*setanim cat_cello gesture_disagree 1.5 idle*
+     я сделал тебе одолжение всосав эту херню так как если бы я этого
+     не сделал ты бы*setanim cat_cello gesture_jab 1.3 idle* дал ей название и заботился о ней как о реальной персоне
+     со всей своей душой до тех пор пока не осознал бы что *setanim cat_cello gesture_sigh 1.3 idle*
+     ты балуешь сраные куски анимаций
+     &a12
+
+a12:
+	*setcam setpos -2870.269043 2919.815918 15;setang -45 131.073303 0.000000*
+	*setanim cat_cello gesture_facepalm 1.5 idle*
+     ты делаешь это потому что дал обещание которое не можешь сдержать
+     тем кому на нас поебать так как если бы им не было то они бы*setanim cat_cello gesture_anger 2 idle*
+     БЛЯТЬ ОСТАЛИСЬ
+     &a13
+
+a13:
+	*setfov 50*
+	*setanim cat_cello gesture_disagree 1.3 idle*
+     мне начинает казатся что ты делаешь это специально потому что
+     знаешь что со мной делает это зрелище*setanim cat_cello gesture_anger 2 idle* и это месть от
+     того "друга", о котором ты заботишься намного больше чем обо мне, бессердечный
+     ты кусок дерь-*setcam setpos -2911.438721 2963.478271 83.287720;setang 25.644358 -47.431377 0.000000**setfov 70*
+     &a14
+
+a14:
+     *setspeaker cat_singer*
+     >%.%.%.%
+     &a15
+
+a15:
+	*setcam setpos -2814.735596 2812.099854 41.281853;setang -0.123810 103.770172 0.000000*
+    *setskin cat_cello 5*
+	 *setspeaker cat_cello*
+	*setanim cat_cello gesture_shock 1.4 idle*
+     %%%.%.%.%певчий я не-%%%*setskin cat_cello 2*%*setcam setpos -3261.866699 2754.966064 2.898863;setang -4.968647 23.803549 0.000000* 
+     я не хотел-%%%%%*setanim cat_cello gesture_embarass 1 idle* 
+     ты не- 
+     &a16
+
+a16:
+     *setspeaker narrator*
+	*setcam setpos -92.599274 2894.528809 95.031448;setang 7.010281 47.859997 0.000000*
+     >Виолончелист издает едва внятные мольбы,%% осознавая что он
+     только что сказал.%%% Звуки перерастают в надрывный вой, %%
+     и он убегает,%% в поисках побега от этих слов которые теперь 
+     витают в воздухе.*setposang cat_cello setpos 0 0 0;setang -90 0 0.000000*
+     player:
+          &b1: (Побежать за ним)
+          &c1: Ты в порядке,%% Певец?
+
+### MINI BRANCH 1
+b1:
+	*setcam setpos -3027.578613 2820.252197 44.074524;setang 6.637681 9.171491 0.000000*
+	*setposang player setpos -2951.335449 2883.029297 0;setang 8.820518 -4.724119 0.000000*
+	*setanim player idle_all_02
+     *setspeaker narrator*
+	 *setanim cat_singer gesture_disagree 1 idle*
+     >Ты начинаешь гнатся за Виолончелистом,%% просто чтобы тебя
+     остановил Певец буквально обхватывающий тебя сзади чтобы
+     удержать. 
+     &b2
+
+b2:
+     *setspeaker cat_singer*
+	*setanim cat_singer gesture_disagree 2 idle*
+     >Он отчаянно качает головой,%% оттирая слезы,%%
+     перед тем как написать просьбу дать Виолончелисту
+     побыть одному 
+     &a17
+
+### MINI BRANCH 2
+c1:
+	*setposang player setpos -2951.335449 2883.029297 0;setang 8.820518 -4.724119 0.000000*
+	*setanim player idle_all_02
+	*setcam setpos -3027.578613 2820.252197 44.074524;setang 6.637681 9.171491 0.000000*
+     *setspeaker cat_singer*
+	 *setskin cat_singer 5*
+	 *setanim cat_singer gesture_agree 1 idle*
+     >Певец кивает хоть и старается сдержать слезы.%%%% "Спасибо, но я
+     в порядке.%% Я благодарен что ты волнуешься,% ты очень добр."
+     &a17
+
+a17:
+	*setskin cat_singer 7*
+	*setanim cat_singer gesture_sigh 1 idle*
+     >"Может у Виолончелиста плохие дни, но это что-то новенькое и
+     волнуюсь о нем???%%%%*setskin cat_singer 0* Нам нужно дать
+     ему остыть перед тем как за ним гнатся.%%%*setanim cat_singer gesture_exchange 1 idle*%*setskin cat_singer 1* Со мной все будет хорошо!!!
+     Это было неожиданно, но ты видел его лицо,%*setskin cat_singer 0* он понял что переборщил".
+     &a18
+
+a18:
+	*setskin cat_singer 3*
+	*setanim cat_singer gesture_laugh 1 idle*
+     >”Я усажу этого параноидального ублюдка, когда он успокоится, а потом 
+     мы поговорим с ним о здоровых способах выражения злости (Φ ᆺ Φ)”
+     &a20
+
+a20:
+     *setspeaker narrator*
+	 *setskin cat_singer 0*
+     >Певец,%% собравшись с духом, решив с любовью и уважением отодрать
+     Виолончелисту его задницу, уходит в направление куда тот убежал.%%%%
+     Как вам кажется, вам лучше позволить им самим разобратся в этом вопросе.*mark_seen*
+     &exit
+     

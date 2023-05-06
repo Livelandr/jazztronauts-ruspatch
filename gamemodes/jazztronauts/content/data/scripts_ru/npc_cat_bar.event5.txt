@@ -1,0 +1,307 @@
+SKIP_OPEN = true
+
+begin:
+    *txout*
+    *setfov 70*
+    spawngang()
+ 	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	
+	*setcam setpos -2579.370361 2721.580811 64.031250;setang 3.736192 140.947372 0.000000*
+	*setposang cat_bar setpos -2880.668457 2908.302490 0;setang -90 210 0.000000*
+	*setposang cat_cello setpos -2189.791260 6927.904785 10;setang -90 30 0.000000*
+	*setposang cat_piano setpos -2069.482910 7009.310547 10;setang -90 30 0.000000*
+    *setposang cat_singer setpos -2205.779297 7010.829590  10;setang -90 30 0.000000*
+	*setposang player setpos -2649.127686 2834.540283 00;setang 0.328832 157.771545 0.000000*
+	*bgmplay sound/jazztronauts/music/events/bartender_song.mp3 1.0 2.0*
+	*txin*
+	*wait .15*
+	*show*
+    >Бар Самсара%.%.%.%%%
+    Вы видите как Бармен упаковывает корзинку. Она сияет когда
+    видит вас в своем поле зрения.
+    &a2
+
+a2:
+	*setcam setpos -2799.522217 2829.456299 37.002892;setang 3.736205 135.463394 0.000000*
+    *setspeaker cat_bar*
+	*setskin cat_bar 3*
+	*setanim cat_bar gesture_shock 1 idle*
+    Ах!% *player*!%%%%*setskin cat_bar 1* 
+        Ты мне как раз нужен.%%%*setskin cat_bar 0* Мы собираемся на небольшой пикник
+    к горячим источникам,%%*setanim cat_bar gesture_confused 1 idle* хочешь присоединится?
+    &a3
+
+a3:
+    *setspeaker narrator*
+    (Это последний ивент. Стоит дать другим игрокам знать
+    что вы будете немного заняты.)
+    player:
+         &a4: Да, %конечно.% Я жажду бесплатной еды.
+         &leave: Мне надо кое-что сделать,% может позже? (уйти)
+
+###EARLY EXIT
+
+leave:
+    *setspeaker cat_bar*
+	*setanim cat_bar gesture_agree 1 idle*
+    Мы подождем,%% не волнуйся.
+    &exit
+
+a4:
+    *setspeaker cat_bar*
+    Отлично.%%% Вот,% помоги мне перенести эти-
+    &a5
+[FADE OUT/IN]
+
+a5:
+	*hide*
+	*txout*
+	*wait .1*
+	*setposang cat_bar setpos -2079.309082 6940.916992 11;setang -90 30 0.000000*
+	*setposang player setpos -2039.791626 7121.381348 11;setang 0 146.643875 0.000000*
+	*setcam setpos -2003.229126 6788.221191 95.339340;setang 12.946715 116.723183 0.000000*
+	*txin*
+    *setspeaker narrator*
+	*show*
+    > Пришлось взять лодку,%%% но банда, наконец, добралась до маленького
+    песчаного уголка в горах.  
+    &a6
+a6:
+    > Здесь есть бассейн,% от него исходит пар и пузыри.%%% Тут приятно
+    тепло.%%% 
+	&a6b
+	
+a6b:
+	*setcam setpos -2524.658447 6763.020996 69.986847;setang 8.634292 54.538803 0.000000*
+	*setposang cat_cello setpos -2471.215820 7207.445313 -15;setang -90 10 0.000000*
+    > Виолончелист первый кто оторвался от группы и направился к бассейну.
+    &a7
+
+a7:
+    *setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_jab 1 idle*
+    ну снова привет пузырчатый лопух.%%%% я собираюсь охеренно вздремнуть
+    в тебе и ты ничего не сделаешь*setanim cat_cello gesture_laugh 1 idle* так как ты
+    геологическое явление а я могущественный идиот.
+    &a8
+
+a8:
+	*setcam setpos -2272.205322 7099.851074 15.336082;setang -6.059946 -36.821072 0.000000*
+    *setspeaker cat_piano*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_confused 1 idle*
+    Невероятно.%%% Никогда не видела чтобы кто-то так докопался до земли.
+    &a9
+
+a9:
+    *setspeaker cat_singer*
+	*setanim cat_singer gesture_clap 1 idle*
+    > Певец хлопает,% держа свой планшет\:%%%*setskin cat_singer 1* "Да, поддай ему 
+    Сократ!!!!!"
+    &a10
+
+a10:
+	*setcam setpos -2176.871094 6942.420898 20.880489;setang 1.500134 133.014374 0.000000*
+	*setposang cat_cello setpos -2471.215820 7207.445313 6;setang -90 210 0.000000*
+    *setspeaker narrator*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_anger 1.5 idle*
+    > Комментарий певца, видимо, подействовал на нервы Виолончелиста.
+    &a11
+
+a11:
+    *setspeaker cat_cello*
+	*setanim cat_cellist gesture_jab 1 idle*
+    слушай певчий еще раз назовешь меня сократом%% и я надену на тебя 
+    омни-замок,%*setanim cat_cello gesture_anger 1.5 idle*вероломный маленький 
+    придурок%% в этом случае я явно диоген
+    &a12
+
+a12:
+	*setposang player setpos -2422.034180 6827.894043 10;setang 8.155142 101.221214 0.000000*
+	*setcam setpos -2487.168457 6947.892090 41.036049;setang -8.934914 -62.536053 0.000000*
+    *setspeaker narrator*
+    > Виолончелист гоняется за Певцом,%%% а им это явно нравится, судя по их
+    общей игры в лошадки.
+    &a13
+
+a13:
+	*setskin cat_piano 4*
+	*setanim cat_piano gesture_facepalm 1 idle*
+    > Пианист явно критикует их форму рестлинга,%%*setskin cat_piano 0*но в конце концов 
+    понимает шутку и успокаивается.
+    &a14
+
+a14:
+    > Она хрустит костяшками пальцев и принимает широкую стойку%%, перед 
+    тем как она одним взмахом руки ломает*shake 2**emitsound physics\concrete\concrete_break3.wav .5* огромный валун.%%%%
+    Так для нее выглядит релаксация??
+    &a15
+a15:
+	*setposang player setpos -2434.059570 6825.065430 10;setang 5.280183 -174.127090 0.000000*
+	*setposang cat_bar setpos -2764.154053 6781.034180 10;setang -90 0 0.000000*
+    *setspeaker cat_bar
+	*setanim cat_bar gesture_exchange 1 idle*
+    Эй,%% *player*?%%%%
+    Мне бы не помешала твоя помощь в приготовлении скатерти для пикника.
+    &a16
+
+[FADE OUT, IN]
+
+a16:
+	*hide*
+	*txout*
+	*wait .1*
+	*setcam setpos -2770.689697 7032.978027 23.387096;setang -4.941894 -81.702370 0.000000*
+	*setposang player setpos -2685.895508 6770.839355 10;setang 14.836672 166.112350 0.000000*
+	*txin*
+	*show*
+    *setspeaker narrator*
+	*setskin cat_bar 4*
+	*setanim cat_bar pose_sit01*
+    > Ты распаковываешь корзинку вместе с Барменом.%%% Она тихонько расстилает 
+    одеяло на песке,%глаза закрыты от удовольствия.
+    &a17
+
+a17:
+	*setcam setpos -2841.154541 6869.383301 31.732605;setang -1.800735 -46.723713 0.000000* ###### PLAYER AND BAR
+    *setspeaker cat_bar*
+    Ты хороший человек,%%%%*setskin cat_bar 0* знал это?
+    &a18
+
+a18:
+	*setcam setpos -2726.600342 6863.649414 28.915096;setang -3.078496 -114.977554 0.000000* #### BAR
+	*setanim cat_bar gesture_agree 1 idle*
+    Я могла бы сказать это раньше,%% но я уверена в этом после того, как увидела, 
+    как ты наблюдаешь за другими, развлекающимися на пляже.%%%%*setskin cat_bar 4* Ты*setanim cat_bar gesture_foldarms 1 idle* способен% 
+    влится в любой сценарий и принимать его таким, какой он есть.
+    &a19
+
+a19:
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_agree 1 idle*
+    Я считаю, что это недооцененная черта характера.%%%*setskin cat_bar 0* Способность
+    смотреть на дорого незнакомца,% немного озадачится,%%
+    но сказать 'давай посмотрим чем это кончится.'.
+    &a20
+
+a20:
+	*setcam setpos -2841.154541 6869.383301 31.732605;setang -1.800735 -46.723713 0.000000* ###### PLAYER AND BAR
+	*setanim cat_bar gesture_laugh 1 idle*
+    Это обогащает все вечеринки,%%% даже если они плохо кончаются.%%%%*setskin cat_bar 4* Иногда
+    это тепло как и звучит, %%%а иногда это холодная правда.%%%%*setanim cat_bar gesture_agree 1 idle* 
+    Но оно того стоит.
+    &a21
+
+a21:
+	*setposang player setpos -2699.208984 6792.118652 3;setang 0 90.990601 0.000000*
+	*setposang cat_cello setpos 0 0 0;setang -90 30 0.000000*
+	*setposang cat_piano setpos 0 0 0;setang -90 30 0.000000*
+    *setposang cat_singer setpos 0 0 0;setang -90 30 0.000000*
+	*setanim player sit_zen*
+		*bgmplay sound/jazztronauts/music/events/pariah.mp3 .75 4.0*
+    *setspeaker narrator*
+	*setcam setpos -2733.502930 6687.077637 32.335510;setang -0.256775 86.686752 0.000000* ##### EVANGELION
+	*setanim cat_bar pose_sit01*
+    > Бармен садится и смотрит на бассейн.%%%%
+    Ты садишься рядом с ней.
+    &a22
+
+a22:
+    *setspeaker cat_bar*
+	*setskin cat_bar 1*
+    Ты знал что я самая старшая в банде?%%%%*setskin cat_bar 4* И с довольно
+    большим отрывом,%% кажется.
+    &a23
+
+a23:
+	*setskin cat_bar 0*
+    В какой-то отрезок своей жизни,% все было новым,%% и казалось что так будет
+    всегда.%%%%*setskin cat_bar 4* И когда так не случилось,%% я отреагировала 
+    определенным образом.
+    Теперь я об этом жалею.
+    &a24
+
+a24:
+	*setskin cat_bar 0*
+    После этого,%% я назначила себя судьей по всем вопросам.%%%%*setskin cat_bar 2* Что я имела
+    право стирать все, что угодно.%%%*setskin cat_bar 0* Этот цикл продолжал подпитывать 
+    сам себя, пока я не обнаружила и не бросила вызов тому, 
+    кого мне никогда не следовало иметь.
+    &a25
+
+a25:
+	*setskin cat_bar 2*
+    %.%.%.%Я была уничтожена.%%%%*setskin cat_bar 4*Полностью униженна,%%*setskin cat_bar 0* и мир стал
+    намного лучше.%%%%*setskin cat_bar 2* И этот факт то, о чем я 
+    думала долгое время.
+    &a26
+
+a26:
+	*setskin cat_bar 4*
+    Унижена и бесцельна,%%*setskin cat_bar 0* Я ковыляла через Пустоту только
+    со своей верной тенью.
+    &a27
+
+a27:
+	*setcam setpos -2844.950439 6809.655762 28.008850;setang -3.184969 -1.318832 0.000000*
+	*setskin cat_bar 4*
+    *setspeaker narrator*
+    > Ты видишь как Бармен тепло смотрит на Пианиста, когда она сделала
+    паузу для раздумий.%%%%*setskin cat_bar 0* Через несколько секунд она снова говорит.
+    &a28
+
+a28:
+	*setcam setpos -2733.502930 6687.077637 32.335510;setang -0.256775 86.686752 0.000000* ##### EVANGELION
+    *setspeaker cat_bar*
+    После некоторого времени,% мы нашли второй шанс в Самсаре.%%%%*setskin cat_bar 4* Это моя 
+    тюрьма когда надо,%% и моя теплица когда я хочу.%%%%*setskin cat_bar 1* 
+    И мне нравится каждая секунда этого.
+    &a29
+
+a29:
+	*setskin cat_bar 0*
+    Знаешь, как говорят, что никуда нельзя вернутся? Ты также не сможешь 
+    получить первое впечатление% больше одного раза%.
+    &a30
+
+a30:
+	*setskin cat_bar 2*
+    Это горькая правда.%%%%*setskin cat_bar 0* Ты не можешь вернутся назад во времени,% но ты можешь
+    подарить окружающим это тепло,%% и и это обогатит и взрастит их. 
+    &a31
+
+a31:
+	*setskin cat_bar 1*
+    Их открытия,%% и как они на них влияют?%%%%*setskin cat_bar 0* Это настоящая награда.
+    Вот так ты снова возвращаешься.%%%*setskin cat_bar 4*В мире просто нет 
+    ничего более ценного, чем это.
+    &a32
+
+a32:
+	*spawn harpoon models/props_junk/harpoon002a.mdl*
+	*setposang harpoon setpos -2720.753662 6796.527832 11;setang 19.255680 -93.131256 0.000000*
+	*setcam setpos -2696.399658 6934.754395 33.405151;setang 3.416752 -101.995712 0.000000*
+    *setspeaker narrator*
+	*setskin cat_bar 3*
+    > Гарпун прилетает между*setskin cat_bar 0* тобой и Барменом,% пробивая одеяло.%%%
+    Адский бросок.
+    &a33
+
+a33:
+    *setspeaker cat_bar*
+	*setskin cat_bar 1*
+    Ах, вот время и пришло.%%%%*setskin cat_bar 0* Поможешь мне всех успокоить и усадить
+    за трапезу?
+    &a34
+
+a34:
+    *setspeaker narrator*
+    >Бармен встает и идет к остальным.
+    &a35
+
+a35:
+    >Ты следуешь за ней.*mark_seen*
+    &exit

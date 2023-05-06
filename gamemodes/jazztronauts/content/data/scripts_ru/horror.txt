@@ -1,0 +1,181 @@
+STYLE = horror
+OPEN_RATE = 1000000
+CLOSE_RATE = 1000000
+PRINT_RATE = 999
+HIDE_MOUSE = true
+ADVANCE_KEYS = IN_USE, MOUSE_LEFT
+
+doorinspectlocked1:
+    Заперто.
+    
+    &exit
+
+doorinspectlocked2:
+    Дверь не поддается, когда дергают за ручку.
+
+    &exit
+
+doorinspectlocked3:
+    Заперто. Заперто. Заперто.
+    
+    &exit
+
+doorinspectlocked4:
+    Ты не слушаешь.
+    
+    &exit
+
+doorinspectlockedquestionable:
+    Она %%%%%%%%%%%%%%%%%%%%%%%. %%%%%%%%%%%%%%%%%%%%%%%. %%%%%%%%%%%%%%%%%%%%%%%. %%%%%%%%%%%%%%%%%%%%%%%заперта?
+    
+    &exit
+
+oven1:
+    Не особо хочется готовить.
+    
+    &exit
+
+ovenb:
+    Духовка покрыта коркой нагара и густой слизью.
+    
+    &exit
+
+ovenc:
+    Ручка крошится под любопытными руками.
+    
+    &ovenc2
+
+ovenc2:
+    Собранные обратно по кусочкам, склеенные грязью.
+    
+    &exit
+
+
+
+bedroomentry:
+    Вы не помните, как входили в дверь спальни.
+    
+    &exit
+
+
+mattress1:
+    Я ни за что не прикоснусь к этому без перчаток.
+    
+    &exit
+
+mattress2:
+    Под простыней дрожат маленькие комочки.
+    &mattress2b
+mattress2b:
+    Заползает под ногти.
+    &exit
+
+mattress3:
+    Тяжелые глаза и легкие, которые жаждут плесени, которая станет твоей подушкой.
+    &exit
+
+
+bathroomdoor1a:
+
+Заперто.
+
+&bathroomdoor1b
+
+bathroomdoor1b:
+
+Воздух спертый и едкий, пахнет аммиаком и уксусом.
+
+&exit
+
+bathroomdoor2a:
+
+Дверь заперта, воздух гнетущий.
+
+&bathroomdoor2b
+
+bathroomdoor2b:
+
+Сигаретный пепел и отбеливатель покрывают язык.
+
+&exit
+
+bathroomdoor3a:
+    Заперто. Liquid leaks from beneath the door, the sucking cough of backed-up plumbing a putrid bark in the stillness.
+    &exit
+
+
+
+painting1a:
+    An empty picture frame, its art long having disappeared.
+    &exit
+
+painting1b:
+    Time is unkind to the picture frame; In place of paint, only dust.
+    &exit
+
+painting1c:
+    Grime and scum, nothing more.
+    &exit
+
+painting2a:
+    You see two lonely figures in a ramshackle boat drifting beneath the setting sun.
+
+    &exit
+
+painting2b:
+    The sun rises. It cuts a gash through the cool waters, narrowly missing the lonely boat. 
+
+    &exit
+
+painting2c:
+    An eye peers from behind the cloud bank, malevolent and sour.
+
+    &exit
+
+painting3a:
+    An empty picture frame, the art long having disappeared.
+    &exit
+
+painting3b:
+    Time is unkind to the picture frame; In place of paint, only dust.
+    &exit
+
+painting3c:
+    Grime and scum, nothing more.
+    &exit    
+
+closetinspect1:
+    Just an ordinary closet. Something is preventing it from being opened. . .
+
+    &exit
+
+closetinspectb1:
+    There are tattered shirts and poorly darned pants. 
+
+    &closetinspectb2
+
+closetinspectb2:
+    Unwashed and musty. 
+
+    &exit
+
+closetinspectc1:
+    Cloth that disintegrates beneath shaking fingers.
+
+    &closetinspectc2
+
+closetinspectc2:
+    Throat seizing as the motes of a shattered life are inhaled.
+
+    &exit
+
+closetinspectafter1:
+    Maybe it's best to leave this alone, after all.
+
+    &exit
+
+youshouldntbehere:
+    
+    You shouldn't be here.
+
+&exit

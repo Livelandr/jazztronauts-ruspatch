@@ -1,0 +1,251 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*setcam setpos -2690.889648 2740.012939 80.011696;setang 1.074717 118.223206 0.000000*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -2912 2954 36;setang -90 0 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+	*setanim cat_piano pianist_drunk_idle*
+	*setposang player setpos -2842.145020 2940.937744 0;setang 0 136.715897 0.000000*
+	*bgmplay sound/jazztronauts/music/events/warm_song.mp3 .75 3*
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setposang cat_bar -2864.620361 3044.558594 32.417419;setang -90 90 90.000000*
+	*setnpcid cat_bar npc_cat_bar*
+	
+	*spawn player_dummy playerboy*
+	*txin*
+
+###### START	
+	*setspeaker narrator*
+	*setskin cat_piano 3*
+	*setskin cat_bar 0*
+	*show*
+	> Бар "Самсара"%.%.%.%.%%% Здесь Бармен и Пианист.%%%*setcam setpos -2836.795898 2930.008301 72.372398;setang 5.027821 138.527481 0.000000*
+	
+	Хотя Пианист кажется мертвой,% она лежит лицом вниз на барной стойке.%%%%*setanim cat_piano pianist_drunk_to_player .45*
+	Подождите,% нет% она двигается.
+	&b1
+	
+b1:
+	*setspeaker cat_piano*
+	*setcam setpos -2776.685059 3001.112305 58.127655;setang -0.901774 -160.140305 0.000000*
+	Ты знаешь.%%% Я завидую тебе,% *player*.%%%%%
+	Сначала я подумала,% может быть, я тебя ненавижу?%%
+	Но,% Я немного поговорила с Барменом,%%
+	и я поняла,% что это было совсем другое чувство.
+	&b2
+	
+b2:
+	*setspeaker cat_piano*
+	Воббще,% я не хочу тебя убивать,%%*setcam setpos -2853.069336 3031.225342 65.252121;setang -3.112350 -108.776329 0.000000* хотя я и думала об этом
+	некоторое время.%%% Обычно я заканчиваю тем, что ломаю вещи, 
+	которые ненавижу,% знаешь ли.
+	&b3
+	
+b3:
+	*setspeaker cat_piano*
+	*setanim cat_piano pianist_drunk_to_idle .75*
+	Но нет.%%% Не в этот раз.%%%%%
+	
+	можешь делать что хочешь.
+	player:
+	&r1a1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Что ж, я знаю, что не хочу принимать в этом никакого участия.
+		Мы поговорим, когда ты протрезвеешь, ок? (уйти и завершить)
+	&r2a1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Спасибо, что не пыталась меня убить, я думаю?
+	&r3a1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Ты... в порядке?
+		
+###### Branch 1 (early exit)
+r1a1:
+	*setskin cat_piano 4*
+	*setcam setpos -2843.300537 2950.044189 76.034767;setang 4.703950 131.373810 0.000000*
+	*setspeaker narrator*
+	> Пианист, похоже, заснула,% судя по храпу.%%%*setanim cat_bar gesture_agree 1 idle* 
+	Бармен решительно кивает вам.
+	&r1a2
+	
+r1a2:
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_confused 1 idle*
+	Не волнуйся,% я позабочусь о том, чтобы о ней позаботились.
+	&r1a3
+	
+r1a3:
+	*setcam setpos -2864.188965 2990.200684 71.303146;setang 0.211823 89.746773 0.000000*
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_agree 1 idle*
+	Ты нравишься Пианисту,% ты же знаешь.%%%*setskin cat_bar 0* That's rather rare.%%%%*setanim cat_bar gesture_exchange 1 idle*
+	Спасибо тебе за то, что ты ее друг,% *player*.
+	*mark_seen*
+	&exit
+	
+###### Branch 2
+r2a1:
+	*setcam setpos -2923.892090 3075.142578 166.177811;setang 47.169487 -67.555000 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano pianist_drunk_to_player .7*
+	Дружище,%% если бы я решилась,%% не было бы никакой попытки..%%% Ты был бы кучей
+    кусков, плавающих в озере.%% Но я не хочу убивать тебя.%%%*setcam setpos -2883.771484 3021.438965 56.788147;setang -4.633031 -123.137527 0.000000* 
+	Мне больше нравится, когда ты жив.% Ты словно заставляешь меня.%.%.%.
+	&r2a2
+	
+r2a2:
+	*setspeaker cat_piano*
+	Улыбаться.%%%%
+	И быть ебанным.%% Э%Э%м%м%.%%% Лучше%% и прочее дерьмо.%%%%%%*setanim cat_piano pianist_drunk_to_idle .8*
+	
+	Иногда.
+	player:
+	&r1a1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Что ж, я знаю, что не хочу принимать в этом никакого участия.
+		Мы поговорим, когда ты протрезвеешь, ок? (уйти и завершить)
+	&r3a1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Что с тобой? Ты... в порядке?
+		
+###### Branch 3
+r3a1:
+	*setcam setpos -2988.546143 2925.335693 67.095818;setang 1.915457 26.244995 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano pianist_drunk_slam*
+	> Она смеется,%% резко и внезапно, как бьющееся стекло.
+	&r3a2
+	
+r3a2:
+	*setcam setpos -2779.951416 3110.752197 92.572067;setang 12.217399 -131.123245 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano pianist_drunk_to_player .5*
+	Со мной блять много чего,%% *player*,%%%% 
+	но ни в коем случае я не "в порядке".%%%%
+	У тебя когда-нибудь были дни, когда ты просто не мог перестать думать, 
+	черт возьми?
+	&r3a3
+	
+r3a3:
+	*setspeaker cat_piano*
+	Это никогда не проходит для меня бесследно.%%% Это мое естественное состояние 
+	бытия.%%%%*setanim cat_piano pianist_drunk_to_idle .4*%%*setcam setpos -2883.771484 3021.438965 56.788147;setang -4.633031 -123.137527 0.000000*
+	Я не могу посрать, не спланировав это заранее.
+	&r3a4
+
+r3a4:
+	*setspeaker cat_piano*
+	*setcam setpos -2909.484375 3073.760498 67.996399;setang 1.649263 -76.445908 0.000000*
+	Я пыталась найти способ обойти это.% Могла бы заняться чем-нибудь новым.%%
+	Хобби.% Что-то "глупое" и "опасное".%%%%*setanim cat_piano pianist_drunk_to_player .75*
+	Думаю, тогда я не смогу думать,% понимаешь?
+	&r3a5
+	
+r3a5:
+	*setspeaker cat_piano*
+	Я слишком много думаю, стараясь не переусердствовать,% трахаю
+    всю свою жизнь ржавыми граблями.*setanim cat_piano pianist_drunk_to_idle .95*
+	&r3a6
+	
+r3a6:
+	*setspeaker cat_piano*
+	*player*.%%%*setanim cat_piano pianist_drunk_to_player .75*
+	Ты хорош в этом.%%%%
+	Делаешь всякое дерьмо импульсивно.%%
+	Как?%%%%%
+	player:
+	&m1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Чтож-
+	&m1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Блять, я-
+	&m1:
+	*setcam setpos -2886.307861 3004.820801 70.982162;setang -0.558996 -66.252525 0.000000*
+		Эмммм-
+		
+###### Merge 
+m1:
+	*setskin cat_piano 4*
+	*setcam setpos -2883.771484 3021.438965 56.788147;setang -4.633031 -123.137527 0.000000*
+	*setspeaker narrator*
+	*emitsound physics/wood/wood_crate_impact_hard2.wav .75*
+	*shake 1*
+	*setanim cat_bar gesture_shock 1.3*
+	*setanim cat_piano pianist_drunk_to_idle 1.1*
+	*setskin cat_bar 3*
+	> Голова Пианиста ударяется о стойку бара.%%*setskin cat_bar 0*
+	
+	%.%.%.%похоже, она потеряла сознание.
+	&m2
+	
+m2:
+	*setcam setpos -2843.300537 2950.044189 76.034767;setang 4.703950 131.373810 0.000000*
+	*setspeaker narrator*
+	> Бармен подходит к Пианисту,%%%*setanim cat_bar gesture_exchange 1 idle* и гладит ее по голове.
+	&m3
+	
+m3:
+	*setspeaker cat_bar*
+	*setskin cat_bar 3*
+	Ах.%%%%%%*setskin cat_bar 0*
+	Ну вот.
+	&m4
+	
+m4:
+	*setskin cat_bar 2*
+	*setspeaker narrator*
+	> Бармен некоторое время оценивает вас,%%*setskin cat_bar 4*%*setanim cat_bar gesture_sigh 1 idle* затем вздыхает.
+	&m5
+	
+m5:
+	*setcam setpos -2864.188965 2990.200684 71.303146;setang 0.211823 89.746773 0.000000*
+	*setspeaker cat_bar*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_disagree 1 idle*
+	Пианист больше не может играть.%%% Не так, как раньше.%%%% 
+	Когда-то она была способна на*setanim cat_bar gesture_foldarms 1 idle**setskin cat_bar 4* на самые восхитительные импровизации
+	на фортепиано,%*setskin cat_bar 0* я была просто поражена, наблюдая за ней.
+	&m6
+	
+m6:
+	*setspeaker cat_bar*
+	Но вскоре после того, как последняя группа,*setskin cat_bar 4* подобная тебе,% она просто%.%.%.%%%
+	потеряла этот*setskin cat_bar 0* талант.%%%*setanim cat_bar gesture_disagree 1 idle* Это было очень тяжело для нее.
+	&m7
+	
+m7:
+	*setcam setpos -2843.300537 2950.044189 76.034767;setang 4.703950 131.373810 0.000000*
+	*setspeaker cat_bar*
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_agree 1 idle*
+	Спасибо тебе за то, что ты ее друг.%%%*setskin cat_bar 0* За короткое время ты принес ей больше 
+	утешения, чем мне удавалось за многие годы.%%%%%*setskin cat_bar 1* У меня нет слов, чтобы 
+	выразить, как глубоко я ценю это.
+	&m8
+	
+m8:
+	*setspeaker cat_bar*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_agree 1 idle*
+	Не беспокойся,% Я прослежу, чтобы о ней позаботились.
+	*mark_seen*
+	&exit
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	

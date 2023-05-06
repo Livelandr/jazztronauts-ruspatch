@@ -1,0 +1,130 @@
+﻿# Called once they've collected _A_ shard. Almost definitely will be on return from their first exploration
+begin1:
+	spawngang()
+	*setposang cat_bar -2864.620361 3044.558594 32;setang -90 180 0*
+	*setspeaker cat_bar*
+    Отлично! Ты нашел осколки.
+    &begin1_2
+
+begin1_2:
+    Вы увидите эти волшебные светящиеся межпространственные кристаллы 
+	сахара разбросанными по всем картам. 
+    &begin1_3
+
+begin1_3:
+    Вы можете посмотреть на бак с осколками на вашей базе,% 
+	чтобы увидеть,% сколько их вы собрали! И сколько вам осталось.
+    &begin1_5
+
+begin1_4:
+	Мы поставили этот огромный старый бак чтобы сжимать их
+	и выдавливать все их сочные внутренности,% но,% честно говоря
+	больше мы никуда не продвинулись.
+    &begin1_5
+
+begin1_5:
+    Продолжайте в том же духе.
+    *mark_seen*
+    &exit
+
+# Called once they've collected 25% of their needed shards
+begin25:
+	spawngang()
+	*setposang cat_piano -2864.620361 3044.558594 32;setang -90 180 0*
+	*setspeaker cat_piano*
+    Отлично,%% вы,% ребята,% делаете все в хорошем темпе.
+    &begin25_2
+
+begin25_2:
+    Бак уже на четверть полон.
+	Неплохо,% для новичка.
+    *mark_seen*
+    &exit
+
+# 50% of needed shards
+begin50:
+	spawngang()
+	*setposang cat_cello -2864.620361 3044.558594 32;setang -90 180 0*
+	*setspeaker cat_cello*
+    зашибись.%%%% забили уже половину бака,% да?
+    &begin50_2
+
+begin50_2:
+    красава горжусь
+    *mark_seen*
+    &exit
+
+# 75% of needed shards
+# This was a missing event from the game. Added a placeholder for now. -ptown2
+begin75:
+	spawngang()
+	*setposang cat_bar -2864.620361 3044.558594 32;setang -90 180 0*
+	*setspeaker cat_bar*
+    Отлично,%% мы уже набрали третью четверть!% Да?
+    &begin75_2
+
+begin75_2:
+    Еще немного,% и наш бак будет полон.
+    *mark_seen*
+    &exit
+
+# 100% of needed shards. Probably should be a cutscene showing where to go now that they can finish the game
+begin100:
+	spawngang()
+	*setposang cat_singer -2864.620361 3044.558594 32;setang -90 180 0*
+    > Певец подбегают к вам!
+    &begin100_2
+
+begin100_2:
+    > Они еле стоят,% они указывают на бак,% 
+	потом на Бармена,% потом снова на бак.
+    *mark_seen*
+    &exit
+	
+##### HEY YA DID IT	
+completed_all_cats:
+	spawngang()
+	*setposang cat_piano -2864.620361 3044.558594 32;setang -90 180 0*
+	*setposang cat_cello -2864.620361 3044.558594 32;setang -90 180 0*
+	*setposang cat_singer -2864.620361 3044.558594 32;setang -90 180 0*
+	*setposang cat_bar -2864.620361 3044.558594 32;setang -90 180 0*
+	*setspeaker cat_bar*
+	Извини,% *player*?
+	У тебя есть минута?
+	&com1
+	
+com1:
+	*setspeaker cat_piano*
+	Мы эм,%% хотим тебе дать кое-что.%%%
+	Вот.
+	&com2
+	
+com2:
+	*setspeaker narrator*
+	> Коты дают тебе часть "призывателя каталки"...
+	&com3
+	
+com3:
+	*setspeaker cat_cello*
+	Певчий разволновался что вы можете упасть в Пустоту
+	или еще где-то затерятся.%%% Так что они сделали это.
+	&com4
+	
+com4:
+	*setspeaker cat_singer*
+	> Певец бьет Виолончелиста кулаком по руке. Очевидно,
+    это подарок от всех,% и они хотят,% чтобы он был у тебя.
+	&com5
+	
+com5:
+	*setspeaker cat_bar*
+	Они правы!%%%% Теперь мы может прийти к тебе на помощь,
+	не зависимо от того,% в какой части пространства-времени ты 
+	находишься.%% Удобно ведь?
+	&com6
+	
+com6:
+	Я сомневаюсь,% что нам это понадобится,% 
+	но для нас это душевное спокойствие.%% 
+	Что ж! Это все.%%% Не будем отрывать тебя от дел. *mark_seen*
+	&exit

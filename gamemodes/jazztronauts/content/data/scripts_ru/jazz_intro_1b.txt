@@ -1,0 +1,75 @@
+HIDE_MOUSE = true
+NO_FREEZE = true
+PRINT_RATE = 0.7
+AUTO_ADVANCE = 1.2
+CMD_DELAY = 0
+SKIP_OPEN = true
+
+###### START
+setup1:
+spawngang() # SETUP
+*setposang cat_bar -12698.176758 -2644.846924 1048.03125;setang -90 180 0.000000*
+*setposang cat_cello -12698.176758 -2644.846924 1048.03125;setang -90 180 0.000000*
+*setposang cat_piano -12698.176758 -2644.846924 1048.03125;setang -90 180 0.000000*
+*setposang cat_singer -12698.176758 -2644.846924 1048.03125;setang -90 180 0.000000*
+
+*setspeaker narrator*
+*show 0.4*
+>Из дыры в потолке выпала шоковая дубинка.
+&begin1
+
+
+begin1:
+*setspeaker cat_piano*
+Отличная работа,% полудурок.%% Не могу поверить, что ты споткнулся о труп.%%
+Сколько раз нам приходилось перешагивать через трупы?
+&begin2
+
+begin2:
+*setspeaker cat_cello*
+не так много как тебе%%
+я не тот кто ломает бошки.%% ужас% я видимо слишком
+обдолбан чтобы прыгать выше своей бошки
+&begin3
+
+begin3: 
+*setspeaker cat_bar*
+Я в шоке.
+&begin4
+
+begin4:
+*setspeaker cat_cello*
+перестань быть херовым актером и помоги мне% болван
+
+%.%.%.%погоди%.%.%.% пиЗдЕЦ
+&begin5
+
+begin5:
+*setspeaker cat_piano*
+Ты серьезно поранился?%%
+Погоди, дай мне взять апте-
+&begin6
+
+begin6:
+*setspeaker cat_cello*
+я уронил свой хвататель пропов в эту дырень
+&begin7
+
+begin7:
+*setspeaker cat_bar*
+О боже.%% Нам стоит найти путь вниз.
+&begin8
+
+begin8:
+*setspeaker cat_piano*
+Ага,% стоит.%% Эти штуки не дешевые.%%
+Давай,% придурок,% погнали.
+&begin9
+
+begin9:
+*setspeaker narrator*
+>3 разные пары шагов, сопровожденные звуком персоны,
+которую волочат по полу, затихли над головой... 
+&exit
+
+###### END OF EVENT

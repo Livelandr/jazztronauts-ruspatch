@@ -1,0 +1,290 @@
+SKIP_OPEN = true
+
+begin:
+
+###### SCENE SETUP
+	*hide*
+	*txout*
+	*bgmplay sound/jazztronauts/music/events/pocket.mp3 1 2.0*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos 3259.499512 7881.131348 0;setang -90 180 0.000000*
+	*setnpcid cat_singer npc_cat_sing*
+	*setcam setpos 1903.887451 6713.939941 349.839935;setang 20.373602 45.286469 0.000000*
+	*spawn player_dummy playerboy*
+	*setspeaker narrator*
+	*setskin cat_singer 0*
+	*setfov 70*
+	*txin*
+	*show*
+	
+###### START
+	*setposang player setpos 2227.926758 7157.481934 0;setang 0 38.391869 0.000000*
+	> В "Мяузее", как обычно, тихо.%%%
+	За исключением Певца,% который стучит по своему планшету
+    перед одной из тех кукол, которых вы для них достали.
+	&b1
+	
+b1:
+	*setposang player setpos 3253.138184 7768.483398 0;setang 6.052056 85.722305 0.000000*
+	*setcam setpos 3078.050781 7687.246094 96.607208;setang 11.429294 40.840954 0.000000*
+	> Вы подходите к Певцу,%% но на этот раз они не сразу
+    поднимают глаза, когда вы подходите ближе.%%%% На самом деле,% они, 
+	похоже, вообще не заметили вашего присутствия.%%
+	Ты садишься перед ними на корточки и машешь рукой.
+	&b2
+	
+b2:
+	*setcam setpos 3197.595215 7817.761719 67.368042;setang 11.935067 41.932495 0.000000*
+	*setskin cat_singer 5*
+	*setanim cat_singer gesture_shock 2 idle*
+	> Певец вздрагивает и чуть не роняет свой планшет.%%%*setskin cat_singer 0* 
+	После неловких попыток поймать его,%*setanim cat_singer gesture_exchange 1 idle* они*setskin cat_singer 1* улыбаются вам и машут.
+	&b3
+	
+b3:
+	*setspeaker cat_singer*
+	*setcam setpos 3059.472168 7854.973145 78.634224;setang 10.018432 18.054348 0.000000*
+	*setposang cat_singer setpos 3259.499512 7881.131348 0;setang -90 60 0.000000*
+	*setposang player setpos 3196.539063 7929.435547 0;setang 5 -41.255119 0.000000*
+	*setskin cat_singer 0*
+	*setanim cat_singer gesture_sweep 1 idle*
+	
+	> Выводится поспешное сообщение\:%%%*setskin cat_singer 1* "Привет, извини, 
+	я пиздец как кайфую, когда составляю каталог!!!
+	&b3b
+	
+b3b:	
+	*setskin cat_singer 0*
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	> Это*setanim cat_singer gesture_sigh 1 idle* правда расслабляет%.%.%.%%% 
+	Я подумал, что после вашей работы, помогающей мне получить их, вы*setanim cat_singer gesture_confused 1 idle*
+	захотите помочь мне ввести их описания в мои архивы,% возможно. "
+	player:
+	&r1a1:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Это подозрительно похоже на занятие для ботаников, и 
+		Я не хочу запирать себя в саркофаге стыда,%% извини. (уйти)
+	&r2a1:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Могу я назвать их?
+	&r3a1:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Конечно,% я рад помочь.
+		
+
+###### BRANCH 1 EARLY EXIT
+r1a1:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setspeaker cat_singer*
+	*setskin cat_singer 3*
+	*setanim cat_singer gesture_disagree 1 idle*
+	> Певец ухмыляется и качает головой.%%% 
+	Они не винят вас за то, что вы им неинтересны,% но надеюсь, 
+	что вы *setskin cat_singer 0* зайдите как-нибудь в другой
+    раз и откройте свое сердце концепту обучения.
+	&r1a2
+	
+r1a2:
+	*setskin cat_singer 3*
+	*setanim cat_singer gesture_jab 1 idle*
+	> Только копы не читают,%% они тебе говорят.
+	&exit
+	
+###### BRANCH 2 
+r2a1:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setspeaker cat_singer*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_clap 1.5 idle*
+	> Певец хлопает,% глаза сияют от восторга.%%% 
+	Конечно ты *setanim cat_singer gesture_agree 1.5 idle*можешь назвать их.
+	&r2a1b
+
+r2a1b:
+	*setcam setpos 3118.949463 7878.477539 48.878284;setang 4.268490 16.217495 0.000000* ###### SINGER AND PLAYER
+	*setskin cat_singer 0*
+	> Они не знают, почему им не пришло в голову сделать это*setanim cat_singer gesture_confused 1.6 idle* раньше.%% 
+	Они поздравляют вас с тем, что у вас есть природная способность
+    к правильному жизненному выбору.
+	&r2a2
+	
+r2a2:
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 1.5 idle*
+	> Они обязательно вернутся и назовут имена других.%%%*setskin cat_singer 0*
+	О да.
+		player:
+	&r1a1:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Это подозрительно похоже на занятие для ботаников, и 
+		Я не хочу запирать себя в саркофаге стыда,%% извини. (уйти)
+	&r3a1:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Конечно,% я рад помочь.
+		
+###### BRANCH 3
+r3a1:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setspeaker cat_singer*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 2.6 idle*
+	> Певец восхищенно размахивает кулаком в воздухе.%%%*setskin cat_singer 0* 
+	Они похлопывают по полу рядом с собой и приглашают вас*setanim cat_singer gesture_sweep .6 idle*%*setcam setpos 3242.063232 7953.595215 46.101959;setang 5.998821 -112.188446 0.000000* 
+	рассмотреть куклу, стоящую перед вами.
+	&r3a2
+	
+r3a2:
+	*setanim cat_singer gesture_agree 1 idle*
+	> Твоя работа,% они говорят вам,%% состоит в том, чтобы описать куклу.%%% 
+	На случай, если он когда-нибудь потеряется,%% или гость*setanim cat_singer gesture_confused .8 idle* инвалид 
+	захочет узнать, что выставлено на всеобщее обозрение.
+	player:
+	&goodanswer:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Проклятая провидица Камилла,%% сильно поврежденная и покрытая грязью
+        фарфоровая куколка без левой руки и обоих глаз,%%% 
+		в белом подгузнике.%%%% У Камиллы безмятежное выражение лица.
+	&decentanswer:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Кукла с привидениями по имени Милая Крошка Бэббетт,
+	    которая выглядит так, словно буквально выплакала все глаза,
+		и ответственна по меньшей мере за шесть фильмов и ребут телешоу.
+	&ananswer:
+		*setcam setpos 3243.605713 7845.653809 70.418037;setang 9.672383 117.559921 0.000000*
+		Наннет была жизнерадостным ребенком, но однажды умерла при загадочных
+        обстоятельствах.%%%%% Вскоре родители заметили, что ее кукла гремит
+        ночью, и даже скидывает вещи с полок! Несмотря на это, она может
+        лечить многие болезни, если вы ей понравитесь, но в противном случае-
+
+###### GOOD ANSWER
+goodanswer:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setspeaker cat_singer*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_clap 1 idle*
+	> Певец хлопает лапами и подпрыгивает.%%% 
+	У тебя, по-видимому, это получается от природы.%%*setskin cat_singer 0*
+	Это почти именно то, что они сделали бы *setanim cat_singer gesture_laugh 1 idle* зайдя сюда!%%% 
+	&gab
+	
+gab:
+	*setcam setpos 3118.949463 7878.477539 48.878284;setang 4.268490 16.217495 0.000000* ###### SINGER AND PLAYER
+	>Кроме имени,% им кажется что кукла
+	выглядит*setanim cat_singer gesture_confused 1 idle* больше как Амелия Кобблер,%%%*setanim cat_singer gesture_agree 1 idle* 
+	но им тоже нравится ваш выбор!
+	&m1
+	
+###### HEY, NOT BAD
+decentanswer:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setspeaker cat_singer*
+	*setskin cat_singer 0*
+	> Хотя это не совсем то, что они имели в виду,%*setskin cat_singer 1* it's*setanim cat_singer gesture_clap 1 idle* это очень хорошее начало!%%%
+	Они делают *setskin cat_singer 0* некоторые изменения в вашей записи, описывающие
+    внешний вид куклы,% и подбадривают вас*setanim cat_singer gesture_exchange 1.6 idle* 
+	для описания его поведения.
+	&m1
+	
+###### C'MON DUDE
+ananswer:
+	*setcam setpos 3118.949463 7878.477539 48.878284;setang 4.268490 16.217495 0.000000* ###### SINGER AND PLAYER
+	*setspeaker cat_singer*
+	*setskin cat_singer 2*
+	>Певец пристально смотрит на тебя.
+	&an1
+	
+an1:
+	*setcam setpos 3210.891113 7908.113281 38.489910;setang 2.671340 -13.117636 0.000000* ####### SINGER HEADSHOT
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_foldarms 1 idle*
+	> Похоже, они усиленно обдумывают, что написать в ответ,% 
+	в конце концов остановившись на\:
+	&an1b
+	
+an1b:
+	*setskin cat_singer 0*
+	"Хотя это креативно и очень увлекательно!!!%%% Это не совсем%% говоря.%%% 
+	Верно.%% То, как выглядит кукла.% А также утверждать, что это
+    медицинский препарат????%%% Что,на самом деле,% совсем не так.%%% НО!!!!!!!%% 
+	Это была очень хорошая первая попытка!!!"
+	&an2
+an2:
+	*setcam setpos 3118.949463 7878.477539 48.878284;setang 4.268490 16.217495 0.000000* ###### SINGER AND PLAYER
+	*setposang cat_singer setpos 3259.499512 7881.131348 0;setang -90 180 0.000000*
+	>Они стирают часть о том, что Наннет способна излечивать болезни, и
+    добавляют описание внешнего вида куклы.%%%% 
+	Они подчеркивают ваше живое воображение и
+    умение строить мир.
+	&m1
+	
+###### MERGE POINT
+m1:
+	*setcam setpos 3118.949463 7878.477539 48.878284;setang 4.268490 16.217495 0.000000* ###### SINGER AND PLAYER
+	*setposang cat_singer setpos 3259.499512 7881.131348 0;setang -90 60 0.000000*
+	*setspeaker cat_singer*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_clap 1 idle*
+	> Певец благодарит вас за вашу помощь.%%% вы даете им пару советов
+	о том,*setskin cat_singer 0**setanim cat_singer gesture_agree 1 idle* как сделать каждое описание индивидуальным,% 
+	даже если вещи практически идентичны.
+	&m2
+	
+m2:
+	*setanim cat_singer gesture_exchange 1 idle*
+	> Прежде чем вы уходите,%% они похлопывают тебя по руке
+	и передают вам 25 долларов в обмен на ваше время и обслуживание!
+	&m3
+	
+m3:
+	> Вы оставляете их заниматься своей работой,% 
+	пока "Мяузей" приветствует своих новых обитателей. *mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,12 @@
+OPEN_RATE = 1000000
+CLOSE_RATE = 1000000
+PRINT_RATE = 999
+HIDE_MOUSE = true
+
+begin:
+	*setspeaker npc_cat_bar*
+	Jazztronauts не поддерживает одиночную игру!
+	Пожалуйста, вернитесь в меню, и создайте сервер с минимум 2 слотами.
+	Для одиночной игры, запустите сервер в локальном режиме, либо 
+	установите пароль
+	# Purposefully do NOT exit because they should be locked with this message

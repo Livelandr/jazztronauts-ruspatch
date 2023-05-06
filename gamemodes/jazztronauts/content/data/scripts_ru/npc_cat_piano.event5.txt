@@ -1,0 +1,340 @@
+SKIP_OPEN = true
+
+
+begin:
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*	
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setnpcid cat_piano npc_cat_piano*
+	*setposang cat_piano setpos -4009.657715 4751.496094 34.134026;setang -90 30 0.000000*
+	*setspeaker cat_piano*
+	*show*
+	Эй.%%% У тебя есть минута?%%
+	Мне правда.%%%% Нужно поговорить.%
+	Мне нужна личная услуга.
+	&b1
+	
+b1:
+	*setspeaker narrator*
+	> Это последнее событие в линейке квестов пианиста.%%%
+	Просмотр может занять у вас некоторое время, но вы можете вернуться 
+	к нему без штрафов, если вы торопитесь.
+	player:
+	&r1a1:
+		Эй,% извини, что не вовремя.%% Я вернусь позже. (уйти)
+	&r2a1:
+		Вооозможно. Если мне не платят звонкой монетой, мне нужно
+		будет заплатить услугой и это значит тебе надо будет украсть для меня
+		примерно пять подносов печенья.
+	&r3a1:
+		Конечно.
+
+###### Branch 1 EARLY EXIT		
+r1a1:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_shock 1 idle*
+	*setskin cat_piano 3*
+	Оу!%%%% Конечно.*setskin cat_piano 0*%%
+	Я эм.% Буду здесь.
+	&exit
+
+###### BRANCH 2	
+r2a1:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_laugh 1 idle*
+	*setskin cat_piano 1*
+	> Она смеется,%%% *setskin cat_piano 0**setanim cat_piano gesture_confused 1 idle*затем постукивает себя по подбородку, 
+	как будто на мгновение взвешивает ваши требования.
+	&r2a2
+	
+r2a2:
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_agree 1 idle*
+	Да,% я могу работать с этими правилами и условиями.%% 
+	*setanim cat_piano gesture_foldarms 1 idle*Черт возьми,% я сама все испеку.
+	&r2a3
+	
+r2a3:
+	*setskin cat_piano 0*
+	Подожди.%%%%%*setanim cat_piano gesture_disagree 1 idle*% Нет.%%%
+	Я не умею печь, и мне все равно запрещено пользоваться духовкой.%%%
+	Вместо этого я добавлю напиток по твоему выбору.%*setanim cat_piano gesture_confused 1 idle*
+	Итак, ты в деле?
+	player:
+	&r1a1:
+		На самом деле, сейчас неподходящее время. Я вернусь позже. (уйти)
+	&r3a1:
+		Конечно.
+	
+		
+###### BRANCH 3		
+r3a1:
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_agree 1 idle*
+	Спасибо.%%%%*setskin cat_piano 0* 
+	Иди за мной.%% 
+	И, э-э, смотри под ноги.*setskin cat_piano 0*
+	&m1
+
+m1:		
+###### SCENE SETUP
+    *txout*
+	*hide*
+    *setfov 70*
+	*setcam setpos -3951.872314 4698.228516 116.168732;setang 8.676914 109.575012 0.000000*
+	*setposang player setpos -3863.479248 4857.957520 28;setang 0 134.195984 0.000000*
+	*txin*
+	*wait .15*
+
+###### START	
+	*setspeaker narrator*
+	*show*
+	> Пианист приводит тебя к%.%.%.%%% кастомному уровню?%%%%
+	Это определенно что-то значит.%% Пианист проходит дальше в
+    комнату.
+	&m2
+	
+m2:
+	*setcam setpos -3758.718018 4813.087891 85.153534;setang 1.329798 147.011353 0.000000*
+	*setposang cat_piano setpos -4042.202148 5043.773438 48;setang -90 214 0.000000*
+	*setspeaker narrator*
+	*setskin cat_piano 0*
+	> Пианист сидит на краю постамента и
+    болтает ногами взад-вперед.%%% 
+	Спустя добрых пятнадцать секунд*setanim cat_piano gesture_shrug 1 idle* она встает и пожимает плечами.
+	&m3
+	
+m3:
+	*setcam setpos -4002.618896 4989.136230 104.928711;setang 5.855218 129.602081 0.000000*
+	*setspeaker cat_piano*
+		*bgmplay sound/jazztronauts/music/events/pariah.mp3 .75 10.0*
+	*setanim cat_piano gesture_foldarms 1 idle*
+	Ну так.%%%%%%*setanim cat_piano gesture_confused 1 idle*
+	Что думаешь?%%%
+	Я сама создала это место.
+	player:
+	&r4a1:
+		Эта штука на земле. Это медуза или искусство?
+	&r5a1:
+		Это... э-э-э... Это... э-э... Да.
+	&r5a1:
+		Я могу сказать.
+	
+###### BRANCH 4 
+r4a1:
+	*setcam setpos -3758.718018 4813.087891 85.153534;setang 1.329798 147.011353 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 4*
+	> Она моргает,%%%%*setskin cat_piano 0* и ее лицо морщится*setskin cat_piano 3* как будто
+    она только что откусила что-то кислое.
+	&r4a2
+	
+r4a2:
+	*setcam setpos -4002.618896 4989.136230 104.928711;setang 5.855218 129.602081 0.000000*	
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Что?% Нет.%%% Это пианино.%%%%*setanim cat_piano gesture_foldarms 1 idle*
+	Я имею в виду,% Что это блять ужасно,%% Я собиралась украсть что-нибудь получше.*setanim cat_piano gesture_sweep 1 idle*%%%%
+	     ######make pianist gesture in a direction that has real piano. maybe camera hold on it.
+	&r4a3
+	
+r4a3:
+	*setskin cat_piano 3*
+	*setanim cat_piano gesture_embarass 1 idle*
+	Но я думала, что в основном правильно подобрала форму!%%%
+	Боже.%%*setskin cat_piano 0* Блять.%%%*setanim cat_piano gesture_confused 1 idle*
+	Что ты думаешь об остальном?
+	player:
+	&r5a1:
+		Это... э-э-э... Это... э-э... Да.
+	&r5a1:
+		Я могу определенно сказать, что все это сделала ты.
+		
+###### BRANCH 5
+r5a1:
+	*setcam setpos -4219.586914 4691.958496 315.842529;setang 35.616386 49.262882 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 3*
+	*setanim cat_piano gesture_sigh 1 idle*
+	> Она мнется.%%%*setskin cat_piano 2* Гнев, разочарование и отчаяние*setskin cat_piano 1* видны на ее лице
+    *setskin cat_piano 3**setanim cat_piano gesture_facepalm 1 idle*прежде чем она закопает его в своих лапах.
+	&r5a2
+	
+r5a2:
+	*setcam setpos -3758.718018 4813.087891 85.153534;setang 1.329798 147.011353 0.000000*
+	*tweencam 20 setpos -3679.145508 4710.735840 229.348297;setang 15.970865 137.224289 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Это ужасно.%%%%%%
+	Ты можешь сказать это,%*setanim cat_piano gesture_sigh 1 idle* Я знаю, что это так.
+	&r5a3
+	
+r5a3:
+	*setanim cat_piano gesture_anger 1 idle*
+	Я делаю это каждый раз.%%% Я пытаюсь освоить какой-нибудь новый навык, 
+	потому что не могу делать что-то одно. Я *setanim cat_piano gesture_facepalm 1 idle* на самом деле хороша в чем угодно,% и поскольку у меня
+    это получается не сразу, я сдаюсь.
+	&r5a4
+	
+r5a4:
+	*setcam setpos -4002.618896 4989.136230 104.928711;setang 5.855218 129.602081 0.000000*	
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_shrug 1 idle*
+	Наверное, я продолжаю надеяться, что существует уровень переполнения стека 
+	ненавистью к себе, и в следующий раз, когда я что-нибудь попробую*setanim cat_piano gesture_confused 1 idle* 
+	Я найду как снять ограничители и смогу расслабиться и снова творить.
+	&r5a5
+	
+r5a5:
+	*setanim cat_piano gesture_sweep 1 idle*
+	Это было первое, что я попробовала.%% После того, как это случилось.%%%%*setskin cat_piano 3* 
+	Я не знаю, сказала тебе Бармен или нет,% но давным-давно что-то%.%.%.%%*setanim cat_piano gesture_shrug 1 idle*
+	сломалось.%%% Я больше не могу играть на пианино.
+	&r5a6
+	
+r5a6:
+	*setcam setpos -3936.000000 5588.957031 63.790897;setang -8.908334 -103.198875 0.000000*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_sigh 1 idle*
+	Поэтому я попыталась создать свое собственное пространство, 
+	где я мог бы практиковаться, не чувствуя, что подвожу всех.%%%*setanim cat_piano gesture_facepalm 1 idle* 
+	Какая польза от джазового пианиста, который не умеет импровизировать?
+	&r5a7
+	
+r5a7:
+	*setcam setpos -3973.344727 4920.415039 59.856041;setang -17.985775 120.506638 0.000000*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_anger 1 idle*
+	Это, блять, не сработало.%%%%%%*setskin cat_piano 3**setanim cat_piano gesture_disagree 1 idle* От уборки мусора стало только хуже.%% Мы побывали во 
+	многих местах, которые были также хороши,*setanim cat_piano gesture_shrug 1 idle* как костюм Виолончелиста*setskin cat_piano 0*
+	и я хотела сжечь их дотла.
+	&r5a8
+	
+r5a8:
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_sweep 1 idle*
+	Я не понимаю, как люди могут создавать подобные вещи-%%%%*setcam setpos -3867.134521 4661.913574 144.492828;setang -5.447792 114.383842 0.000000*%%%%%%
+	&r5a9
+	
+r5a9:
+	*setcam setpos -3992.927979 5004.800781 54.613670;setang -20.514717 143.186310 0.000000*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_shock 1.5 idle*
+	-и выплеснуть это в мир!%%%%% Загромождая вселенную*setanim cat_piano gesture_anger 2 idle* первыми набросками.%*setcam setpos -4070.879639 5005.092285 77.041000;setang -18.917513 59.333317 0.000000*
+	На это у меня уходят недели практики*setanim cat_piano gesture_disagree 1.45 idle* прежде чем я смогу набраться уверенности,
+	чтобы показать это своим друзьям,*setanim cat_piano gesture_anger 2 idle* и ты видел*setcam setpos -3999.479980 5028.949219 93.815643;setang -13.620159 161.447708 0.000000* что произошло.%%%%*setskin cat_piano 0* Это мусор.%%%%%%%*setcam setpos -4015.992676 4967.954102 267.564575;setang 67.357834 111.402054 0.000000*%*setskin cat_piano 3*
+	Это все мусор.
+	&r5a10
+	
+r5a10:
+	*setcam setpos -3792.693115 4961.508301 67.395508;setang -4.143464 -165.756363 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Я даже не знаю, почему мне захотелось показать тебе это.%%%%*setskin cat_piano 0*
+	Вот что происходит,*setanim cat_piano gesture_sweep 1 idle* когда я ни хрена не планирую.%%%%%%%*setskin cat_piano 3*
+	Это ничего не стоит.
+	player:
+	&n1:
+		*setcam setpos -4085.967773 5018.938477 101.646179;setang 18.004377 -56.135139 0.000000*
+		*setposang cat_piano setpos -4094.908691 5182.930176 78;setang -90 180 0.000000*
+		*setanim cat_piano pose_sit01*
+		Я все равно рад, что ты мне это показала.
+	&n1:
+		*setcam setpos -4085.967773 5018.938477 101.646179;setang 18.004377 -56.135139 0.000000*
+		*setposang cat_piano setpos -4094.908691 5182.930176 78;setang -90 180 0.000000*
+		*setanim cat_piano pose_sit01*
+		Важно то, что ты не переставала пытаться.
+		
+n1:
+	*setcam setpos -3963.776123 5319.008789 125.757370;setang 11.855209 -114.379578 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Привести тебя сюда было ошибкой.%*setskin cat_piano 0*
+	Мне жаль, что я отняла у тебя время.
+	&n2
+	
+n2:
+	*setspeaker narrator*
+	*setcam setpos -3876.619141 4693.309082 302.305389;setang 27.401285 120.133430 0.000000*
+	> Она надолго замолкает,%%%*setanim cat_piano pose_sit02* затем хлопает лапой по клавишам.
+	&n2b
+	
+n2b:
+	*setspeaker cat_piano*
+	*bgmplay sound/jazztronauts/music/events/pianist_song.mp3 1 5*
+	С таким же успехом я могла бы просто дать тебе-
+	&n3
+
+n3:
+	*setcam setpos -4467.041504 4953.217285 53.986069;setang -2.306643 13.067791 0.000000*
+	*setposang player setpos -4096.396973 4912.637695 32;setang 0.728105 88.409599 0.000000*
+	*setanim player sit*
+	*setspeaker narrator*
+	> Пианист замолкает на полуслове и смотрит на свою лапу, когда
+    случайный аккорд разносится*setanim cat_piano pose_sit01* разносится по комнате.%%%*setskin cat_piano 3* 
+	Слезы текут ручьем, а затем неудержимо текут по ее щекам,*setanim cat_piano pose_sit02* когда 
+	она снова ударяет по клавишам.
+	&n4
+	
+n4:
+	*setcam setpos -4132.330078 4766.893066 63.294430;setang -3.930461 90.851433 0.000000*
+	*tweencam 60 setpos -4027.341309 4768.451660 63.294430;setang -3.903841 90.851433 0.000000*
+	> Когда ты садишься на одинокий стул,%%% она играет еще один аккорд,% 
+	затем еще один,%%%*setskin cat_piano 5* и на ее лице появляется 
+	самая яркая улыбка, которую вы когда-либо видели у нее.
+	&n5
+	
+n5:
+	*setcam setpos -3877.395752 5170.222656 128.057892;setang 10.950118 -148.293747 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	Верно.%%%%% Вот почему я привела тебя сюда.
+	&n6
+	
+n6:
+	*setcam setpos -4063.028564 5122.333496 139.028748;setang 15.555366 115.927330 0.000000*
+	*setskin cat_piano 5*
+	Потому что я не могу планировать ни хрена вокруг тебя.%% 
+	Вещи просто случаются.
+	&n6b
+	
+n6b:
+	Давай вернемся в бар.%%% У меня есть хорошие новости для остальных.
+	&n7
+	
+n7:
+	*setspeaker cat_piano*
+	*player*%.%.%.%.%%%
+	*setanim cat_piano gesture_confused 1 idle**setskin cat_piano 4*Спасибо тебе за то, что ты мой друг.*setskin cat_piano 5*
+	player:
+	&pianistconclude:
+		*setcam setpos -3991.188721 5261.389648 139.028748;setang 14.171123 -103.678741 0.000000*
+		А ты спасибо за то что ты мой друг.
+		
+pianistconclude:
+	*setcam setpos -3659.845703 5146.500488 49.834221;setang -5.021893 -156.280075 0.000000*
+	*setspeaker narrator*
+	> Вы двое тихонько возвращаетесь в бар. *mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+	
+	

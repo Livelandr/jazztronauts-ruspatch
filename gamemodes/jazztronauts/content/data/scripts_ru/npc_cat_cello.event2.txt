@@ -1,0 +1,444 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+		*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos -1401.264526 2930.430420 0;setang -90 81 0.000000*
+	*setnpcid cat_cello npc_cat_cello*
+		*bgmplay sound/jazztronauts/music/events/allspice.mp3 1.0 2.0*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -1492.101563 2928.706543 0;setang -90 290 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+	*setcam setpos -1696.551025 3192.797119 110.058128;setang 12.839911 -41.301598 0.000000*
+	*setposang player setpos -1572.479248 3135.348145 0;setang 0 -54.699417 0.000000*
+	*txin*
+	
+###### START
+	*setspeaker narrator*
+	*show*
+	> Виолончелист что-то глаголит Пианисту, которой нравится это
+	настолько как кому-то если бы их зажали Свидетели Иеговы.
+	&b1
+	
+b1:
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_agree 1 idle*
+	*setcam setpos -1464.040039 2978.969971 49.714104;setang 4.215045 -69.891418 0.000000*
+	и короче, когда Meat Loaf поет об %%'этом'%% в Я бы сделал что угодно 
+	ради любви (Но я не сделаю этого)-%%%*setanim cat_cello gesture_sweep 1 idle*
+	&b1b
+	
+b1b:
+	-должно быть совершенно очевидно, что он имеет в виду набор утверждений, 
+	которые приравниваются к тому, что он бессердечный или неверный любовник,%*setskin cat_cello 2* дура%%%%*setanim cat_cello gesture_disagree 1 idle*
+	ты имбецил.%%% ты великий абулаторный лох.
+	&b2
+	
+b2:
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_anger 2*
+	Увлекательно,%%%*setskin cat_piano 0* Виолончелист,%% но ох*setposang cat_piano setpos -1492.101563 2928.706543 0;setang -90 50 0.000000* ЭЙ *player* 
+	хочет с тобой поговорить,%*setcam setpos -1332.465942 2897.346680 78.478058;setang 5.066889 141.036346 0.000000*%*setanim cat_piano gesture_embarass 2 idle* и чел,% 
+	мне правда нравится этот разговор,*setanim cat_piano gesture_shock 1.3 idle* но будет грубо занимать все 
+	твое время, так что...
+	&b3
+	
+b3:
+	*setcam setpos -1302.162842 3144.007813 74.543724;setang 6.131691 -151.295532 0.000000*
+	*setskin cat_piano 1*
+	*setspeaker narrator*
+	>Пианист замечает, что вы таращитесь на нее, и чувствует, что у нее 
+	есть шанс сбежать.
+	player:
+	&b4:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Погоди, ч-
+	&b4:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Не погоди я просто проходил ми-
+	&b4:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Не оставляй меня с ним наедине ты крыса еб-
+		
+b4:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Не нужно меня благодарить, я обязательно подам петицию
+	Конгрессу о присуждении мне посмертной медали почета,%%*setskin cat_piano 0*
+	а теперь прошу меня простить -
+	&b5
+	
+b5:
+	*setposang cat_piano setpos 0 0 0;setang -90 290 0.000000*
+	*setposang cat_cello setpos -1401.264526 2930.430420 0;setang -90 48 0.000000*
+	*setspeaker narrator*
+	> Пианист выбегает из комнаты,%
+	оставляя тебя с Виолончелистом.%%%*setskin cat_cello 1* Он смотрет на ее побег
+	с застывшой,% самодовольной лыбой, затем поворачиваясь к тебе.
+	player:
+	&r1a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Ладно,% ладно.%% О чем думаешь?
+	&r2a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Эээ, чувак, посмотри на время, мне нужно позаботится о своей лошади,
+		которую я оставил в своей, нуу, включененной печке?? (Уйти)
+
+###### BRANCH 2 EARLY EXIT		
+r2a1:
+	*setcam setpos -1349.209839 3416.306396 93.879173;setang 7.090014 -119.032204 0.000000*
+	*setspeaker narrator*
+	> Доверяя своей реакции бей или беги,%% вы встали в
+	позу бегуна и начали гнать в любые стороны лишь бы 
+	не учавствовать в этом диалоге.
+	&exit
+	
+###BRANCH 1
+r1a1:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setposang cat_cello setpos -1401.264526 2930.430420 0;setang -90 81 0.000000*
+	*setposang player setpos -1496.223877 2928.228027 0;setang 5.971942 -7.068141 0.000000*
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_confused 1 idle*
+	тебе кто нибудь говорил что давид микеланджело
+	был сделан из мусора
+	&mikeyboy
+	
+mikeyboy:
+	*hide .1*
+	*setcam setpos -1380.977783 2895.147705 71.170029;setang 1.340097 173.352905 0.000000*
+	*wait 1*
+	*show .1*
+	*setanim cat_cello gesture_agree 1 idle*
+	*setskin cat_cello 0*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	это правда посмотри я подожду
+	&r1a2
+	
+r1a2:
+	*setanim cat_cello gesture_foldarms .75 idle*
+	*setspeaker cat_cello*
+	%.%.%.%предпологая что ты посмотрел ты понял что я прав%% предполагая что нет,%%%*setcam setpos -1397.268188 3009.426758 56.634251;setang 3.842376 -118.766037 0.000000* 
+	статуя которую сраная половина планеты считает одной из вершин*setanim cat_cello gesture_laugh 1 idle* исскуства
+	сделана из здоровенного куска испорченного мрамора который просто валялся
+	снаружи, потому что был дерьмовым
+	&r1a3
+	
+r1a3:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_shrug 1 idle*
+	кажется нужно сказать что-то глубокое
+	но я слишком пьян чтобы пытатся
+	&r1a4
+	
+r1a4:
+	*setcam setpos -1615.278809 3269.499023 156.285583;setang 16.726448 -68.347870 0.000000*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_agree 1 idle*
+	микеланджело создавал вещи покруче чем гигантская статуя 
+	чувака с большими руками и маленькой сосиской%*setcam setpos -1534.614624 3062.087891 57.589897;setang 13.052918 -61.852760 0.000000*%*setanim cat_cello gesture_sweep 1 idle* как в тот раз как он
+	нарисовал картину с горящим в аду критиком настолько охеренную
+	что она стала всемирно известной туристической достопримечательностью
+	player:
+	&owntheplayer:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Думаю ты имеешь ввиду Гробницу папы Юлия II.
+	&actualanswer:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Думаю ты имеешь ввиду Сикстинскую капеллу
+	&owntheplayer:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Думаю ты имеешь ввиду Капеллу Паолина.
+	&fairenough:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Без понятия о чем ты.
+		
+###### INCORRECT ANSWER GET DUNKED
+owntheplayer:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_foldarms 1 idle*
+	>Виолончелист выглядит самодовольным.
+	&own1
+	
+own1:
+	*setanim cat_cello gesture_laugh 1 idle*
+	хаха ты просто выбрал один из этих вариантов*setskin cat_cello 0* по 
+	рандому надеясь что тебе повезет не так ли
+	&own2
+	
+own2:
+	*setcam setpos -1372.477295 2947.549072 43.110970;setang -7.604194 -163.381622 0.000000*
+	*setanim cat_cello gesture_shrug 1 idle*
+	или может ты был на уроке истории и был слишком занят тем
+	что всасывал дорожки белого порошка в кладовке уборщика чтобы
+	запомнить имена все дома братства в которых есть какие-то
+	бесценные культурные артефакты
+	&m1
+	
+###### ACTUAL ANSWER
+actualanswer:
+	*setanim cat_cello gesture_shock 1 idle*
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	>Виолончелист поднимает бровь.
+	&actual1
+	
+actual1:
+	*setanim cat_cello gesture_confused 1 idle*
+	либо ты исторический ботан,%% удивительно разбирается в
+	херн-,%% или везунчик,%%%*setanim cat_cello gesture_agree 1 idle* но да
+	&m1
+	
+###### YEAH FAIR ENOUGH DUDE
+fairenough:
+	*setanim cat_cello gesture_sigh 1 idle*
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	слушай спасибо,%% радует слышать что кто-то просто сказал
+	что он не знает вместо того чтобы нести абсолютную чепуху просто
+	чтобы влится в диалог а по факту ничего не знать
+	&fair1
+	
+fair1:
+	*setanim cat_cello gesture_laugh 1 idle*
+	*setskin cat_cello 1*
+	сказал гигантский лицемерный мудак конечно%%%
+	но знаешь% никто не идеален
+	&m1
+	
+###### MERGE POINT
+m1:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_sweep .5 idle*
+	так что любой кто видел хотя бы один мем знает как выглядят 
+	большие важные картины на потолке сикстинской капеллы,%%%*setanim cat_cello gesture_disagree 1 idle* 
+	но нужно быть определенным придурком чтобы вспомнить 
+	что еще там сделал микеланджело.
+	&m2
+	
+m2:
+	*setanim cat_cello gesture_clap 1 idle*
+	большой старый портрет конца времен с Иисусом наверху показывающим торс
+	сложенным как ствол чертова дерева,%%*setcam setpos -1444.636963 2919.147705 50.134186;setang 6.610850 -5.737509 0.000000**setanim cat_cello gesture_shurg 1 idle* домосед пропустил день рук и ног и 
+	просто делал упражнения 24/7 после полета в космос на 40-й день
+	&m3
+	
+m3:
+	*setcam setpos -1627.743774 3042.347656 105.711868;setang 14.224164 -39.332272 0.000000*
+	*setanim cat_cello gesture_sweep 1 idle*
+	теперь вполне возможно разразиться длинной обличительной речью о 
+	композиции и*setanim cat_cello gesture_foldarms .8 idle* использовании цветов, а также о повествованиях, создаваемых
+	тем, как расположены фигуры и как они притягивают взгляд в определенном порядке
+	&m4
+	
+m4:
+	*setanim cat_cello gesture_disagree 1 idle*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	но это то, что вы можете почерпнуть из любого 
+	украденного учебника колледжа
+	&m5
+	
+m5:
+	*setanim cat_cello gesture_agree 1 idle*
+	и это гораздо менее смешно, чем рассказывать обо всех людях, 
+	которые очень разозлились из-за того, что майк нарисовал кучу жоп на 
+	стене церкви%%%%%*setcam setpos -1293.066528 2985.755127 83.660019;setang 5.812237 -161.092316 0.000000*
+	&m5b
+	
+m5b:
+	*setspeaker narrator*
+	>Виолончелист закинулся марихуаной, которую держал в руке.*setskin cat_cello 3*
+	&m6
+	
+m6:
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setcam setpos -1528.275269 3026.799561 33.071369;setang -3.078806 -63.077377 0.000000* ###### CELLO AND PLAYER
+	*setanim cat_cello gesture_sweep 1 idle*
+	посмотрите на этого чувака бьяджио да чезену, конферансье 
+	папы римского*setanim cat_cello gesture_agree 1 idle* (возможно, это лучшая должность, которую вы 
+	когда-либо указывали в своем резюме),%%% увидел, что майк изобразил бессмертные 
+	души всех присутствующих обнаженными*setskin cat_cello 2*и*setanim cat_cello gesture_shrug 1 idle* 
+	из-за этого у него и у его парней крыша поехала
+	&m7
+	
+m7:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setanim cat_cello gesture_sweep 1 idle*
+	сказал, что таким вещам место в банях и тавернах, 
+	а не в церкви,%%%*setskin cat_cello 0* для меня это звучит как громкое одобрение 
+	но что я вообще знаю.
+	&m8
+	
+m8:
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_laugh 1 idle*
+	за это майк нарисовал его языческим судьей мертвых,%%
+	дал ему ослиные уши чтобы показать что он тупая ослина,%%*setanim cat_cello gesture_clap 1 idle* и
+	грационзно прикрыл его наготу змеей которая жует его сосиску
+	player:
+	&r3a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		охеренно.
+	&r4a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Как Микеланджело это сошло с рук?
+	&r5a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		А почему никто не разозлился из-за
+		того, что Адам был голый на потолке?
+		
+###### BRANCH 3: AGREED
+r3a1:
+	*setcam setpos -1528.275269 3026.799561 33.071369;setang -3.078806 -63.077377 0.000000* ###### CELLO AND PLAYER
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_agree 1 idle*
+	да.
+	player:
+	&r4a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		Как Микеланджело это сошло с рук?
+	&r5a1:
+	*setcam setpos -1454.958740 2996.376221 62.348984;setang 2.564611 133.316620 0.000000*
+		А почему никто не разозлился из-за
+		того, что Адам был голый на потолке?
+
+###### BRANCH 4: I JUST WANTED AN EXCUSE TO CALL HIM BIGGIE
+r4a1:
+	*setskin cat_cello 2*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setanim cat_cello gesture_shrug 1 idle*
+	ну он пожаловался папе римскому на это%% но папа прожарил его*setskin cat_cello 1*
+	сказав что у него нет юрисдикции*setanim cat_cello gesture_laugh 1 idle* вытаскивать души из ада так что ему 
+	пришлось остаться на картине
+	&r4a2
+	
+r4a2:
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_disagree 1 idle*
+	но они все равно пририсовали одежду на всех
+	после того как майк помер так как они ссыкуны
+	&n1
+	
+	
+###### BRANCH 5: HOT TAKES ON PRUDES AND NUDES
+r5a1:
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_sweep 1 idle*
+	ну тебе стоит знать что долгий период времени в европейском
+	исскустве было четкое разделение между 'голый' и 'оголенный'
+	адам как раз был оголенным
+	&r5a2
+	
+r5a2:
+	*setcam setpos -1396.545410 3003.127686 36.095726;setang -5.714046 -126.539261 0.000000*
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_foldarms .75 idle*
+	'оголенный' означал греко-римский идеал человеческой
+	формы*setskin cat_cello 0* без одежды ради эстетики,%% в то время как
+	'голый' означает реального человека без какого либо контроля.
+	&r5a3
+	
+r5a3:
+	*setanim cat_cello gesture_shrug 1 idle*
+	таким образом это считалось ужасной нехорошей очень плохой вещью
+	которая считалась прямой критикой современного искусства и общества,%%*setcam setpos -1444.636963 2919.147705 50.134186;setang 6.610850 -5.737509 0.000000*%*setskin cat_cello 1*
+	или тем что вызывало у людей позорный стояк
+	&n1
+	
+###### MERGE POINT 2
+n1:
+	*setcam setpos -1528.275269 3026.799561 33.071369;setang -3.078806 -63.077377 0.000000* ###### CELLO AND PLAYER
+	*setskin cat_cello 0*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_laugh 1 idle*
+	искусство всегда было интересным по сути это просто чрезвычайно сложный 
+	троллинг с высокой концепцией что мне и нравится.%%%%*setanim cat_cello gesture_agree .75 idle* французы 
+	стали мастерами в этом деле.%%%% 
+	у них чуваки отрывали ссальники для показа проституток% в образе венеры
+	&n2
+
+n2:
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_confused 1 idle*
+	чем более сложная напряженная и требовательная творческая форма
+	тем веселее когда кто-то использует эти правила чтобы показать
+	средний палец мудилам с массовым контролем.%%%%*setskin cat_cello 0*
+	ну или просто можно кинуть кирпич в окно.%%%% оба варианта ништяк.
+	&n3
+	
+n3:
+	*setspeaker narrator*
+	*setcam setpos -1695.300415 3196.161377 114.466461;setang 10.364436 -48.542625 0.000000*
+	>Виолончелист снова вкинулся.
+	&n4
+	
+n4:
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_laugh 1 idle*
+	как я понимаю я прижал тебя в угол и мучал тебе рассказами
+	о тупом говне слишком долго%%%*setanim cat_cello gesture_agree 1 idle* можешь уйти
+	если хочешь.
+	&n5
+	
+n5:
+	*setanim cat_cello gesture_shrug 1 idle*
+	*setcam setpos -1475.910156 2944.431885 58.944317;setang 6.442042 0.155495 0.000000* ###### CELLO HEADSHOT
+	но,% хей,%% если захочешь кайфануть или поговорить со мной еще
+	о %%%таком дерьме то ты знаешь где меня искать. *mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

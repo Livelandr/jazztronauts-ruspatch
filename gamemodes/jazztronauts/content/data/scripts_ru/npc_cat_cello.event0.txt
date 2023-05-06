@@ -1,0 +1,333 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos -677 3819 0;setang -90 270 0.000000*
+	*setnpcid cat_cello npc_cat_cello*
+	*bgmplay sound/jazztronauts/music/events/youdiditagain.mp3 1.0 2.0*
+	*setposang player setpos -705.046448 3488.125977 0;setang 0 82.384605 0.000000*
+	*setcam setpos -562.419739 3412.193115 91.602287;setang 8.332038 137.274857 0.000000*
+	*txin*
+	
+###### START
+	*setspeaker narrator*
+	*show*
+	> Похоже, направляясь в Мяузей вы зашли не туда%.%.%.%%%
+	Это место похоже на отельную зону.%% Видимо Бармен реши-%*emitsound ambient/explosions/explode_1.wav .4 .8*%*shake 2*%####*setanim cat_cello cellist_fly 1*%%% 
+	&b1
+	
+b1:
+	> %%.%.%.%Это был Виолончелист? 
+	&b2
+	
+b2:
+	*setskin cat_cello 0*
+	*setposang cat_cello setpos -680.394653 3805.560303 0;setang -90 150 0.000000*
+	*setcam setpos -733.464111 3644.593994 56.454197;setang 3.220997 72.641579 0.000000*
+	> Вы решили пройтись по коридору чтобы проведать Виолончелиста,%%
+	но он, шатаясь, появляется из-за угла.%%%%
+	Он пахнет порохом,% бонгом, и смягчителем воды.
+	&b3
+	
+b3:
+	*setskin cat_cello 0*
+	*setcam setpos -693.533020 3730.060791 20.466173;setang -8.704757 71.390320 0.000000*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_shrug 1 idle*
+	окей оказывается в бензине еще больше дерьма чем просто в бутане,%%%
+	и если замачивать в нем бутоны то не получится*setanim cat_cello gesture_disagree 1 idle* гашиша который 
+	позволит*setcam setpos -662.875854 3744.553711 48.083252;setang 6.095956 108.871132 0.000000* мне закрепится на диване,%%%*setanim cat_cello gesture_laugh 1 idle* он просто взрывается 
+	когда ты пытаешься его приготовить
+	&b4
+	
+b4:
+	*setcam setpos -562.419739 3412.193115 91.602287;setang 8.332038 137.274857 0.000000*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_shrug 1 idle*
+	я полагаю, что адреналин и эндорфины, вторичные по отношению 
+	к акупунктуре лица закаленным стеклом, считаются кайфом, так что я 
+	запишу это как то, к чему стоит вернуться.*setposang player setpos -714.635681 3504.432373 0;setang 5.164247 65.622467 0.000000*
+	player:
+	&r1a1:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		Кажется, взрыв тебе был нипочем.
+	&r1a1:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		И как часто такое бывает?
+	&r2a1:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		Мне кажется, ты бы додумался до этого и так, если бы
+		обладал здравым смыслом.
+		
+###### BRANCH 1 
+r1a1:
+	*setposang cat_cello setpos -657.013916 3623.505371 0;setang -90 150 0.000000*
+	*setcam setpos -459.987152 3425.966797 86.036774;setang 9.140019 142.270187 0.000000*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_shrug 1 idle*
+	послушай я исследую инновационные фармацевтические химикаты,
+	я не трус, который боится оказатся на лезвии бритвы.
+	&r1a2
+	
+r1a2:
+	*setcam setpos -708.081421 3579.029785 55.792709;setang 15.874881 38.771481 0.000000*
+	*setanim cat_cello gesture_disagree 1 idle*
+	не думаю что какая нибудь инфекция переживет адскую ловушку из
+	токсинов которые и так уже вытеснили иммунную систему так что я могу
+	позволить себе работать забивая на технику безопасности перекрестное%%%%*setanim cat_cello gesture_agree 1 idle*
+	загрязнение придает каждой дозе незаменимый привкус неожиданности.	
+	&m1
+	
+###### BRANCH 2
+r2a1:
+	*setcam setpos -708.081421 3579.029785 55.792709;setang 15.874881 38.771481 0.000000*
+	*setposang cat_cello setpos -657.013916 3623.505371 0;setang -90 150 0.000000*
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_confused .75 idle*
+	%.%.%.%.%.%.%.%окей ты слепой или просто не можешь понять что*setanim cat_cello gesture_disagree 1 idle*
+	вся суть моего существования в видимом спектре в том чтобы показать
+	факт того что я взломал свои *setanim cat_cello gesture_laugh 1 idle*заводские настройки самосохранения
+	&r2a2
+	
+r2a2:
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_confused 1 idle*
+	ну типо как чуваки которые выросли в жопе мира которым становится
+	настолько скучно что они изобретают штуки основанные на фразе%%%%%*setskin cat_cello 2*
+	"эй смотрите сюда"%%%%*setskin cat_cello 1* перед тем как сделать что-то что*setanim cat_cello gesture_shrug 1 idle* обнулит
+	их гарантию на конечности,%органы,% и/или скелет
+	&r2a3
+	
+r2a3:
+	*setcam setpos -459.987152 3425.966797 86.036774;setang 9.140019 142.270187 0.000000*
+	*setanim cat_cello gesture_disagree 1 idle*
+	*setskin cat_cello 0*
+	они сделали только первые шаги к дороге просветления.%%%
+	им нужно еще долго практиковаться.
+	&m1
+	
+	
+###### MERGE 1
+m1:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_disagree 1 idle*
+	но хватит обо мне и моем необычным жизненным выборе.%%%%
+	поговорим о тебе*setanim cat_cello gesture_jab 1 idle*.%%%% необходимо быть чудаком
+	чтобы принять работу от*setanim cat_cello gesture_agree 1 idle* кучки странных кото-гремлинов откуда-то из
+	времени пространства.%%*setanim cat_cello gesture_confused 1 idle* почему ты на это согласился?
+	player:
+	&exploration:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		Осмотрется,% хочу исследовать все места которые создали люди.
+	&comraderie:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		Хотел узнать о вашем кватро побольше.
+	&agoodtime:
+		*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+		Собираюсь стать богатым и поигратся с вашими странными пушками.
+		
+###### THE PLAYER WANTS TO EXPLORE AND SEE SIGHTS 
+exploration:
+	*setcam setpos -685.808289 3578.998047 48.072960;setang 5.759272 45.772549 0.000000* ###### CELLO 3/4
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_agree 1 idle*
+	окей я понял.%%% это чертовски странно, как много всего существует,%% 
+	начиная от целых миров, которые представляют собой просто безликие 
+	кубы, заканчивая попытками создать*setanim cat_cello gesture_sigh 1 idle* фотореалистичный перекресток 
+	из реальной жизни возле которого жил когда-то автор.
+	&exp1
+	
+exp1:
+	*setcam setpos -658.643433 3586.832275 48.883362;setang 1.979193 86.554512 0.000000* ###### CELLO HEADSHOT
+	*setanim cat_cello gesture_laugh 1 idle*
+	*setskin cat_cello 1*
+	шестнадцать тысяч карт стоящих в пустыне
+	&exp2
+	
+exp2:
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_agree 1 idle*
+	хочешь разобрать это дерьмо, не так ли?%%%*setanim cat_cello gesture_foldarms 1 idle*
+	спародировать индиану джонса и еще тереть глаза от постоянных 
+	сломанных текстур и говняных навмешей.
+	&exp3
+	
+exp3:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setanim cat_cello gesture_shrug 1 idle*
+	может ты из тех кто ищет легендарные карты и изучает все 
+	маленькие хитрости и хитрые реализации, которые на них были.%%%%*setanim cat_cello gesture_laugh 1 idle*
+	или вам просто нравится их разрывать на куски надеясь найти
+	какое нибудь вдохновления в этих самых кусках.
+	&exp4
+	
+exp4:
+	*setcam setpos -685.808289 3578.998047 48.072960;setang 5.759272 45.772549 0.000000* ###### CELLO 3/4
+	*setanim cat_cello gesture_agree 1 idle*
+	у тебя будет достаточно времени чтобы найти что-то подходящее
+	&n1
+	
+######THE PLAYER WANTS TO GET TO KNOW THE CHARACTERS
+comraderie:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_disagree 1 idle*
+	*setspeaker cat_cello*
+	ага% ага%% лапшу мне на уши не вешай
+	&comrad1
+	
+comrad1:
+	*setcam setpos -658.643433 3586.832275 48.883362;setang 1.979193 86.554512 0.000000* ###### CELLO HEADSHOT
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_shock .75 idle*
+	%.%.%.%%ты серьезно?%%% ну.%% про меня нечего сказать,% правда.%%*setanim cat_cello gesture_foldarms .75 idle*
+	мне нравятся долгие прогулки по пляжу после употребления ДМТ,%%
+	просыпатся в мусорке с почти не съеденым заказом из макдака,%%
+	находить способы смущать и разочаровывать людей о которых я забочусь.
+	&comrad2
+	
+comrad2:
+	*setcam setpos -685.808289 3578.998047 48.072960;setang 5.759272 45.772549 0.000000* ###### CELLO 3/4
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_laugh 1 idle*
+	ты лучше узнаешь о остальных лопухах если поговоришь с ними,%%*setskin cat_cello 0* им всем
+	давно нужна компания.%%%% Бармен постоянно может поговорить но лучше тебе
+	насладится подкрадывающимся ощущением что тебя тотально*setskin cat_cello 2* имеют*setanim cat_cello gesture_sigh 1 idle* просто 
+	ради развлечения потому что привет.
+	&comrad3
+	
+comrad3:
+	*setcam setpos -454.544678 3664.349609 82.258759;setang 8.341365 -150.381134 0.000000*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_sweep 1 idle*
+	эту мерзкую стучащую по клавишам с рожей как у маньяка с топором
+	зовут Пианист.%%%%*setanim cat_cello gesture_shrug 1 idle* над ней весело издеваться, но теперь как-то 
+	легко.%% я бы сказал она безвредна но%%% э%%% она нихрена НЕ так что советую 
+	следить за языком при ней%%%*setanim cat_cello gesture_disagree 1 idle* или нет ведь так веселее
+	&comrad4
+	
+comrad4:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setanim cat_cello gesture_agree 1 idle*
+	те с шикарным пальто - Певец.%% они - сердце команды,%% серьезно.%%%
+	они управляют Мяузеем что им на мое *setanim cat_cello gesture_confused 1 idle*удивление нравится
+	но %%блин%% кому то же нужно заботится о чудаках которых мы приютили.
+	&n1
+	
+######### JUST HERE TO HAVE A GOOD TIME THANKS
+agoodtime:
+	*setcam setpos -685.808289 3578.998047 48.072960;setang 5.759272 45.772549 0.000000* ###### CELLO 3/4
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_laugh .9 idle*
+	ах,%% голая алчность и ликующая капризность.%%%*setanim cat_cello gesture_agree 1 idle*так вы человек культуры.%%
+	*setskin cat_cello 0*чтож у тебя будет не мало*setanim cat_cello gesture_sweep 1 idle* возможностей утолить обе
+	эти жажды позволь мне сказать что ты будет по горло сыт богатством 
+	и странными технологиям.
+	&goodtime1
+	
+goodtime1:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_shrug 1 idle*
+	хотя я должен отметить что наши баснословные богатства не считают 
+	легальным платежным средством ни в каком измерении,% самолете,% уровне,%
+	игре, или в прочей социально-экономической группе 
+	не являющейся нашей.
+	&goodtime1b
+	
+goodtime1b:
+	*setanim cat_cello gesture_laugh 1 idle*
+	можно сказать что мы даем тебе баксы из монополии
+	которые мы сами и наклепали.
+	&goodtime2
+	
+goodtime2:
+	*setanim cat_cello gesture_exchange 1 idle*
+	так или иначе пушки и инструменты и прочее дерьмо которое ты можешь
+	получить за эти баксы полностью твои.%%%%*setanim cat_cello gesture_shrug 1 idle* делай что с ними что хочешь
+	в местах где ты бываешь и если ты их каким нибудь образом
+	заберешь их с собой после ухода то они твои
+	&goodtime3
+	
+goodtime3:
+	*setcam setpos -658.643433 3586.832275 48.883362;setang 1.979193 86.554512 0.000000* ###### CELLO HEADSHOT
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_disagree 1 idle*
+	если конечно ты не мудила и не расскажешь людям откуда
+	ты их взял 
+	&goodtime4
+	
+goodtime4:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_laugh 1 idle*
+	скажу тебе что у меня есть первоклассная команда легальных
+	ниндзя которых я держу в криосне и которых выпускают только
+	чтобы доставить предписания тем кто ворует славу и деньги.
+	а потом их убивают
+	&n1
+	
+###### INTEROGATION OVER GO HOME IDIOT
+n1:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_sigh 1 idle*
+	чувак ты так много со мной говорил что я начинаю терять
+	свой кайф дай ка мне секунду
+	&n2
+	
+n2:
+	*setcam setpos -656.865234 3607.643555 78.188354;setang 5.137630 -111.098778 0.000000*
+	*setspeaker narrator*
+	> Виолончелист подходит к бонгу, и вместо того чтобы поджечь
+	его как адекватный человек,% бонг целиком воспламеняется.
+	&n2b
+	
+n2b:
+	Он вдыхает дым все равно, и кажется это сработало.
+	&n3
+	
+n3:
+	*setcam setpos -538.476379 3494.054932 77.769257;setang 7.037041 154.169189 0.000000* ###### PLAYER AND CELLO
+	*setskin cat_cello 3*
+	*setanim cat_cello gesture_laugh .69 idle*
+	*setspeaker cat_cello*
+	ахх нет ничего лучше чем старый добрый инди-*setanim cat_cello pose_passedout*
+	&n4
+	
+n4:
+	*setposang player setpos -689.756470 3525.622070 0;setang 31.633858 70.191818 0.000000*
+	*setcam setpos -731.334839 3735.929199 14.077698;setang -6.565836 -73.023735 0.000000*
+	*setspeaker narrator*
+	> Виолончелист,% после минутного изучения оказывается,%% что
+	он в провалился в глубокий сон,%% и на самом деле не умер
+	от какой-то турбоаневризмы.%%%% Вы считаете что вам лучше оставить
+	спящего кота лежать.
+	*mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

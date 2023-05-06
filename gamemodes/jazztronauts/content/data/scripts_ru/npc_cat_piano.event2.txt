@@ -1,0 +1,330 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*setcam setpos -1610.460571 2861.699707 133.112427;setang 20.506798 53.800053 0.000000* ###### ESTABLISH SHOT
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setposang cat_cello setpos -1534.931519 3016.726074 25;setang -90 315 0.000000*
+	*setnpcid cat_cello npc_cat_cello*
+	*bgmplay sound/jazztronauts/music/events/youdiditagain.mp3 1.0 2.0*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setposang cat_bar setpos -1426.450195 3154.211670 0;setang -90 165 0.000000*
+	*setnpcid cat_bar npc_cat_bar*
+	*setposang player setpos -1491.653442 2987.384766 0;setang 0 86.527588 0.000000*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos -1524.946167 3146.739746 0;setang -90 210 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos -1390.301392 3026.863281 32;setang -90 45 0.000000*
+	*setnpcid cat_singer npc_cat_sing*
+	
+	*spawn player_dummy playerboy*
+	*txin*
+	
+	
+###### START
+	*setspeaker narrator*
+	*setskin cat_piano 0*
+	*setskin cat_bar 0*
+	*setskin cat_singer 0*
+	*setskin cat_cello 0*
+	*show*
+	> Именно здесь, по словам пианиста, проходит вечеринка.%%% Вы так думаете.%%
+	Все кошки здесь, они расселись вокруг стола.%%
+	%.%.%.%тухлая еда на вынос, которую вы достали, тоже здесь.
+	&b1
+	
+b1:
+	*setcam setpos -1450.820923 3049.278076 66.423630;setang 10.594172 112.317444 0.000000* ###### BAR AND PIANO
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_shock 1 idle*
+	О,% привет *player*.%% Я не была уверена, придешь ли ты.%%%*setskin cat_piano 1* 
+	Но я думала,%*setanim cat_piano gesture_agree 1 idle* кто отказывается от бесплатной еды,% верно?%%
+	Так что я заняла тебе место.
+	
+	player:
+	&r1a1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Спасибо, но я возьму мое с собой. У меня есть дела, которые нужно сделать. (уйти)
+	&r2a1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Знаешь, я на самом деле не знаю, насколько старая эта еда. 
+		Я имею в виду, я понюхал это, но.
+		Ты уверена, что хочешь это съесть?
+	&r3a1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Я буквально никогда не откажусь от бесплатной еды.
+		
+###### Branch 1 Early Exit
+r1a1:
+	*setcam setpos -1498.261108 3115.454590 54.479294;setang 6.880691 127.231255 0.000000* ###PIANO CLOSEUP
+	*setspeaker cat_piano*
+	*setskin cat_piano 3*
+	*setanim cat_piano gesture_embarass 1 idle*
+	> Пианист выглядит,% на мгновение,%% удрученной.*setskin cat_piano 0*
+	&r1a2
+	
+r1a2:
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	*setanim cat_piano gesture_agree 1 idle*
+	Оу.%%% Конечно.% Я знаю какого это,% быть занятым межпространственным вором.%*setanim cat_piano gesture_exchange 1 idle*%*setcam setpos -1450.820923 3049.278076 66.423630;setang 10.594172 112.317444 0.000000* ###### BAR AND PIANO 
+	Я оставила для тебя немного вонтонского супа,% постарайся не испачкать сиденье каталки.
+	&r1a3
+	
+r1a3:
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_agree 1 idle*
+	Я очень надеюсь, что ты сможешь присоединиться к нам на нашем следующем небольшом собрании.%%
+	Береги себя!
+	&exit
+	
+###### Branch 2
+r2a1:
+	*setcam setpos -1510.434570 3071.411865 67.185104;setang 2.777888 -119.207855 0.000000* ###### CELLO ONLY
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_exchange 1 idle*
+	да все нооорм.%%% че такого может произойти?%% не похоже, что жизнь или смерть
+    имеют какое-то значение помимо того, что ты им придаешь% *setanim gesture_sweep cat_cello 1 idle* так что садись% хватай 
+	палочки для еды% и присоединяйся к нам, чтобы ощутить кулинарную пустоту, которую
+    представляет собой еда невероятно сомнительного происхождения.
+	&r2a2
+	
+r2a2:
+	*setcam setpos -1498.261108 3115.454590 54.479294;setang 6.880691 127.231255 0.000000* ###PIANO CLOSEUP
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_disagree 1 idle*
+	Спасибо за волнующую речь,% Кенигсберг.%%%*setskin cat_piano 0*%*setcam setpos -1329.612915 3103.142334 94.227859;setang 14.996481 -171.855530 0.000000* Но это не законно,% это круто.%%
+	Все продукты питания, которые мы находим, сохраняются в том виде, в каком они 
+	были созданы.%%%%*setanim cat_piano gesture_shrug 1 idle*
+	Как еще, по-твоему, мы, блядь, можем питаться?
+	
+	player:
+	&r1a1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Спасибо, но я возьму мое с собой. У меня есть дела, которые нужно сделать. (уйти)
+	&r3a1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Я буквально никогда не откажусь от бесплатной еды.
+		
+###### Branch 3
+r3a1:
+	*setcam setpos -1450.820923 3049.278076 66.423630;setang 10.594172 112.317444 0.000000* ###### BAR AND PIANO
+	*setspeaker narrator*
+	*setskin cat_piano 1*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_clap 1 idle*
+	*setanim cat_piano gesture_clap 1 idle*
+	> Пианист и Певец хлопают в ладоши вместе.*setskin cat_piano 3* 
+	Пианист выглядит*setanim cat_piano gesture_embarass 1 idle* смущенной и
+	кажется, она притворяется, что сделала это, чтобы убить жука.%%%
+	Вы позволили ей думать, что это сработало.
+	&r3a2
+	
+r3a2:
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	Дорогуша.%%*setanim cat_piano gesture_exchange 1 idle* Вот, я оставила тебе немного вонтонского супа.
+	%
+	> Она пододвигает к тебе одну из коробок.
+	&r3a3
+	
+r3a3:
+	*setcam setpos -1329.612915 3103.142334 94.227859;setang 14.996481 -171.855530 0.000000* ####### ALL 4
+	*setspeaker narrator*
+	*setskin cat_cello 0*
+	*setskin cat_bar 0*
+	> Все в комнате едят в тишине.%%% Это всего лишь слегка неловко.
+	&r3a4
+	
+r3a4:
+	*setspeaker cat_bar*
+	*setskin cat_bar 3*
+	Скажи, *player*.%%*setskin cat_bar 1* *setanim cat_bar gesture_confused 1 idle*Ты когда-нибуть играл партию в гольф-
+	&r3a5
+	
+r3a5:
+	*setcam setpos -1498.261108 3115.454590 54.479294;setang 6.880691 127.231255 0.000000* ###PIANO CLOSEUP
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_anger 2.5 idle*
+	ИТАК, О ТОМ, ЗАЧЕМ Я ПОЗВАЛА ВАС ВСЕХ СЮДА СЕГОДНЯ.%%%%%
+	Я кое-что нашла.*setanim cat_piano gesture_agree 1.2 idle* *setskin cat_piano 1* Что-то клевое.
+	&r3a6
+	
+r3a6:
+	*setspeaker cat_bar*
+	*setskin cat_piano 0*
+	*setskin cat_bar 2*
+	Пианист.%%%*setcam setpos -1450.820923 3049.278076 66.423630;setang 10.594172 112.317444 0.000000* Никаких бензопил в баре "Самсара"%%%%*setskin cat_bar 4*
+	*setskin cat_bar 0*Мы уже говорили об этом.
+	&r3a7
+	
+r3a7:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_jab 1.7 idle*
+	Во-первых,% ты подавляешь мой свободный дух этим правилом, и я возмущена этим.%%%
+	Во-вторых,%%*setanim cat_piano gesture_disagree 1 idle* *setskin cat_piano 4*это не *setskin cat_piano 1*бензопила.%%% 
+	Это кое-что получше.
+	&r3a8
+
+r3a8:
+	*setcam setpos -1329.612915 3103.142334 94.227859;setang 14.996481 -171.855530 0.000000* ####### ALL 4
+	*setspeaker narrator*
+	*setskin cat_cello 0*
+	*setanim cat_piano gesture_exchange 1 idle*
+	> Пианист достает из кармана пиджака диктофон,%%
+	и кладет его на стол.
+	%%%%%
+	Виолончелист быстро встает со своего места.
+	&r3a9
+
+r3a9:
+	*setcam setpos -1510.434570 3071.411865 67.185104;setang 2.777888 -119.207855 0.000000* ###### CELLO ONLY
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_shrug 1 idle*
+	ну%у%у%у%у%ууу был рад с вами потусовать спасибо*setanim cat_cello gesture_agree 1 idle*за еду 
+	мне нужно найти буквально любое другое место, чтобы быть в этот момент времени% 
+	так что эм% если вы меня извините% ведро*setanim cat_cello gesture_laugh 1.4 idle* полное жидкого 
+	азота, назначил встречу с моим лицом примерно через,% тридцать секунд
+	&r3a10
+
+r3a10:
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_confused 1 idle*
+	Ну же,%% не будь таким.
+	&r3a11
+
+r3a11:
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_sigh 1 idle*
+	как будто мы не все знаем, как все будет%%%%%%
+	не*setanim cat_cello gesture_disagree 1 idle* спасибо*setskin cat_cello 2* я сваливаю я вполне способен разрушить свою
+    внутренние,% средние, и внешние уши самостоятельно
+	&r3a12	
+	
+r3a12:
+	*setcam setpos -1486.503418 3121.125000 84.735489;setang 12.840269 -81.533890 0.000000* ###### SING AND CELLO
+	*setspeaker cat_singer*
+	*setskin cat_singer 0*
+	> Певец кладет свой планшет на стол.%%%%*setskin cat_singer 1*
+	
+	Они*setanim cat_singer gesture_exchange 2 idle* указывают на стул Виолончелиста.
+	&r3a13	
+	
+r3a13:
+	*setspeaker cat_cello*
+	*setskin cat_cello 4*
+	*setanim cat_cello gesture_facepalm 1.3 idle*
+	Да ладно тебе, певчий,%% серьезно?%%%%
+	ты собираешься*setskin cat_cello 2* позволить ей сделать это с собой?
+	&r3a14
+
+r3a14:
+	*setspeaker cat_singer*
+	*setanim cat_singer gesture_anger 2 idle*
+	> Певец указывает более выразительно.
+	&r3a15	
+
+r3a15:
+	*setcam setpos -1329.612915 3103.142334 94.227859;setang 14.996481 -171.855530 0.000000* ####### ALL 4
+	*setspeaker cat_cello*
+	>%.%.%.%%Виолончелист спокойно садится на свое место.
+	&r3a16
+	
+r3a16:
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	Благодарю вас.%%%% Итак,% Я нашла это,% и я что хотела бы вас побаловать.%%
+	Я практиковалась.%%%
+	Кхм.
+	&r3a17
+	
+r3a17:
+	*setspeaker cat_piano*
+	*setcam setpos -1498.261108 3115.454590 54.479294;setang 6.880691 127.231255 0.000000* ###PIANO CLOSEUP
+	> Пианист запускает диктофон.%%%%%
+	
+	%.%*setskin cat_piano 3*.%.%.%.%.%.%.%%% это что-то хорошее.
+	&r3a18
+	
+r3a18:
+	*setposang cat_piano setpos -1524.946167 3146.739746 -128;setang -90 210 0.000000*
+	*setanim cat_piano gesture_exchange 2 idle*
+	> Как только песня заканчивается, Пианист швыряет магнитофон
+    через всю комнату и выбегает вон!
+	
+	player:
+	&m1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Это было ужасно.
+	&m1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Это было здорово.
+	&m1:
+		*setcam setpos -1476.077637 3092.489014 59.566158;setang -0.097153 -99.910004 0.000000*
+		Я действительно жалею, что не взял с собой еду.
+		
+###### MERGE
+m1:
+	*setcam setpos -1329.612915 3103.142334 94.227859;setang 14.996481 -171.855530 0.000000* ####### ALL 4
+	*setspeaker cat_cello*
+	*mark_seen*
+	*setanim cat_cello gesture_shrug 1.2 idle*
+	не хочу говорить, что я тебе об этом говорил,%% но я же тебе точно говорил%%%%
+	просто зовите меня ебанной%*setcam setpos -1486.503418 3121.125000 84.735489;setang 12.840269 -81.533890 0.000000* касандрой, потому что никто не воспринимает мои 
+	предзнаменования рока всерьез, и это происходит КАЖДЫЙ РАЗ
+	&m2
+	
+m2:
+	*setspeaker cat_singer*
+	*setskin cat_singer 2*
+	*setanim cat_singer gesture_disagree 1.3 idle*
+	> Певец хмурится.%%% Им это понравилось.
+	&m3
+	
+m3:
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setanim cat_cello gesture_jab 2.5 idle*
+	о, конечно,% тебе это понравилось%%% ты поддерживающий друг%% это значит
+    не меньше, чем повесить свои первые в жизни*setanim cat_cello gesture_sigh 1 idle* каракули карандашом
+	на холодильник
+	&m4
+	
+m4:
+	*setcam setpos -1450.820923 3049.278076 66.423630;setang 10.594172 112.317444 0.000000* ###### BAR AND PIANO
+	*setspeaker cat_bar*
+	*setskin 2*
+	*setanim cat_bar gesture_anger 2.4 idle*
+	> Бармен встает.*setskin cat_bar 0*
+	&m5
+	
+m5:
+	*setspeaker cat_bar*
+	Я лучше пойду поищу ее.%%*setanim cat_bar gesture_agree 1.5 idle*
+	Спасибо, что присоединился к нам,% *player*,%
+	это было восхитительно.
+	&exit
+
+	
+	
+	
+	
+	
+
+
+	

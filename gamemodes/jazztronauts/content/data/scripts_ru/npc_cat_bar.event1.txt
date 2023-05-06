@@ -1,0 +1,491 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setnpcid cat_bar npc_cat_bar*
+
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setnpcid cat_piano npc_cat_piano*
+	*setposang player setpos -1492.517822 2994.995850 0;setang 0 87.726311 0.000000*
+	*spawn cat_cello models/andy/cellist/cat_cellist.mdl*
+	*setnpcid cat_cello npc_cat_cello*
+	*bgmplay sound/jazztronauts/music/events/loveaffair.mp3 1.0 2.0*
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setnpcid cat_singer npc_cat_sing*
+
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+
+	*setposang cat_bar -1456.906494 3002.029785 0;setang -90 15 0.000000*
+	*setposang cat_cello -1550.800171 3010.119873 0;setang -90 345 0.000000*
+	*setposang cat_piano -1413.009766 3020.624512 0;setang -90 60 0.000000*
+    *setposang cat_singer -1470.034180 3146.505859 0;setang -90 180 0.000000*
+	*setfov 70*
+	*wait .1*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+
+
+
+###### START
+*txin*
+*show*
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setanim cat_cello gesture_exchange 1 idle*
+	давай леди удача% ты попала щебнем в глаз
+	умирающему раку%% дай мне че нибудь хорошее
+	&begin2
+begin2:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_confused 1 idle*
+	*setcam setpos -1495.497559 3173.718506 86.646301;setang 8.891073 -59.375931 0.000000*
+	Ну.%%%% Что-то новенькое.
+	&begin3
+begin3:
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setcam setpos -1480.707764 3117.885986 56.487091;setang 7.240627 -137.106567 0.000000*
+	*setanim cat_cello gesture_disagree 1 idle*
+	ладно,% клевать носом на богов не получается. 
+	%%%%%если ты открыто оскорбляешь их то получаешь пощечину.
+	&begin4
+	
+begin4:	
+	*setanim cat_cello gesture_shock 1 idle*
+	ПУТАТЬ их?%% это уже что-то.
+	player:
+	&resp1a:
+		Это не сработало бы с Зевсом.
+	&resp2a:
+		В словах Виолончелиста есть смысл.
+    &resp3a:
+		Знаете что? Я не особо азартен. (уйти)
+
+###### Branch 1
+resp1a:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_shrug 1 idle*
+	*setcam setpos -1497.595215 3103.203369 54.382309;setang -2.023108 -40.901863 0.000000*
+	Ага он прав.% Зевс бы просто закинул тебя в тюрьму для ботанов
+	со своим батей,% или поженил бы тебя со своим братом,% или
+	превратился бы в рой пчел и трахнул бы козла.
+    &resp1b
+
+resp1b:
+	.%.%.%или что-то такое же странное.%%*setanim cat_piano gesture_confused 1 idle* 
+	В любом случае, хрен с ним?% Мы жили столько же сколько и он 
+	и я ни %разу% не хотела сделать какую-то тупую
+	херь какую делал он. 
+	&resp1c
+
+resp1c:
+	*setspeaker cat_cello*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	*setanim cat_cello gesture_laugh 1 idle*
+	слушай%%%% все что я скажу так это то что амброзия это тот еще наркотик
+	&resp1d
+
+resp1d:
+	*setspeaker cat_bar*
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	*setanim cat_bar gesture_disagree 1 idle*
+	Вот причина по которой я ее не ношу.
+	There's a reason I don't carry it anymore.
+    &resp1e
+
+resp1e:
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_jab 1 idle*
+	боже% ссыкующая%*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000* львиная жопа %% запретитель%%*setanim cat_cello gesture_sigh 1 idle* 
+	однажды мне все равно придется нагадить в твоем шкафу из-за этого.
+	&resp1f
+	
+resp1f:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_anger 2 idle*
+	Заткнись.% Раздача.
+    &merge1a
+
+###### Branch 2
+resp2a:
+    *setspeaker cat_bar*
+	*setskin cat_bar 3*
+	*setanim cat_bar gesture_shock 1 idle*
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	О боже.% Соглашатся с Виолончелистом?%%*setskin cat_bar 0*%*setanim cat_bar gesture_confused 1 idle* 
+	У тебя лихорадка?
+    &resp2b
+
+resp2b:
+    *setspeaker cat_cello*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	*setanim cat_cello gesture_jab 1 idle*
+	единственная его лихорадка это% блядский,% правдакулез.%% 
+	пубик.% нет лечения% им пиздец.%%%%%*setanim cat_cello gesture_confused 1 idle* 
+	симптомы, черт возьми, пробуждаются,% дурень
+    &resp2c
+
+resp2c:
+    *setspeaker cat_piano*
+	*setcam setpos -1495.497559 3173.718506 86.646301;setang 8.891073 -59.375931 0.000000*
+	*setanim cat_piano gesture_laugh 1 idle*
+	Спасибо,% Бэнкси.
+    &resp2d
+	
+resp2d:
+    *setspeaker cat_cello*
+	*setanim cat_cello gesture_anger 2 idle*
+	МЫ ГОВОРИЛИ ЧТО ТЫ НЕ БУДЕШЬ ГОВОРИТЬ ЭТО
+	ГОВНОИМЯ ЗДЕСЬ СНОВА
+    &resp2e
+    
+resp2e:
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_clap 1 idle*
+	Спасибэнкси
+    &resp2f
+	
+resp2f:
+    *setspeaker cat_cello*
+	*setanim cat_cello gesture_anger 2 idle*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	суЧкА
+	&resp2g
+	
+resp2g:
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_sigh 1 idle*
+	Успокойтесь оба,%%% Певец хочет раздавать.
+	&resp2h
+	
+resp2h:
+	*hide*
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	*wait .6*
+	*setcam setpos -1396.263062 3081.129639 50.612041;setang 1.330953 152.403229 0.000000*
+	*show*
+	*setspeaker cat_cello*
+	.%.%.%прости.%% давай певчий,% делай что должен.	
+    &merge1a
+
+###### Branch 3
+resp3a:
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_agree 1 idle*
+	Я тебя не виню.%%% 
+	Мы скоро выйдем.
+    &exit
+
+###### Merge point
+merge1a:	
+	*hide*
+	*txout*
+    *setspeaker narrator*
+	*show*
+	>Спустя пару раундов%.%.%.
+    &merge1b
+
+merge1b:
+	*hide .1*
+	*setcam setpos -1564.555542 3152.012207 87.040466;setang 18.527466 -35.418659 0.000000*
+    *txin .2*
+	*show .1*
+	>Вероятно,%%% коты играют в какой-то странный вариант
+	блекджека названный 'набитый вкусом блекджек.' 
+    &merge1c
+merge1c:
+	> Выглядит как более менее нормальный блекджек, помимо того
+	что игроки могут воровать друг у друга деньги по правилам
+	которые никто не объяснит
+    &merge1d
+merge1d:
+	*setspeaker cat_cello*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	*setanim cat_cello gesture_laugh 1 idle*
+    нихера%% я гениальный стратег.%*setanim cat_cello gesture_exchange 1.4 idle* зовите меня Сципион Африканский так-как 
+	я собираюсь пройтись на слонах по альпам этой игры и забрать
+	все ваши карманные расходы
+    &merge1e
+merge1e:
+    *setspeaker cat_piano*
+	*setanim cat_piano gesture_confused 1 idle*
+	Я знаю, ты неправильно понимаешь историю войн, 
+	пытаясь вывести меня из себя.%%*setanim cat_piano gesture_disagree 1 idle* Больше не сработает.
+	&merge1f
+	
+merge1f:
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_confused 1 idle*
+	дерьмо.%%%*setanim cat_cello gesture_shrug 1 idle**setskin cat_cello 0* ладно тогда зови меня Док Эллис% так 
+	как я идеально играю *setcam setpos -1360.187134 3170.514893 99.880249;setang 26.460207 -134.498184 0.000000**setskin cat_cello 1*несмотря на то
+	что карты похожи на Ричарда Никсона.
+	&merge1g
+	
+merge1g:
+	*setspeaker cat_bar*
+	*setskin cat_bar 3*
+	*setanim cat_bar gesture_shock 1 idle*
+	Твоя способность казатся совершенно трезвым во время
+	психоделической диссоциации никогда не перестанет удивлять%%%*setskin cat_bar 0* или пугать меня.
+	&merge1h
+	
+merge1h:
+	*setspeaker narrator*
+	*setskin cat_singer 2*
+	*setanim cat_singer gesture_anger 1 idle*
+	> Певец дважды стучит по столу
+	&merge1i
+	
+merge1i:
+	*setspeaker cat_bar*
+	*setskin cat_bar 3*
+	*setskin cat_singer 0*
+	Ах,% точно.%%%%*setskin cat_bar 0* Кажется это была твоя очередь,% *player*.
+	&decision2
+	
+decision2:
+	*setspeaker player*
+	> .%.%.%У тебя две восьмерки на руках,% в сумме 16. 
+		Брать,% или стоять?
+	player:
+	&resp4a:
+		Взять
+	&resp5a:
+		Стоять
+	&resp6a:
+		Сбросить карты (уйти)
+		
+###### Branch 4
+resp4a:
+	*setspeaker narrator*
+	*setcam setpos -1464.512939 3099.350830 45;setang 1.916579 90.059235 0.000000*
+	*setanim cat_singer gesture_exchange 1.5 idle*
+	>Певец кидает вам карту.% 
+	Вы ее переворачиваете.
+	&resp4b
+	
+resp4b:
+	>Это дама%.%.%. У вас перебор%.%.%.%.
+	&resp4c
+	
+resp4c:
+	*setspeaker cat_cello*
+	*setcam setpos -1564.555542 3152.012207 87.040466;setang 18.527466 -35.418659 0.000000*
+	*setanim cat_cello gesture_laugh .85 idle*
+	л%о%п%у%х
+	&resp4d
+	
+resp4d:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_facepalm 1 idle*
+	*setskin cat_piano 4*
+	С таким же успехом,% мы могли бы просто выкинуть наши фишки.*setskin cat_piano 0*
+	&resp4e
+	
+resp4e:
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_shrug 1 idle*
+	ой будто эти деньги имеют значение плакса%%%*setskin cat_cello 0* 
+	ты просто злишься что у нас есть колоды на которых ты больше 
+	не можешь считать карты.
+	&resp4f
+	
+resp4f:
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setcam setpos -1495.497559 3173.718506 86.646301;setang 8.891073 -59.375931 0.000000*
+	*setanim cat_piano gesture_anger 1 idle*
+	Потому что ты постоянно бесился что я лучше в этом! %*setskin cat_piano 0*%%% 
+	Потом ты вообще запретишь мне% помнить о теории вероятности!
+	&resp4g
+
+resp4g:
+	*setspeaker cat_bar*
+	*setskin cat_bar gesture_sigh 1 idle*
+	*setskin cat_bar 4*
+	Очевидно,%% что это не препятствие для успеха.*setskin cat_bar 0*
+	&resp4h
+	
+resp4h:
+	*setspeaker narrator*
+	>Виолончелист сгребает свои фишки с пустой улыбкой.
+	>The Cellist rakes in his chips with an empty smile.
+	&resp4i
+	
+resp4i:
+	*setspeaker cat_cello*
+	х%х%е%e%e%e%e%х%х%х,%%иди к папуле
+	&merge2a
+	
+###### BRANCH 5
+resp5a:
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	*setanim cat_cello gesture_disagree 1 idle*
+	трус.%%%*setskin cat_cello 0* удвоить ставку% выеби меня сократ
+	&resp5b
+	
+resp5b:
+	*setspeaker narrator*
+	>Виолончелист переворачивает карту.%% 
+	%%Это дама!
+	&resp5c
+	
+resp5c:
+	>У Виолончелиста перебор!
+	&resp5d
+	
+resp5d:
+	*setspeaker cat_cello*
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_anger 2 idle*
+	БЛЯТЬ
+	&resp5e
+	
+resp5e:
+	*setskin cat_piano 1*
+	*setspeaker cat_piano*
+	*setcam setpos -1360.187134 3170.514893 99.880249;setang 26.460207 -134.498184 0.000000*
+	*setanim cat_piano gesture_laugh 1 idle*
+	Хаааааааа%%%% пососи,% лошара!
+	&resp5f
+	
+resp5f:
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_disagree 1 idle*
+	это буквально% ничего не значит
+	&resp5g
+	
+resp5g:
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_jab 1 idle*
+	Это значит что ты сосешь в блекджеке.
+	&resp5h
+	
+resp5h:
+	*setspeaker cat_bar*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_confused 1 idle*
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	Это так,% увы.%%%%*setskin cat_bar 0* Мы даже не увидели вторую карту,% 
+	почему ты удвоил ставку на 15?
+	&resp5i
+	
+resp5i:
+	*setspeaker cat_cello*
+	*setskin cat_cello 1*
+	*setcam setpos -1463.405396 3151.398438 45.466812;setang -2.768539 -89.936363 0.000000*
+	*setanim cat_cello gesture_laugh 1 idle*
+	мило что ты спрашиваешь почему я что либо делаю
+	&resp5j
+	
+resp5j:
+	*setspeaker cat_bar*
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_shrug 1 idle*
+	Сама тщетность,% ага.%%*setskin cat_bar 0* Старые привычки долго умирают.
+	&merge2a
+	
+###### BRANCH 6
+resp6a:
+	*setspeaker cat_bar*
+	*setskin cat_bar 0*
+	*setcam setpos -1448.301880 3127.986084 63.884083;setang 4.685096 -79.021828 0.000000*
+	*setanim cat_bar gesture_confused 1 idle*
+	Достиг предела?%%%% Здесь редко у кого есть самоконтроль.%%%% 
+	Береги себя,% и загляни в бар как нибудь.
+	&exit
+	
+###### MERGE 2
+merge2a:
+*setcam setpos -1321.493286 3164.727295 181.018219;setang 40.542229 -153.761688 0.000000*
+*hide .2*
+*txout .2*
+	*setspeaker narrator*
+	*show .2*
+	>Проходит еще больше времени%.%.%.
+	&merge2b
+	
+merge2b:
+	*hide*
+	*txin*
+	*wait .15*
+	*show*
+	>У бармена огромная стопка фишек.%%%
+	У остальных ничего нет.
+	&merge2c
+	
+merge2c:
+	*setskin cat_cello 2*
+	*setanim cat_cello gesture_sigh 1 idle*
+	*setspeaker cat_cello*
+	И% ТАК% БЛЯТЬ% ПОСТОЯННО%
+	&merge2d
+	
+merge2d:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_confused 1 idle*
+	*setspeaker cat_piano*
+	Без понятия чего ты ожидал.%%%
+	Нет людей которые могли бы ее переиграть.%%*setanim cat_piano gesture_shrug 1 idle* 
+	Ну,% как минимум живых людей.
+	&merge2e
+	
+merge2e:
+	*setspeaker cat_cello*
+	*setskin cat_cello 0*
+	*setcam setpos -1541.477417 3069.246826 49.034027;setang 2.378531 -68.391594 0.000000*
+	*setanim cat_cello gesture_clap 1 idle*
+	ага я уверен линкольн бы разьебал ее в шахматах или тип того
+	&merge2f
+	
+merge2f:
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_foldarms 1 idle*
+	Это намного вероятней, чем вы думаете.%*setcam setpos -1360.187134 3170.514893 99.880249;setang 26.460207 -134.498184 0.000000* Я и шахматы не дружим.%%
+	Нужно больше помнить,% чем делать решения.
+	&merge2g
+	
+merge2g:
+	*setanim cat_bar gesture_laugh 1 idle*
+	Теперь,%% давайте еще разок.%.%.%
+	&merge2h
+	
+merge2h:
+	*setspeaker cat_cello*
+	*setanim cat_cello gesture_facepalm 1 idle*
+	*setskin cat_cello 4*
+	пожалуйста.%%%%*setskin cat_cello 2* не делай этого со мной.% если мне придется слушать
+	о глубоком лоре "Давай еще одну" я получу еще одну аневризму 
+	&merge2i
+	
+merge2i:
+	*setspeaker narrator*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_laugh 1 idle*
+	>Бармен смеется.
+	&merge2j
+	
+merge2j:
+	*setspeaker cat_bar*
+	Как хочешь.%*setskin cat_bar 0* Тогда,%%*setanim cat_bar gesture_confused 1 idle* может, на сегодня закончим? 
+	%%%Давайте поможем Певцу все убрать, а потом вернемся за работу.
+	&merge2k
+	
+merge2k:
+	*setspeaker narrator*
+	>Вы просто болтаете с котами пока они все убирают.
+	*mark_seen*
+	&exit
+	
+	
+

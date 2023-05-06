@@ -1,0 +1,242 @@
+begin:
+
+###### SCENE SETUP
+	*hide*
+	*txout*
+		*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*setcam setpos -3153.723877 2730.842041 40.888985;setang -1.321713 43.303810 0.000000*	
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos -2863.950439 2954.573730 38;setang -90 0 0.000000*
+	*setnpcid cat_singer npc_cat_sing*
+	*setfov 70*
+	*spawn cat_bar models/andy/bartender/cat_bartender.mdl*
+	*setposang cat_bar -2864.620361 3044.558594 32.417419;setang -90 90.504135 90.000000*
+	*setnpcid cat_bar npc_cat_bar*
+	*bgmplay sound/jazztronauts/music/events/allspice.mp3 1 2.0*
+	*spawn player_dummy playerboy*
+	*txin*
+	*show*
+	
+###### START
+	*setspeaker narrator*
+	> Проходя мимо бара, вы замечаете Певца и Бармена.
+	&b1
+	
+b1:
+	*setcam setpos -2791.549316 2999.660156 65.892113;setang -1.401502 178.959885 0.000000*
+	*setspeaker narrator*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_foldarms .75 idle*
+	> Бармен с большим восторгом читает все, что Певец написал на
+    их планшете.%%% Выражение ее лица расплывается в широкой улыбке
+	*setskin cat_bar 1*,%*setanim cat_bar gesture_agree 1 idle* and*setskin cat_singer 1* The*setanim cat_singer gesture_clap 1 idle* Певец хлопает.
+	&b2
+	
+b2:
+	*setcam setpos -2825.637939 2925.269043 73.358551;setang 1.420215 111.132065 0.000000*
+	*setspeaker cat_bar*
+	*setanim cat_bar gesture_sweep 1 idle*
+	Это фантастика!%%%*setskin cat_bar 0* I'm*setanim cat_bar gesture_agree 1 idle* мы очень впечатлены огромными успехами,
+	которых добилась ваша программа за столь короткое время с тех пор, 
+	как вам помог наш гость.
+	&b3
+	
+b3:
+	*setposang player setpos -2779.428467 2912.213379 0;setang 0 135.196228 0.000000*
+	*setposang cat_bar -2864.620361 3044.558594 32.417419;setang -90 195 0*
+	*setposang cat_singer setpos -2863.950439 2954.573730 38;setang -90 236 0.000000*
+	*setcam setpos -2796.107910 2843.412354 68.879723;setang 0.834593 106.020760 0.000000*
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_exchange 2 idle*
+	Кстати, об этом,% Добро пожаловать!%%*setskin cat_bar 0* Take a seat,%*setanim cat_bar gesture_sweep 1 idle* я и тебе
+    что-нибудь смешаю.%% Безвозмездно,% поскольку вы были таким
+    бесценным научным сотрудником Певца.
+	player:
+	&r1a1:
+		*setcam setpos -2827.137939 2962.743408 73.351692;setang 3.443354 -46.724812 0.000000*
+		Извини, я просто хотел поздороваться.%%%% 
+		Впрочем, я попробую этот напиток в другой раз. (уйти)
+	&r2a1:
+		*setcam setpos -2827.137939 2962.743408 73.351692;setang 3.443354 -46.724812 0.000000*
+		Если я научный сотрудник, я ожидаю, что меня отметят
+        в статье, когда вы опубликуете свои результаты в 
+		CATScan или что-то в этом роде.
+	&r3a1:
+		*setcam setpos -2827.137939 2962.743408 73.351692;setang 3.443354 -46.724812 0.000000*
+		За ваше здоровье.%% так в чем дело?
+		
+###### BRANCH 1 EARLY EXIT
+r1a1:
+	*setcam setpos -2818.020508 2934.889893 74.076637;setang -1.987122 139.242249 0.000000*
+	*setspeaker cat_singer*
+	*setskin cat_bar 1*
+	*setskin cat_singer 1*
+	Певец улыбается и машет вам рукой, когда вы уходите,% и
+    Бармен прощается с вами с пустым бокалом. 
+	&r1a2
+	
+r1a2:
+	*setcam setpos -2560.750488 2750.981445 279.112549;setang 44.917320 138.070877 0.000000*
+	*setposang cat_singer setpos -2863.950439 2954.573730 38;setang -90 0 0.000000*
+	*setposang cat_bar -2864.620361 3044.558594 32.417419;setang -90 90.504135 90.000000*
+	*setskin cat_bar 0*
+	*setskin cat_singer 0*
+	Они немедленно возвращаются к своему разговору, и, 
+	уходя, вы слышите что-то о "программе вознесения".
+	&exit
+	
+###### BRANCH 2
+r2a1:
+	*setcam setpos -2810.442383 2933.121826 74.518898;setang -5.234770 159.846481 0.000000*
+	*setspeaker cat_singer*
+	*setskin cat_singer 2*
+	*setanim cat_singer gesture_shock 1.7 idle*
+	> Певец выглядит законно оскорбленным, а затем открывает*setskin cat_singer 0* их 
+	незаконченную диссертацию чтобы показать вам*setanim cat_singer gesture_agree 1 idle* что вы уже
+	полностью зачислены в качестве партнера по исследованиям.
+	player:
+	&r1a1:
+		Извини, я просто хотел поздороваться.%%%% 
+		Впрочем, я попробую этот напиток в другой раз. (уйти)
+	&r3a1:
+		За ваше здоровье.%% так в чем дело?
+	
+###### BRANCH 3
+r3a1:
+	*setspeaker cat_singer*
+	*setcam setpos -2710.192871 3022.299561 91.483856;setang 11.535842 -159.531479 0.000000*
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_exchange 1.4 idle*
+	> Певец похлопывает по сиденью рядом с ними,%% подвинув планшет
+    так, чтобы вы могли участвовать в разговоре. *setskin cat_singer 0* 
+	&r3a1b
+	
+r3a1b:
+	*setcam setpos -2782.492188 3007.046875 71.127144;setang 7.276641 -122.636238 0.000000*
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_foldarms .7 idle*
+	> Очевидно, они рассказывали Бармену все о поведении, которое они
+	наблюдали у нового жителя "Мяузея", которого вы достали
+	для них,%%%*setskin cat_singer 0* и о некоторых новых формах 
+	поведения, которые пожилые испытуемые проявили в ответ.
+	&r3a2
+	
+r3a2:
+	*setcam setpos -2973.231201 3039.575439 116.746422;setang -4.223296 -89.521255 0.000000*
+	*tweencam 40 setpos -2755.738281 3039.575439 116.746422;setang -4.223296 -89.521255 0.000000*
+	*setanim cat_singer gesture_jab .85 idle*
+	*setskin cat_singer 0*
+	> Певец запускает программу, в которой они знакомят NPC с
+    различными вещами, которые вы украли, чтобы*setanim cat_singer gesture_confused .9 idle* посмотреть,
+	есть ли какие-либо изменения в их распорядке дня. 
+	&r3a2b
+	
+r3a2b:
+	*setanim cat_singer gesture_shrug 1 idle*
+	> В настоящее время они, по сути, аниматроники.%%%%*setanim cat_singer gesture_sigh .85 idle* 
+	Они ни на каком уровне не реагируют на стимулы, выходящие
+    за рамки заранее запрограммированного поведения.
+	&m1
+	
+m1:
+	*setcam setpos -2720.861328 2981.111328 71.907837;setang 3.443262 -176.994690 0.000000*
+	*setspeaker cat_bar*
+	*setskin cat_bar 4*
+	*setanim cat_bar gesture_confused 1 idle*
+	Я должен сказать,%% *player*,%%%%*setskin cat_bar 0* 
+	в последнее время ты напоминаешь нам кое-кого, кого мы когда-то знали.%%%
+	*setanim cat_bar gesture_agree 1 idle* Это было восхитительно.
+	&m2
+	
+m2:
+	*setcam setpos -2801.052002 2968.867432 81.692673;setang 3.656215 -164.536987 0.000000*
+	*setspeaker cat_singer*
+	*setanim cat_singer gesture_agree 1.3 idle*
+	> Певец соглашается.%%% Это снова была*setskin cat_singer 1* having*setanim cat_singer gesture_clap 1 idle* 
+	замечателньая помощь с "Мяузеем".%% *setanim cat_singer gesture_laugh 1 idle* Их последний помощник также 
+	был очень хорош в поиске,% узкоспециализированных объектов. *setskin cat_singer 0* 
+	&m2b
+	
+m2b:
+	*setcam setpos -2800.941406 2868.973877 93.812050;setang 14.570436 103.463867 0.000000*
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_foldarms .7 idle*
+	Они рассказывают о том, как их ассистент провел три
+    недели, исследуя The Void Way в поисках определенного уровня
+    триггера, который, по предположению Певца, мог бы произвести 
+	революцию в системе хранения "Мяузея".*setskin cat_singer 0*
+	&m3
+	
+m3:
+	*setskin cat_singer 1*
+	*setanim cat_singer gesture_agree 1 idle*
+	> Они прихорашиваются, когда вы читаете это,%% поскольку это была
+    верная гипотеза.*setskin cat_singer 0*
+	&m4
+	
+m4:
+	*setcam setpos -2826.586670 2983.291992 70.987778;setang 3.656236 138.175919 0.000000*
+	*setspeaker cat_bar*
+	*setskin cat_bar 0*
+	*setanim cat_bar gesture_shrug 1 idle*
+	Они всегда были в таком же восторге
+    от своего потенциала, как и вы.
+	&m5
+	
+m5:
+	Спасибо, *player*.
+	*setskin cat_bar 1*
+	*setanim cat_bar gesture_confused 1 idle*
+	Мы все очень ценим твое присутствие и помощь здесь.*setskin cat_bar 0*
+	&m6
+	
+m6:
+	*setcam setpos -2802.497803 3095.229980 75.463058;setang 2.112281 -114.226006 0.000000*
+	*setspeaker cat_singer*
+	*setskin cat_singer 0*
+	*setanim cat_singer gesture_agree 1.4 idle*
+	> Певец подпрыгивает на своем месте, когда они кивают.%%%*setanim cat_singer gesture_laugh 1 idle*	
+	Они очень благодарны за то, что причисляют вас к своим друзьям.
+	&m7
+	
+m7:
+	*setcam setpos -2774.092041 2858.544922 72.423965;setang -27.116545 129.018570 0.000000*
+	*setspeaker narrator*
+	Вы разделяете тарелку исключительно вкусной выпечки и пару
+    напитков,%% и это время потрачено не зря. *mark_seen*
+	&exit
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

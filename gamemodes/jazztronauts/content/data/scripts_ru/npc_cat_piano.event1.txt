@@ -1,0 +1,288 @@
+SKIP_OPEN = true
+
+begin:
+    # Scene setup
+    *txout*
+    *setfov 70*
+	*bgmplay sound/jazztronauts/music/events/pocket.mp3 1.0 2.0*
+	*setcam setpos 161.692474 78.846161 67.458260;setang 2.528261 101.374802 0.000000*
+	*spawn cat_piano models/andy/pianist/cat_pianist.mdl*
+	*setposang cat_piano setpos 343.834717 230.990540 0;setang -90 150 0.000000*
+	*setnpcid cat_piano npc_cat_piano*
+	*spawn narrator dummy*
+	*setnpcid narrator npc_narrator*
+	*spawn cat_singer models/andy/singer/cat_singer.mdl*
+	*setposang cat_singer setpos 301.032990 230.946976 -256;setang -90 240 0.000000*
+	*setnpcid cat_singer npc_cat_sing*
+
+	*setposang player 164.076263 208.491150 0;setang 9.295440 49.176609 0.000000*
+
+	*txin*
+	
+###### START
+	*setspeaker player*
+	*show*
+	> Вы могли бы поклясться, что только что видели здесь Пианиста%.%.%.%
+	&b1
+	
+b1:
+	*tweencam .5 setpos 161.692474 78.846161 67.458260;setang 2.288681 69.091377 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_anger 1 idle*
+	Поторопись,% поторопись!%%
+	Они тебя увидят!
+	&b2
+	
+b2:
+	*setspeaker player*
+	О ком ты говор-
+	&b3
+	
+b3:
+	*setspeaker player*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_shock 1 idle*
+	> Певец проносится мимо вас обоих!%%%*setcam setpos 299.437592 130.605087 45.050888;setang 0.911092 42.797482 0.000000* 
+	Повинуясь инстинкту,% вы ныряете в укрытие, в котором находится Пианист%.%*setposang player setpos 447.148926 140.181595 0;setang 8.465133 131.800262 0.000000*
+	*setposang cat_piano setpos 343.834717 230.990540 0;setang -90 210 0.000000*
+	
+	
+	player:
+	&resp1a:
+		Что бы это ни было, я в это вмешиваться не собираюсь. (уйти)
+	&resp2a:
+		Вау. Ты дерьмово выглядишь.
+	&resp3a:
+		Почему, собственно, мы прячемся от Певца?
+		
+###### Branch 1 (early exit)
+resp1a:
+	*setspeaker cat_piano*
+	*setskin cat_piano 2*
+	*setanim cat_piano gesture_anger 1 idle*
+	Я поняла в чем дело.%% Оставляешь меня одну разбираться
+	с последствиями моих действий,% да? *setskin cat_piano 3*%%
+	Я припомню это, когда придет революция.
+	&resp1b
+	
+resp1b:
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_exchange 1 idle*
+	Тогда убирайся отсюда.%% 
+	Я у тебя в долгу, так что я тебя тоже прикрою.%%%
+	На этот раз.
+	&exit
+	
+###### Branch 2 
+resp2a:
+	*setcam setpos 350.197205 174.538849 54.377182;setang 2.288677 88.377617 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 3*
+	*setanim cat_piano gesture_anger 2 idle*
+	Неплохие слова, исходящие от мерзости в лице
+    обезумевшего и сожалеющего бога%%%*setskin cat_piano 0* 
+	Говори потише.
+	&resp3a
+	
+###### Branch 3 (also merge point)
+resp3a:
+	*setcam setpos 299.437592 130.605087 45.050888;setang 0.911092 42.797482 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 4*
+	*setanim cat_piano gesture_facepalm*
+	Они знают.%%% Я думала, что правильно рассчитала время,%% и они были в отключке
+	на стойке бара,% но нет,% не в этот ебанный% раз,%*setanim cat_piano gesture_anger 2.2 idle* *setskin cat_piano 2*когда они нарушают распорядок дня и 
+	приходят проверить свою знаменитую коллекцию тамагочи в "Мяузее" перед пятым 
+	сном.%%%% *setanim cat_piano gesture_sigh 1.5 idle*Они все видели.
+	
+	player:
+	&resp4a:
+		Пятым сном?
+	&resp5a:
+		Боже, похоже, твоя идея была... плохой.
+	&resp1a:
+		Веселись с этим. (уйти)
+		
+###### Branch 4
+resp4a:
+	*setspeaker cat_piano*
+	*setskin cat_piano 3*
+	>Пианист пристально смотрит на тебя.%%% Ты смотришь в ответ.%%%%
+	Молчание затягивается,%% и становится невыносимо неловким.%%%%*setcam setpos 350.197205 174.538849 54.377182;setang 2.288677 88.377617 0.000000*
+	На ее лице*setskin cat_piano 1* отражается *setskin cat_piano 2* целая гамма эмоций.
+	&resp4b
+	
+resp4b:
+	*setskin cat_piano 3*
+	> Это почти так же,*setanim cat_piano gesture_shock 1 idle* как если бы она проходила через*setskin cat_piano 0* пять стадий принятия в
+	тридцатисекундной*setskin cat_piano 1* разговорной паузе,*setanim cat_piano gesture_embarass 1 idle* оценивая ваше*setskin cat_piano 2* чувство
+    приоритетов.%%*setskin cat_piano 4**setanim cat_piano gesture_sigh 1 idle* Затем ее голова склоняется, и она вздыхает.
+	&resp4c
+	
+resp4c:
+	*setcam setpos 299.437592 130.605087 45.050888;setang 0.911092 42.797482 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_agree 1 idle*
+	Да.%% Певец дремлет девять раз в день.%%%
+	Для каждого из них отведены определенные места.
+	
+	player:
+	&resp5a:
+		Боже, похоже, твоя идея была... плохой.
+	&resp1a:
+		Веселись с этим. (уйти)
+		
+###### Branch 5
+
+resp5a:
+	*setcam setpos 350.197205 174.538849 54.377182;setang 2.288677 88.377617 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 1*
+	И я полагаю, что ни одна из твоих идей никогда не приводила к обратным 
+	результатам*setanim cat_piano gesture_shrug* *player*, единственное чистое существо в этой вселенной, 
+	которое никогда не совершало ни одной чертовой ошибки.%%% Прости меня.
+	%*setanim cat_piano gesture_jab 1 idle*Я*setskin cat_piano 2* не знала, что нахожусь в присутствии избранного,% спасителя -
+	&resp5b
+	
+resp5b:
+	*setcam setpos 299.437592 130.605087 45.050888;setang 0.911092 42.797482 0.000000*
+	*setspeaker player*
+	*setanim cat_piano gesture_anger 1 idle*
+	> Пианист начинает нервничать,% *setanim cat_piano gesture_jab 1 idle*о чем свидетельствует тот факт, что ее хвост
+    хлещет все сильнее и сильнее.%%% А также тот факт, что*setanim cat_piano gesture_laugh 1 idle* 
+	в этот момент она, по сути, просто кричит.
+	&resp5c
+	
+resp5c:
+	*setcam setpos 350.197205 174.538849 54.377182;setang 2.288677 88.377617 0.000000*
+	*setspeaker cat_piano*
+	*setanim cat_piano gesture_shrug*
+	Ох,% как я могла прийти к выводу, что, возможно, я проебалась,%% 
+	если бы не твой проницательный комментарий о моем нынешнем состоянии?%%%*setanim cat_piano gesture_clap 1 idle*
+	Воистину,% я благословленна!
+	&resp5d
+	
+resp5d:
+	*setposang cat_singer setpos 225.003738 239.833725 0;setang -90 240 0.000000*
+	*setcam setpos 347.364136 39.186989 73.691208;setang 8.877127 84.903648 0.000000*
+	*setspeaker player*
+	> Певец, кажется, появился в поле зрения позади Пианиста.
+	
+	player:
+	&merge1:
+		Эм-
+	&merge1:
+		Эй, Пиан-
+	&merge1:
+		Заткнись на-
+		
+merge1:
+	*setposang cat_piano setpos 343.834717 230.990540 0;setang -90 112 0.000000*
+	*setposang cat_singer setpos 301.032990 230.946976 0;setang -90 240 0.000000*
+	*setspeaker player*
+	*setskin cat_singer 2*
+	*setskin cat_piano 0*
+	> Певец подбегает к вам двоим и%.%.%.%.%%%*setskin cat_singer 6*%*setcam setpos 309.501709 128.670517 52.932980;setang 7.546001 81.787277 0.000000*
+	безрезультатно *setanim cat_singer gesture_anger 1 idle*толкает Пианиста в плечо.%% Их глаза полны
+    слез,% и они взволнованно постукивают по своему планшету, подпрыгивая
+    в явном расстройстве.
+	&merge2
+	
+merge2:
+	*setcam setpos 340.657898 181.261932 49.324711;setang 3.312768 127.402878 0.175000*
+	*setspeaker cat_singer*
+	*setanim cat_singer gesture_sigh 1.3 idle*
+	> Певец набирает сообщение\:%%%*setskin cat_singer 0* 
+	Они не злятся,% они просто разочарованы.
+	&merge3
+	
+merge3:
+	*setcam setpos 309.501709 128.670517 52.932980;setang 7.546001 81.787277 0.000000*
+	*setskin cat_singer 2*
+	>%.%.%.%Певец дергает*setanim cat_singer gesture_anger 2.6 idle* себя за уши,% размахивая хвостом,*setanim cat_singer gesture_exchange 2 idle* засовывает планшет
+    под левую руку и показывает Пианисту двойной неприличный жест.
+	%%%%%
+	Возможно, они на самом деле немного в бешенстве.
+	&merge4
+	
+merge4:
+	*setspeaker cat_piano*
+	*setskin cat_piano 3*
+	*setanim cat_piano gesture_disagree 1.5 idle*
+	Слушай,%% Певчий.%%%*setskin cat_piano 0*
+	Мне жаль, что тебе пришлось это увидеть.
+	&merge5
+	
+### мы испытываем глубокую эмоциональную боль @Livelandr
+merge5:
+	*setspeaker cat_singer*
+	*setanim cat_singer gesture_anger 2 idle*
+	> Певец отчитывает Пианиста за то, что та его не слушала.%%%
+	Проблема не в том, что они видели, что произошло в "Мяузее".%
+	Это*setanim cat_singer gesture_sigh 1 idle**setskin cat_singer 4* факт что это произошло вообще.
+	&merge6 
+### я испытываю глубокий травматический пневмоторакс и сердечную тампонаду @Cumenci
+merge6:
+	*setcam setpos 174.627869 25.783129 62.657158;setang 3.902751 41.340088 0.000000*
+	*setspeaker player*
+	*setskin cat_singer 2*
+	> У вас возникает ощущение, что это довольно обычный разговор.
+	&merge7
+	
+merge7:
+	*setcam setpos 309.501709 128.670517 52.932980;setang 7.546001 81.787277 0.000000*
+	*setspeaker cat_piano*
+	*setskin cat_piano 0*
+	*setanim cat_piano gesture_shrug 1 idle*
+	Мне было скучно!%% Я начинаю нервничать, когда мне скучно.%%% И я слушаю!%%%% 
+	На этот раз я не причинила никакого вреда имуществу!
+	&merge8
+	
+merge8:
+	*setanim cat_piano gesture_agree 1 idle*
+	Все ваши маленькие питомцы в мгновение ока станут как новенькие.%%%*setskin cat_piano 1*
+	Единственный причиненный вред - это мой банковский счет.
+	&merge9
+	
+merge9:
+	*setcam setpos 340.657898 181.261932 49.324711;setang 3.312768 127.402878 0.175000*
+	*setspeaker cat_singer*
+	*setanim cat_singer gesture_anger 2 idle*
+	> Певец делает Пианисту четкий жест "Закройся".
+	&merge10
+	
+merge10:
+	*setcam setpos 309.501709 128.670517 52.932980;setang 7.546001 81.787277 0.000000*
+	*setskin cat_singer 4*
+	*setanim cat_singer gesture_sigh 1.5 idle*
+	> Певец обращает свое внимание на*setskin cat_singer 0* вас.%%% 
+	Они*setanim cat_singer gesture_embarass 1 idle* пишут извинения за то, что Пианист втянул вас в
+    личную ссору,%*setskin cat_singer 1* и отправляет вас восвояси.
+	&merge11
+	
+merge11:
+	*setcam setpos 174.627869 25.783129 62.657158;setang 3.902751 41.340088 0.000000*
+	*setspeaker player*
+	*setskin cat_singer 0*
+	*setskin cat_piano 3*
+	*setanim cat_singer gesture_exchange 1 idle*
+	> Когда вы уходите,%% вы оглядываетесь через плечо и видите как Певец
+	передает*setanim cat_piano gesture_embarass 1 idle* Пианисту 2,500 долларов и ободряюще хлопает ее по плечу.
+	&merge12
+	
+merge12:
+	>На мгновение,% Пианист выглядит почти пристыженной.
+	*mark_seen*
+	Вы решаете, что сыграли здесь свою роль,%% и возвращаетесь к
+    остальным.
+	&exit
+	
+	
+	
+	
+	
+
+
+	
