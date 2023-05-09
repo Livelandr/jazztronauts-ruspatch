@@ -56,8 +56,8 @@ bar_bark5:
 
 bar_bark6: 
     *setauto*
-    The Bar Samsara hasn’t been so alive for an age. 
-    I hope this is the start of something good, for all of us. %
+    Бар "Самсара" уже целую вечность не был таким оживленным.
+    Я надеюсь, что это начало чего-то хорошего для всех нас.%
     &exit
 
 piano_bark1:
@@ -66,221 +66,213 @@ piano_bark1:
 
 piano_bark2:
 
-     Don’t tell him I said this, but The Cellist has been less of a pain 
-     in the ass recently. Don’t know what you did, but thanks. 
+     Не говори ему, что я это сказала, но Виолончелист стал меньшей занозой
+     в заднице. Не знаю что ты сделал, но спасибо.
 
 piano_bark3:
-
-     Pipes’s been smiling a lot more. It’s nice.
+     Певчий теперь улыбается намного больше. Отлично.
 
 piano_bark4:
-     Ugh. Why did I agree to help out at the Mewseum, these paws are made 
-     for carnage, not data entry.
+     Тьфу. Почему я согласилась помогать в "Мяузее", эти лапы созданы
+     для бойни, а не для ввода данных. 
 
 piano_bark5:
-     You know, the Boss likes you. She only brings out the snickerdoodles 
-     for special guests.
+     Ты знаешь, ты нравишься боссу. Она готовит печенье только
+     для особых гостей.
 
 piano_bark6:
-     Make sure you visit, yeah? Gonna miss you. 
+     Обязательно зайди, ладно? Буду скучать по тебе. 
 
 singer_bark1:
-     >You find The Singer hard at work on that bootleg plant cloning
-     program you helped them with. They've been having quite a lot of 
-     success, and they're quite proud of their latest bunch of Mr. 
-     Stripeys. They weren't kidding when they said tomato names got weird.
+     > Вы застаете Певца за напряженной работой по клонированию этого контрабандного растения, 
+     с которым вы им помогли. У них был довольно большой
+     успех, и они очень гордятся своей последним букетом Мистером Полосочником
+     Они не шутили, когда говорили, что названия помидоров стали странными.
 
 singer_bark2:
-     > You get a wave when you head over, and The Singer thanks you for 
-     helping The Pianist. She’s been smiling a lot more lately, it’s nice.
+     > Когда вы подходите, вам машут рукой, и Певец благодарит вас за
+     помощь Пианисту. В последнее время она гораздо чаще улыбается, это приятно.
 
 singer_bark3:
-     > You find The Singer sitting with The Cellist. They both appear 
-     to be...meditating? You sit with them both for a while.
+     > Вы обнаруживаете Певца, сидящего рядом с Виолончелистом. Они оба...
+     медитируют? Вы сидите с ними обоими какое-то время.
 
 singer_bark4:
-     > The Singer smiles but seems a little sad. They confess that 
-     they’re going to miss you very much when you leave.
+     > Певец улыбается, но кажется немного грустным. Они признаются, что
+     будут очень скучать по тебе, когда ты уйдешь.
 
 singer_bark5:
-     > The Singer brightens when you approach! You spend a while reading 
-     their report on the progress of the Mewseum's residents. 
+     > Певец сияет, когда вы приближаетесь! Вы тратите некоторое время на чтение
+     их отчета об успехах резидентов "Мяузея".
 
 singer_bark6:
-     > The Singer is sitting watching The Bartender with starry eyes, as 
-     the other cat plays them a sweet tune on her trumpet. You leave them
-     to it. 
+     > Певица сидит и смотрит на Бармена сияющими глазами, пока
+     другой кот играет им сладкую мелодию на своей трубе. Ты оставляешь их
+     в покое.
 
 cello_bark1:
-     you know for how much people talk up pufferfish toxin i think they're
-     just cowards. i love to take bites out of them like apples and look 
-     at me, i'm the picture of health
+     знаешь, из-за того, как много люди говорят о токсине рыбы фугу, я думаю, они
+     просто трусы. я люблю откусывать от них кусочки, как от яблок, и посмотри
+     на меня, я воплощение здоровья
 
 cello_bark2:
-     i really need to talk to pipes one of these days about getting more 
-     proper literature in the library. a man can only read so many prima 
-     strategy guides before he longs for some good ol' william burroughs 
-     y'know
+     мне действительно нужно на днях поговорить с Певчим о том, чтобы получить больше 
+     подходящей литературы в библиотеке. чувак не сможет прочитать так уж много
+     учебников по стратегии прежде чем ему захочется какого-нибудь старого 
+     доброго уильяма берроуза
 
 cello_bark3:
-     one of these days i'm going to find out where The Bartender locked
-     up all the absinthe. i don't even particularly want to drink it, 
-     it doesn't even make you hallucinate a little bit, but it's a matter
-     of pride at this point
+     однажды я найду где Бармен спрятала весь абсент. я честно говоря
+     уже даже пить его не хочу, от него даже галлюцинаций не будет,
+     но это уже дело чести.
 
 cello_bark4:
-     you seen The Pianist lately? i realize i've been kind of a bastard
-     lately and i've been meaning to apologize but i think she's still mad
-     about the time i tried to set up a cane toad breeding program. little
-     bastards didn't even give a high worth the heart attack
+     ты не видел Пианиста? я осознаю каким мудаком я был и хочу извинится
+     но она все еще зла на меня с того случая как я пытался организовать 
+     программу разведения тростниковых жаб. маленькие ублюдки даже не придали 
+     большого значения сердечному приступу
 
 cello_bark5:
-     people keep bitching about the fact that they don't have flying cars
-     yet. i'm over here wondering why in the hell we don't have robots 
-     that recite "there will come soft rains" as they do your household 
-     chores just to fuck with you
+     люди продолжают ныть о том что у них нет летающих машин.
+     я думаю почему у нас нет роботов которые декламировать "будет ласковый дождь"
+     пока они делают твои домашние дела просто чтобы поугарать 
      
 cello_bark6:
-     sometimes i wonder about that one old poet who wondered if he was a
-     butterfly dreaming about being a man or a man dreaming about being
-     a butterfly, and if i'm in that kind of situation man i want to know
-     what kind of butterfly got fucked in the head enough to think of me
+     иногда я думаю о том старом поэте который раздумывал над тем
+     что он бабочка которая раздумывает о том что он человек или
+     человек который раздумывает о том что он бабочка, и если я жертва
+     такой ситуации то какой бабочке пришла идея думать обо мне
 
 
 bar_truebark1:
-     Ah, always a pleasure to see you, <playername>. 
-     The Bar Samsara isn’t the same without you.
+     Ах, всегда рада тебя видеть, <playername>. 
+     Бар "Самсара" без тебя уже не тот.
 
 bar_truebark2:
-     The Pianist and The Cellist have been getting along better than 
-     I ever dreamed, as of late. Thank you again for the role you 
-     played in their reconciliation. 
+     В последнее время Пианист и Виолончелист ладят лучше, чем
+     я когда-либо мечтала. Еще раз благодарю тебя за ту роль, 
+     которую ты сыграл в их примирении.
 
 bar_truebark3:
-     The Singer was telling me that you helped fix Emily Bronto. 
-     That was very kind. The world needs more people like you, 
+     Певец рассказывал мне, что ты помог вылечить Эмили Бронте. 
+     Это было очень любезно с твоей стороны. Миру нужно больше таких людей, как ты,
      *player*.
 
 bar_truebark4:
-     I’ve been thinking of putting Ambrosia back on the menu one day 
-     if The Cellist keeps up this streak of responsible consumption. 
-     Perhaps in fifty years or so.
+     Я подумывал о том, чтобы однажды вернуть амброзию в меню, 
+     если Виолончелист продолжит в том же духе ответственного потребления.
+     Возможно, лет через пятьдесят или около того.
 
 bar_truebark5:
-     I must say, I’ll miss you dearly when your path takes you away from 
-     us. Should you visit, there will always be a seat for you at the 
-     Bar Samsara.
+     Должна сказать, я буду очень скучать по тебе, когда твой путь унесет тебя от
+     нас. Если вы придете, для вас всегда найдется свободное место в
+     баре "Самсара".
 
 bar_truebark6:
-     I saw The Pianist smile while helping at the Mewseum earlier. I 
-     nearly dropped a bottle in shock. 
+     Я видела, как Пианист улыбалась, когда помогала в "Мяузее" ранее. Я 
+     от шока чуть не уронила бутылку.
 
 
 ---
 
 piano_truebark1:
 
-     Good to see you. How’s life as a freelancer treating ya? 
+     Рада тебя видеть. Как тебе жизнь фрилансера?
 
 piano_truebark2:
 
-     Between you and me, I think this ‘going legit’ thing won’t last too  
-     long. Give it a hundred years, and you’ll probably see us out on the
-     Voidway again. 
+     Между нами говоря, я думаю, что "все будет законно" продлится недолго.  
+     Недолго. Дай этому пройти сто лет, и ты, вероятно, снова увидешь нас на
+     пути в Пустоту.
 
 piano_truebark3:
 
-     Hey, uh, have you seen The Singer? I got the guest beds set up in 
-     the old study wing of the Mewseum as they asked. 
+     Эй, ты не видел Певца? Я распорядилась установить кровати для гостей в
+     старом учебном крыле "Мяузея", как они и просили.
 
 piano_truebark4:
 
-     Don’t tell him I said this, but it’s been nice hanging out with the 
-     Cellist recently. Thanks for helping him out. It’s good to have my 
-     friend back. 
+     Не говори ему, что я это сказала, но недавно мне было приятно пообщаться с
+     виолончелистом. Спасибо, что выручил его. Хорошо, что мой
+     друг вернулся.
 
 piano_truebark5:
 
-     I managed another improvisation yesterday. I thought it was pretty 
-     shit, but The Bartender loved it. It’s a start, right?
+     Вчера мне удалась еще одна импровизация. Я подумала, что это довольно
+     дерьмово, но Бармену понравилось. Это ведь только начало, верно?
 
 piano_truebark6:
 
-     What, hoping for some grand emotional gesture? Pfffft. C’mon. I will
-     miss you when you leave, though.
+     Что, надеешься на какой-нибудь грандиозный эмоциональный жест? Пфффф. Давай.
+     но я буду скучать по тебе, когда ты уедешь.
 
 ---
 
 singer_truebark1:
-     > The Singer is sitting with The Bartender, playing Go. They both greet 
-     you fondly and you spend a while watching them play.
+     > Певец сидит с Барменом и играет в Го. Они оба здороваются 
+     вы с проводите некоторое время, наблюдая за их игрой.
 
 singer_truebark2:
-     > The Singer hugs you. You sit together and they tell you 
-     about the help The Pianist and Cellist have been giving them at the
-     Mewseum. They're very proud of both of them.
-
+     > Певец обнимает вас. Вы сидите вместе, и они рассказывают вам
+     о помощи, которую пианист и виолончелистка оказывали им в
+     "Мяузее". Они очень гордятся ими обоими.
+     
 singer_truebark3:
-     > The Singer looks sad. They’ve been trying not to think about the 
-     fact you’ll be leaving soon. But they thank you earnestly for the 
-     happiness you’ve gifted them during your stay.
+     > Певец выглядит грустным. Они старались не думать о том
+     факте, что ты скоро уедешь. Но они искренне благодарят вас за то
+     счастье, которым вы одарили их во время вашего пребывания.
 
 singer_truebark4:
-     > You see The Singer in the middle of a lesson plan in the Mewseum,
-     reading to a gaggle of Combine soldiers. You smile at how hard they
-     have to choke back tears of joy when one raises a hand to ask
-     them a question.
+     > Вы видите Певца в середине плана урока в "Мяузее",
+     читают перед стайкой солдат Комбайнов. Вы улыбаетесь, видя, с каким трудом им
+     приходится сдерживать слезы радости, когда кто-то поднимает руку, чтобы задать
+     им вопрос.
 
 singer_truebark5:
-     > The Singer waves! They show you the blueprints for a Mewseum 
-     expansion. The Bar Samsara will also be expanding into 
-     a hotel soon.
+     > Певец машет рукой! Они показывают вам чертежи расширения 
+     "Мяузея". Бар "Самсара" также скоро превратится
+     в отель.
 
 singer_truebark6:
-     > The Singer is taking a nap with Emily Bronto, who looks downright 
-     fearsome with her new battle scars.
+     > Певец дремлет вместе с Эмили Бронте, которая выглядит просто
+     устрашающе со своими новыми боевыми шрамами.
 ---
 
 cello_truebark1:
-
-     welcome back my friends to the show that never ends 
-     we’re so glad you could attend 
-     and so on and so forth. 
-     naw for real though it’s always good to see you
+     добро пожаловать на шоу которое никогда не кончается
+     друзья мои мы рады что вы можете посещать нас
+     и так далее и тому подобное.
+     не реально мы рады вас видеть
 
 cello_truebark2:
 
-     listen i’m still not used to expressing most of my emotions without 
-     fifteen different layers of irony and/or hallucinogens in the way, 
-     but...thanks for not giving up on me when i lost my grip. i don’t 
-     think i’ll ever figure out the words that say what that meant to me.
+     слушай я не привык показывать свои эмоции без пятнадцати слоев
+     иронии и/или галлюциногенов, но... спасибо что не дал мне сдатся
+     когда я потерял хватку. я не думаю что смогу найти слова чтобы
+     описать как много для меня это значит.
 
 cello_truebark3:
 
-     it’s been so long since The Pianist smiled this much that i forgot 
-     how nice one looked on her. you did good by her, kid.
+     давно я не видел Пианиста которая улыбалась бы так сильно что
+     я аж уже забыл как это выглядит. ты хорошо на нее повлиял, чувак 
 
 cello_truebark4:
-
-     hey. between you and me? thanks for being such a good friend to 
-     pipes. they’ve always had issues making friends that weren’t robots 
-     cause they’re wired a little differently than most but you made them 
-     feel as comfortable as we do. that ain’t common.
+     эй. между нами ок? спасибо что являешься таким хорошим другом
+     для певчего. у него всегда были проблемы со знакомствами если
+     он не знакомился с роботами так как они устроены немного по
+     другому но ты помог ему чувствовать себя комфортно. это редкость.
 
 cello_truebark5:
-
-     The Bartender’s holding me to that promise I made about cutting back
-     and let me tell you it’s an odd hour that goes by when i don’t want 
-     to go back in time and punch myself for agreeing to that. i’m 
-     noticing improvements in my health, though. begrudgingly.
+     Бармен следит за моим обещанием которое я дал про воздержание
+     и мне стоит сказать что уже прошел странный час и я не хочу забирать 
+     свои слова назад и не хочу возвращатся назад во времени и ударять себя
+     за то что я согласился на это. кстати я заметил улучшения в своем
+     здоровье
 
 cello_truebark6:
-
-     can I ask you a favor? if you see a metrocop with a little cat 
-     emblem pin out there in the Void, tell them The Cellist says 
-     hello...and that he’s sorry.
-
-
+     могу я тебя о кое чем попросить? если увидишь метрокопа с маленьким
+     значком в виде кота в пустоте, то передай ему от Виолончелиста привет
+     ...и то что он сожалеет.
 
 
 
@@ -292,39 +284,39 @@ itsthattime:
     *setrate 0.40*
     *bgmplay sound/jazztronauts/music/events/its_that_time.mp3*
     %%%
-    woah you're never gonna believe what time it is% man%%%
-    oh god%%
+    ого, ты никогда не поверишь, какое сейчас временя, чувак.%%%
+    о боже%%
     it's *c 0 155 0*4\:20*c* man%%%
-    ho   ho   ho %% aughhhhh
+    хо  хо  хо %% аааааа
     &itsthattime2
 itsthattime2:
     *setauto 0*
     *setrate 0.40*
-    AUUUUUUUUGGGHHHHGGGGHHHHHHHHHHHHHHHHHHH%%
-    YEHHHHHHHHGGGGHHHHHHH%
-    IT'S *c 0 155 0*4\:20*c* MAN %%
-    HO HO %% HOOOOO%
+    АААААААААААААААААААААААААААААА%%
+    ИЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ%
+    ЭТО *c 0 155 0*4\:20*c* МУЖИК %%
+    ХО ХО %% ХООООО%
     &itsthattime3
 itsthattime3:
     *setauto 0*
     *setrate 0.40*
-    HOOOOOO%%
-    HEY MOM GUESS WHAT IT'S *c 0 155 0*4\:20*c*%
-    HAHAAH HAA%%
-    HA % HAAAAAAA
+    ХОООООО%%
+    ЭЙ, МАМ, УГАДАЙ, ЧТО ЭТО *c 0 155 0*4\:20*c*%
+    ХАХАХ ХАА%%
+    ХА % ХААААА
     &itsthattime4
 
 itsthattime4:
     *setauto 0*
     *c 0 155 0*%
     *setrate 0.21*
-    HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    ХААААААААААААААААААААААААААААААААААААААААААААаа
     *bgmstop*
     &exit
 
 
 begin12:
-    Hey it's been a while how've y*emitsound ambient/materials/door_hit1.wav*-
+    Привет, давненько не виделись, как дел-*emitsound ambient/materials/door_hit1.wav*
     *slam [CRASH THROUGH DOOR]**shake 0.25*
     *setskin focus 3* *emitsound npc/metropolice/gear1.wav*%*emitsound npc/metropolice/gear2.wav*%
     *slam FUCK.* *emitsound npc/metropolice/gear3.wav*% BAIL.
@@ -337,6 +329,6 @@ begin4:
     &exit
 
 begin32:
-    WOW!!!!! это*c 255 0 0* блять ничто *c*
+    ВАУ!!!!! это*c 255 0 0* блять ничто *c*
     *c 50* да ебись ты
     &exit

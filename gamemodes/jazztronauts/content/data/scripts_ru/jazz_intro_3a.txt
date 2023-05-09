@@ -1,4 +1,4 @@
-AUTO_ADVANCE = 1.5 # Enable auto-advancing, and defines how long to wait before advancing
+﻿AUTO_ADVANCE = 1.5 # Enable auto-advancing, and defines how long to wait before advancing
 PRINT_RATE = 0.7 # Default print rate for this file. 1 = normal speed, 0.5 half speed, 2 = double speed, etc.
 SKIP_OPEN = true # Setup scene before opening the dialog. Opened manually.
 CMD_DELAY = 0
@@ -28,7 +28,7 @@ begin2:
 *show*
 *setskin cat_bar 1*
 Приветствую.%%*setskin cat_bar 0* Как вы заметили,% у этого места*setanim cat_bar gesture_sweep 1 idle* похоже, нет выхода.%%
-Хотя я уверен, что ты можешь уйти тем же путем, каким пришел,%%
+Хотя я уверена, что ты можешь уйти тем же путем, каким пришел,%%
 мы предпочитаем другой способ передвижения.
 &begin3
 
@@ -49,7 +49,7 @@ begin4:
 begin5:
 	*setspeaker cat_bar*
 	*setcam setpos -13109.759766 -2500.667969 1047.233032;setang 5.670034 -70.822716 0.000000*
-	Мы*setanim cat_bar gesture_agree 1 idle* конечно хотим!%% наше предложение простое\:%% 
+	Мы*setanim cat_bar gesture_agree 1 idle* конечно хотим!%% Наше предложение простое\:%% 
 	ты можешь пойти к нам в нашу обитель,% и принять предложение.%% 
 	Если вы не заинтересованны в услышанном, %вы сможете уйти.*setskin cat_bar 1*%%*setanim cat_bar gesture_confused 1 idle*
 	%Готовы ли вы нас выслушать?
